@@ -1,0 +1,222 @@
+/* Green Theme - Fresh and Natural */
+
+.theme-green {
+    /* Colors */
+    --bg-primary: #f0fdf4;
+    --bg-secondary: #dcfce7;
+    --bg-card: #ffffff;
+    --bg-footer: #15803d;
+    --bg-navbar: rgba(240, 253, 244, 0.95);
+    
+    /* Text Colors - Improved for better visibility */
+    --text-primary: #14532d;
+    --text-secondary: #166534;
+    --text-muted: #16a34a;
+    --text-inverse: #ffffff;
+    --text-accent: #15803d;
+    
+    /* Accent Colors */
+    --accent-primary: #15803d;
+    --accent-secondary: #22c55e;
+    --accent-success: #059669;
+    --accent-warning: #d97706;
+    --accent-danger: #dc2626;
+    
+    /* Border Colors */
+    --border-color: #86efac;
+    --border-light: #bbf7d0;
+    --border-dark: #22c55e;
+    
+    /* Shadow Variables */
+    --shadow-light: 0 2px 4px rgba(21, 128, 61, 0.1);
+    --shadow-medium: 0 4px 8px rgba(21, 128, 61, 0.15);
+    --shadow-heavy: 0 8px 16px rgba(21, 128, 61, 0.2);
+    --shadow-card: 0 4px 12px rgba(21, 128, 61, 0.1);
+}
+
+/* Green theme specific overrides */
+.theme-green .navbar {
+    background-color: rgba(248, 255, 249, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.theme-green .nav-link {
+    color: var(--text-primary);
+}
+
+.theme-green .nav-link:hover,
+.theme-green .nav-link.active {
+    color: var(--accent-primary);
+}
+
+.theme-green .project-card,
+.theme-green .certificate-card,
+.theme-green .skill-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-card);
+}
+
+.theme-green .project-card:hover,
+.theme-green .certificate-card:hover,
+.theme-green .skill-item:hover {
+    box-shadow: var(--shadow-heavy);
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+}
+
+.theme-green .contact-form {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+}
+
+.theme-green .form-group input,
+.theme-green .form-group textarea {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.theme-green .form-group input:focus,
+.theme-green .form-group textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.theme-green .profile-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-heavy);
+    animation: none !important;
+    transform: none !important;
+}
+
+.theme-green .stat-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+}
+
+.theme-green .contact-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+}
+
+/* Green theme skill bars */
+.theme-green .skill-bar::before {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* Green theme scroll indicator */
+.theme-green .scroll-arrow {
+    border-color: var(--accent-primary);
+}
+
+/* Green theme loading screen */
+.theme-green .loading-screen {
+    background-color: var(--bg-primary);
+}
+
+.theme-green .loader {
+    border-color: var(--border-light);
+    border-top-color: var(--accent-primary);
+}
+
+/* Green theme specific enhancements */
+.theme-green .btn-outline {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.theme-green .btn-outline:hover {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.theme-green .tech-tag {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.theme-green .skill-icon,
+.theme-green .certificate-icon,
+.theme-green .contact-icon {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.theme-green .profile-avatar {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+/* Green theme section backgrounds */
+.theme-green .section:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+/* Green theme footer */
+.theme-green .footer {
+    background-color: var(--bg-footer);
+    border-top: 1px solid var(--accent-primary);
+}
+
+.theme-green .footer-section h3 {
+    color: var(--accent-secondary);
+}
+
+.theme-green .footer-section ul li a {
+    color: var(--text-inverse);
+}
+
+.theme-green .footer-section ul li a:hover {
+    color: var(--accent-secondary);
+}
+
+.theme-green .footer-bottom {
+    border-top-color: var(--accent-secondary);
+    color: var(--text-inverse);
+    opacity: 0.8;
+}
+
+/* Green theme hero section */
+.theme-green .hero-title .name {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Green theme stat numbers */
+.theme-green .stat-number {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Green theme about section */
+.theme-green .about-text h3 {
+    color: var(--accent-primary);
+}
+
+/* Green theme skills category */
+.theme-green .skills-category h3 {
+    color: var(--accent-primary);
+}
+
+/* Green theme section titles */
+.theme-green .section-title {
+    color: var(--text-primary);
+}
+
+/* Green theme specific animations */
+.theme-green .project-card:hover .project-image img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.theme-green .skill-item:hover .skill-icon {
+    transform: scale(1.1);
+    background-color: var(--accent-secondary);
+}

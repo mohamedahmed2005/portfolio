@@ -1,0 +1,180 @@
+/* Dark Theme - Modern and Elegant */
+
+.theme-dark {
+    /* Colors */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #334155;
+    --bg-footer: #0f172a;
+    --bg-navbar: rgba(15, 23, 42, 0.95);
+    
+    /* Text Colors - Improved for better visibility */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-inverse: #0f172a;
+    --text-accent: #60a5fa;
+    
+    /* Accent Colors */
+    --accent-primary: #60a5fa;
+    --accent-secondary: #a78bfa;
+    --accent-success: #34d399;
+    --accent-warning: #fbbf24;
+    --accent-danger: #f87171;
+    
+    /* Border Colors */
+    --border-color: #475569;
+    --border-light: #334155;
+    --border-dark: #64748b;
+    
+    /* Shadow Variables */
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark theme specific overrides */
+.theme-dark .navbar {
+    background-color: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-dark .nav-link {
+    color: var(--text-primary);
+}
+
+.theme-dark .nav-link:hover,
+.theme-dark .nav-link.active {
+    color: var(--accent-primary);
+}
+
+.theme-dark .project-card,
+.theme-dark .certificate-card,
+.theme-dark .skill-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+.theme-dark .project-card:hover,
+.theme-dark .certificate-card:hover,
+.theme-dark .skill-item:hover {
+    box-shadow: var(--shadow-heavy);
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+}
+
+.theme-dark .contact-form {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.theme-dark .form-group input,
+.theme-dark .form-group textarea {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.theme-dark .form-group input:focus,
+.theme-dark .form-group textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+    background-color: var(--bg-card);
+}
+
+.theme-dark .profile-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-heavy);
+    animation: none !important;
+    transform: none !important;
+}
+
+.theme-dark .stat-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.theme-dark .contact-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+/* Dark theme skill bars */
+.theme-dark .skill-bar::before {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* Dark theme scroll indicator */
+.theme-dark .scroll-arrow {
+    border-color: var(--accent-primary);
+}
+
+/* Dark theme loading screen */
+.theme-dark .loading-screen {
+    background-color: var(--bg-primary);
+}
+
+.theme-dark .loader {
+    border-color: var(--border-color);
+    border-top-color: var(--accent-primary);
+}
+
+/* Dark theme specific enhancements */
+.theme-dark .btn-outline {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.theme-dark .btn-outline:hover {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.theme-dark .tech-tag {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.theme-dark .skill-icon,
+.theme-dark .certificate-icon,
+.theme-dark .contact-icon {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.theme-dark .profile-avatar {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+/* Dark theme section backgrounds */
+.theme-dark .section:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+/* Dark theme footer */
+.theme-dark .footer {
+    background-color: var(--bg-footer);
+    border-top: 1px solid var(--border-color);
+}
+
+.theme-dark .footer-section h3 {
+    color: var(--accent-primary);
+}
+
+.theme-dark .footer-section ul li a {
+    color: var(--text-secondary);
+}
+
+.theme-dark .footer-section ul li a:hover {
+    color: var(--accent-primary);
+}
+
+.theme-dark .footer-bottom {
+    border-top-color: var(--border-color);
+    color: var(--text-muted);
+}
