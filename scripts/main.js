@@ -2,6 +2,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
     
+    // Initialize scroll manager first
+    const scrollManager = new ScrollManager();
+    
     // Initialize only working components
     initNavigation();
     initContactForm();
@@ -10,6 +13,56 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Portfolio initialized successfully');
 });
+
+// Scroll Manager to prevent conflicts
+class ScrollManager {
+    constructor() {
+        this.scrollTimeout = null;
+        this.isScrolling = false;
+        this.init();
+    }
+
+    init() {
+        // Single scroll event listener for all scroll-related functionality
+        window.addEventListener('scroll', this.handleScroll.bind(this), { passive: true });
+    }
+
+    handleScroll() {
+        if (this.scrollTimeout) {
+            clearTimeout(this.scrollTimeout);
+        }
+
+        this.isScrolling = true;
+        
+        this.scrollTimeout = setTimeout(() => {
+            this.isScrolling = false;
+            this.updateNavbar();
+            this.updateBackToTop();
+        }, 10);
+    }
+
+    updateNavbar() {
+        const navbar = document.getElementById('navbar');
+        if (!navbar) return;
+
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    updateBackToTop() {
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (!backToTopBtn) return;
+
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    }
+}
 
 // Navigation
 function initNavigation() {
@@ -22,15 +75,6 @@ function initNavigation() {
         console.warn('Navigation elements not found');
         return;
     }
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
 
     // Mobile menu toggle
     mobileMenuToggle.addEventListener('click', function() {
@@ -121,15 +165,8 @@ function initBackToTop() {
     
     if (!backToTopBtn) return;
     
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
-    });
-    
-    backToTopBtn.addEventListener('click', function() {
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -149,11 +186,16 @@ function initSmoothScrolling() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                // Calculate offset more precisely
+                const navbarHeight = 80;
+                const offsetTop = targetSection.offsetTop - navbarHeight;
                 
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                // Use requestAnimationFrame for smoother scrolling
+                requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: Math.max(0, offsetTop),
+                        behavior: 'smooth'
+                    });
                 });
             }
         });

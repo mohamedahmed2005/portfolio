@@ -1,0 +1,22 @@
+/* Theme Toggle Responsive Styles */
+
+/* Mobile responsive adjustments for theme toggle */
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 50px;
+        height: 25px;
+    }
+    
+    .theme-toggle::before {
+        width: 21px;
+        height: 21px;
+    }
+    
+    .theme-dark .theme-toggle::before {
+        transform: translateX(25px);
+    }
+    
+    .theme-toggle i {
+        font-size: 10px;
+    }
+}

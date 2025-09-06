@@ -1,0 +1,84 @@
+/* QR Code Responsive Styles */
+
+/* QR Code Responsive */
+@media (max-width: 768px) {
+    .qr-code-bg {
+        top: -10px;
+        left: -5px;
+        transform: scale(0.8);
+    }
+    
+    .qr-code {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .contact-me-section {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-md) 0;
+    }
+    
+    .contact-me-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .contact-me-description {
+        font-size: var(--font-size-base);
+    }
+    
+    .contact-me-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-btn {
+        width: 100%;
+        max-width: 250px;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+}
+
+@media (max-width: 480px) {
+    .qr-code-bg {
+        top: -5px;
+        left: -2px;
+        transform: scale(0.6);
+    }
+    
+    .qr-code {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .contact-me-section {
+        padding: var(--spacing-md);
+    }
+    
+    .contact-me-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    /* Social Links Responsive */
+    .social-links {
+        gap: var(--spacing-md);
+        justify-content: center;
+    }
+    
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+    }
+    
+    /* QR Code Images Responsive */
+    .qr-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .qr-container p {
+        font-size: var(--font-size-xs);
+    }
+}

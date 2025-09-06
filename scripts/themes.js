@@ -2,7 +2,7 @@
 class ThemeManager {
     constructor() {
         this.currentTheme = 'light';
-        this.themes = ['light', 'dark', 'blue', 'green', 'purple', 'orange', 'red'];
+        this.themes = ['light', 'dark'];
         this.themeToggle = document.getElementById('theme-toggle');
         this.loadedThemes = new Set();
         this.init();
@@ -30,9 +30,9 @@ class ThemeManager {
     }
 
     cycleTheme() {
-        const currentIndex = this.themes.indexOf(this.currentTheme);
-        const nextIndex = (currentIndex + 1) % this.themes.length;
-        this.setTheme(this.themes[nextIndex]);
+        // Toggle between light and dark only
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.setTheme(this.currentTheme);
     }
 
     setTheme(theme) {
@@ -87,20 +87,22 @@ class ThemeManager {
 
     updateThemeToggle() {
         if (this.themeToggle) {
-            const icon = this.themeToggle.querySelector('i');
-            if (icon) {
-                // Update icon based on theme
-                const iconMap = {
-                    'light': 'fa-moon',
-                    'dark': 'fa-sun',
-                    'blue': 'fa-moon',
-                    'green': 'fa-moon',
-                    'purple': 'fa-moon',
-                    'orange': 'fa-moon',
-                    'red': 'fa-moon'
-                };
-                
-                icon.className = `fas ${iconMap[this.currentTheme] || 'fa-moon'}`;
+            const moonIcon = this.themeToggle.querySelector('.fa-moon');
+            const sunIcon = this.themeToggle.querySelector('.fa-sun');
+            
+            if (moonIcon && sunIcon) {
+                // Update icon visibility and styling based on theme
+                if (this.currentTheme === 'light') {
+                    moonIcon.style.opacity = '1';
+                    moonIcon.style.transform = 'scale(1)';
+                    sunIcon.style.opacity = '0.5';
+                    sunIcon.style.transform = 'scale(0.8)';
+                } else {
+                    moonIcon.style.opacity = '0.5';
+                    moonIcon.style.transform = 'scale(0.8)';
+                    sunIcon.style.opacity = '1';
+                    sunIcon.style.transform = 'scale(1)';
+                }
             }
         }
     }

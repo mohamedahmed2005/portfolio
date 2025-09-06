@@ -1,0 +1,27 @@
+/* Social Links */
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    border-radius: 50%;
+    font-size: var(--font-size-2xl);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-light);
+}
+
+.social-links a:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: var(--shadow-medium);
+}

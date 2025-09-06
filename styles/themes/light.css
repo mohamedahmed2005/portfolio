@@ -1,4 +1,4 @@
-/* Light Theme - Clean and Minimal */
+/* Coupled Light Theme - Clean and Minimal with Enhanced Animations */
 
 .theme-light {
     /* Colors */
@@ -8,12 +8,15 @@
     --bg-footer: #475569;
     --bg-navbar: rgba(255, 255, 255, 0.95);
     
-    /* Text Colors - Improved for better visibility */
+    /* Text Colors - Enhanced for better readability */
     --text-primary: #0f172a;
     --text-secondary: #334155;
     --text-muted: #64748b;
     --text-inverse: #ffffff;
     --text-accent: #2563eb;
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-caption: #64748b;
     
     /* Accent Colors */
     --accent-primary: #2563eb;
@@ -27,11 +30,18 @@
     --border-light: #e2e8f0;
     --border-dark: #94a3b8;
     
-    /* Shadow Variables */
+    /* Enhanced Shadow Variables for Coupled Animations */
     --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
     --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.2);
     --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
+    --shadow-hover: 0 15px 35px rgba(37, 99, 235, 0.15);
+    
+    /* Coupled Animation Colors */
+    --animation-glow: rgba(37, 99, 235, 0.3);
+    --animation-pulse: rgba(37, 99, 235, 0.1);
+    --animation-ripple: rgba(37, 99, 235, 0.2);
 }
 
 /* Light theme specific overrides */
@@ -61,8 +71,9 @@
 .theme-light .project-card:hover,
 .theme-light .certificate-card:hover,
 .theme-light .skill-item:hover {
-    box-shadow: var(--shadow-heavy);
-    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px) scale(1.02) rotateX(-2deg);
+    animation: cardHover 0.3s var(--ease-smooth) forwards;
 }
 
 .theme-light .contact-form {
@@ -80,15 +91,23 @@
 .theme-light .form-group input:focus,
 .theme-light .form-group textarea:focus {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    box-shadow: 0 0 0 3px var(--animation-pulse);
+    transform: scale(1.02);
+    transition: all var(--transition-normal) var(--ease-smooth);
 }
 
 .theme-light .profile-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-light);
     box-shadow: var(--shadow-heavy);
-    animation: none !important;
-    transform: none !important;
+    transition: all var(--transition-normal) var(--ease-smooth);
+    animation: scaleIn 1s var(--ease-bounce) 1.2s both;
+}
+
+.theme-light .profile-card:hover {
+    transform: translateY(-8px) scale(1.02) rotateX(-2deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: floatUp 0.3s var(--ease-smooth) forwards;
 }
 
 .theme-light .stat-item {
@@ -119,4 +138,116 @@
 .theme-light .loader {
     border-color: var(--border-light);
     border-top-color: var(--accent-primary);
+}
+
+/* Light theme typography colors */
+.theme-light h1, 
+.theme-light h2, 
+.theme-light h3, 
+.theme-light h4, 
+.theme-light h5, 
+.theme-light h6 {
+    color: var(--text-heading);
+    font-weight: 600;
+}
+
+.theme-light p, 
+.theme-light span, 
+.theme-light div {
+    color: var(--text-body);
+}
+
+.theme-light .section-title {
+    color: var(--text-heading);
+    font-weight: 700;
+}
+
+.theme-light .section-subtitle {
+    color: var(--text-caption);
+    font-weight: 400;
+}
+
+.theme-light .card-title {
+    color: var(--text-heading);
+    font-weight: 600;
+}
+
+.theme-light .card-description {
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.theme-light .card-provider {
+    color: var(--text-accent);
+    font-weight: 500;
+}
+
+.theme-light .btn {
+    color: var(--text-inverse);
+    font-weight: 500;
+}
+
+.theme-light .btn-outline {
+    color: var(--text-accent);
+    border-color: var(--text-accent);
+}
+
+.theme-light .btn-outline:hover {
+    color: var(--text-inverse);
+    background-color: var(--text-accent);
+}
+
+.theme-light .nav-link {
+    color: var(--text-body);
+    font-weight: 500;
+}
+
+.theme-light .nav-link:hover,
+.theme-light .nav-link.active {
+    color: var(--text-accent);
+}
+
+.theme-light .stat-number {
+    color: var(--text-accent);
+    font-weight: 700;
+}
+
+.theme-light .stat-label {
+    color: var(--text-caption);
+    font-weight: 500;
+}
+
+.theme-light .feature-item {
+    color: var(--text-body);
+}
+
+.theme-light .feature-item:hover {
+    color: var(--text-accent);
+}
+
+.theme-light .tech-tag {
+    color: var(--text-body);
+    background-color: var(--bg-secondary);
+}
+
+.theme-light .tech-tag:hover {
+    color: var(--text-inverse);
+    background-color: var(--text-accent);
+}
+
+.theme-light .timeline-content h3 {
+    color: var(--text-heading);
+}
+
+.theme-light .timeline-content h4 {
+    color: var(--text-accent);
+}
+
+.theme-light .timeline-content p {
+    color: var(--text-body);
+}
+
+.theme-light .timeline-date {
+    color: var(--text-accent);
+    font-weight: 600;
 }
