@@ -9,27 +9,154 @@
 
 /* Certificate-specific overrides */
 .certificate-card .card-icon {
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: linear-gradient(135deg, var(--accent-success), #059669);
 }
 
 .certificate-card .card-badge {
-    background: rgba(16, 185, 129, 0.1);
-    border-color: rgba(16, 185, 129, 0.2);
-    color: #10b981;
+    background: rgba(5, 150, 105, 0.1);
+    border-color: rgba(5, 150, 105, 0.3);
+    color: var(--accent-success);
 }
 
 .certificate-card .card-badge i {
-    color: #10b981;
+    color: var(--accent-success);
 }
 
 .certificate-card .btn-outline {
-    border-color: #10b981;
-    color: #10b981;
+    border-color: var(--accent-success);
+    color: var(--accent-success);
 }
 
 .certificate-card .btn-outline:hover {
-    background: #10b981;
-    color: white;
+    background: var(--accent-success);
+    color: var(--text-inverse);
+}
+
+/* Theme-specific certificate colors */
+.theme-light .certificate-card .card-badge {
+    background: rgba(5, 150, 105, 0.15);
+    border-color: rgba(5, 150, 105, 0.4);
+}
+
+.theme-dark .certificate-card .card-badge {
+    background: rgba(5, 150, 105, 0.2);
+    border-color: rgba(5, 150, 105, 0.5);
+}
+
+.theme-light .certificate-card .btn-outline {
+    border-color: var(--accent-success);
+    color: var(--accent-success);
+}
+
+.theme-dark .certificate-card .btn-outline {
+    border-color: var(--accent-success);
+    color: var(--accent-success);
+}
+
+/* Theme-specific text color overrides */
+.theme-light .certificate-card .card-title {
+    color: #0f172a !important;
+}
+
+.theme-light .certificate-card .card-description {
+    color: #334155 !important;
+}
+
+.theme-light .certificate-card .feature-item {
+    color: #334155 !important;
+}
+
+.theme-dark .certificate-card .card-title {
+    color: #f1f5f9 !important;
+}
+
+.theme-dark .certificate-card .card-description {
+    color: #cbd5e1 !important;
+}
+
+.theme-dark .certificate-card .feature-item {
+    color: #cbd5e1 !important;
+}
+
+/* Button text color fixes for light and dark themes */
+.theme-light .certificate-card .btn-outline {
+    color: var(--accent-success) !important;
+    border-color: var(--accent-success) !important;
+}
+
+.theme-light .certificate-card .btn-outline:hover {
+    background-color: var(--accent-success) !important;
+    color: white !important;
+}
+
+.theme-dark .certificate-card .btn-outline {
+    color: var(--accent-success) !important;
+    border-color: var(--accent-success) !important;
+}
+
+.theme-dark .certificate-card .btn-outline:hover {
+    background-color: var(--accent-success) !important;
+    color: white !important;
+}
+
+/* Certificate card hover effects */
+.certificate-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+    transition: all 0.3s ease;
+}
+
+.certificate-card:hover .card-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Certificate text styling - override general card styles */
+.certificate-card .card-title {
+    color: var(--text-heading) !important;
+    font-weight: 600;
+}
+
+.certificate-card .card-description {
+    color: var(--text-body) !important;
+    line-height: 1.6;
+}
+
+.certificate-card .card-provider {
+    color: var(--accent-success) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.certificate-card .feature-item {
+    color: var(--text-body) !important;
+}
+
+.certificate-card .feature-item i {
+    color: var(--accent-success) !important;
+}
+
+/* Certificate verification badge */
+.certificate-card .card-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.certificate-card .card-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.certificate-card:hover .card-badge::before {
+    left: 100%;
 }
 
 /* Responsive adjustments */
@@ -37,5 +164,9 @@
     .certificates-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .certificate-card .card-provider {
+        font-size: 0.8rem;
     }
 }

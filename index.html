@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Ahmed - Portfolio</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/themes.css">
+    <link rel="stylesheet" href="styles/themes/light.css">
     <link rel="stylesheet" href="styles/responsive.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
 
 </head>
@@ -984,37 +985,50 @@
             <div class="container">
                 <div class="section-header fade-in">
                     <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's work together</p>
+                    <p class="section-subtitle">Let's work together and create something amazing</p>
                 </div>
+                
+
                 <div class="contact-content">
                     <div class="contact-info">
+                        <div class="contact-info-header">
+                            <h3>Contact Information</h3>
+                            <p>Feel free to reach out through any of these channels</p>
+                        </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
                                 <h3>Email</h3>
+                                <p><a href="mailto:ahmd.mohamed200515@gmail.com">Send me an email</a></p>
                                 <img src="assets/Gmail.png" alt="Email QR Code" class="qr-image">
                             </div>
                         </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <div class="contact-details">
                                 <h3>LinkedIn</h3>
+                                <p><a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank">View my LinkedIn account</a></p>
                                 <img src="assets/linkedin.png" alt="LinkedIn QR Code" class="qr-image">
                             </div>
                         </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-github"></i>
                             </div>
                             <div class="contact-details">
                                 <h3>GitHub</h3>
+                                <p><a href="https://github.com/mohamedahmed2005" target="_blank">View my Github</a></p>
                                 <img src="assets/github.png" alt="GitHub QR Code" class="qr-image">
                             </div>
                         </div>
+                        
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -1022,24 +1036,34 @@
                             <div class="contact-details">
                                 <h3>Location</h3>
                                 <p>Cairo, Egypt</p>
+                                <p class="contact-note">Available for remote work worldwide</p>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="contact-form">
+                        <div class="form-header">
+                            <h3>Send me a message</h3>
+                            <p>I'll get back to you within 24 hours</p>
+                        </div>
                         <form id="contact-form">
                             <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Tell me about your project or question..." rows="6" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-submit">
                                 <i class="fas fa-paper-plane"></i> Send Message
                             </button>
                         </form>
@@ -1086,6 +1110,7 @@
     </button>
 
     <!-- Scripts -->
+    <script src="scripts/email.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/themes.js"></script>
     <script src="scripts/counters.js"></script>

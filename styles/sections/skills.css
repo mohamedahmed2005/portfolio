@@ -29,7 +29,7 @@
 
 .skill-card .btn-outline:hover {
     background: #3b82f6;
-    color: white;
+    color: var(--text-primary);
 }
 
 /* Category-specific color variations */

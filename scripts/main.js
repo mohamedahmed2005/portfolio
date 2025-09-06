@@ -125,7 +125,20 @@ function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        // Initialize EmailJS with your credentials
+        emailjs.init('bSygB28KoF9b-BUeR');
+        
+        // Initialize Email Manager
+        const emailManager = new EmailManager();
+        
+        // Add real-time validation
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearFieldError);
+        });
+        
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
@@ -135,22 +148,179 @@ function initContactForm() {
             const subject = formData.get('subject');
             const message = formData.get('message');
             
-            // Basic validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
+            // Validate all fields
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!validateField({ target: input })) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                showNotification('Please fix the errors above', 'error');
                 return;
             }
             
-            if (!isValidEmail(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
             
-            // Simulate form submission
-            alert('Message sent successfully! I\'ll get back to you soon.');
-            contactForm.reset();
+            try {
+                // Send both emails using EmailManager
+                const result = await emailManager.sendBothEmails(name, email, subject, message);
+                
+                if (result.success) {
+                    console.log('Both emails sent successfully!');
+                    showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                    
+                    // Add success animation
+                    contactForm.classList.add('form-success');
+                    setTimeout(() => {
+                        contactForm.classList.remove('form-success');
+                    }, 2000);
+                } else {
+                    throw new Error('Failed to send emails');
+                }
+            } catch (error) {
+                console.log('EmailJS Error Details:', error);
+                
+                // Fallback: Use mailto as backup
+                console.log('EmailJS failed, using mailto fallback...');
+                emailManager.useMailtoFallback(name, email, subject, message);
+                
+                showNotification('EmailJS failed. Opening your email client instead. Please send the email to complete your message.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
+}
+
+// Field validation function
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
+    const fieldName = field.name;
+    let isValid = true;
+    let errorMessage = '';
+    
+    // Remove existing error
+    clearFieldError(e);
+    
+    // Required field validation
+    if (!value) {
+        errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
+        isValid = false;
+    } else {
+        // Specific validations
+        switch (fieldName) {
+            case 'email':
+                if (!isValidEmail(value)) {
+                    errorMessage = 'Please enter a valid email address';
+                    isValid = false;
+                }
+                break;
+            case 'name':
+                if (value.length < 2) {
+                    errorMessage = 'Name must be at least 2 characters';
+                    isValid = false;
+                }
+                break;
+            case 'subject':
+                if (value.length < 5) {
+                    errorMessage = 'Subject must be at least 5 characters';
+                    isValid = false;
+                }
+                break;
+            case 'message':
+                if (value.length < 10) {
+                    errorMessage = 'Message must be at least 10 characters';
+                    isValid = false;
+                }
+                break;
+        }
+    }
+    
+    if (!isValid) {
+        showFieldError(field, errorMessage);
+    }
+    
+    return isValid;
+}
+
+// Show field error
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Create or update error message
+    let errorElement = field.parentNode.querySelector('.error-message');
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.className = 'error-message';
+        field.parentNode.appendChild(errorElement);
+    }
+    errorElement.textContent = message;
+}
+
+// Clear field error
+function clearFieldError(e) {
+    const field = e.target;
+    field.classList.remove('error');
+    const errorElement = field.parentNode.querySelector('.error-message');
+    if (errorElement) {
+        errorElement.remove();
+    }
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        </div>
+        <button class="notification-close">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.classList.add('notification-hide');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
+        }
+    }, 5000);
+    
+    // Close button functionality
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.classList.add('notification-hide');
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    });
 }
 
 // Email validation
@@ -216,3 +386,4 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+

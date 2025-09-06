@@ -245,7 +245,7 @@
 
 .cards > li > .center-card-content .center-card-icon i {
   font-size: 1rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .cards > li > .center-card-content h3 {
@@ -294,7 +294,7 @@ li input:checked ~ .center-card-content::before {
 
 li input:checked ~ label {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: white;
+    color: var(--text-primary);
     border-color: var(--accent-primary);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
     transform: translateY(var(--label-offset)) scale(1.1);

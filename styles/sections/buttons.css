@@ -140,3 +140,24 @@
     box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
     animation: wiggle 0.5s ease-in-out;
 }
+
+/* Theme-specific button overrides */
+.theme-light .btn-outline {
+    color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+}
+
+.theme-light .btn-outline:hover {
+    color: white !important;
+    background-color: var(--accent-primary) !important;
+}
+
+.theme-dark .btn-outline {
+    color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+}
+
+.theme-dark .btn-outline:hover {
+    color: white !important;
+    background-color: var(--accent-primary) !important;
+}

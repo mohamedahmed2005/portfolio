@@ -37,9 +37,7 @@
 }
 
 .nav-logo:hover .logo-text {
-    transform: scale(1.05) rotate(2deg);
     text-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
-    animation: pulse 0.6s var(--ease-bounce);
 }
 
 .nav-menu {
@@ -75,7 +73,7 @@
 .nav-link:hover,
 .nav-link.active {
     color: var(--accent-primary);
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-2px);
     text-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
 }
 

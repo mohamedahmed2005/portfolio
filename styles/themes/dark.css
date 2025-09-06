@@ -182,7 +182,11 @@
 }
 
 .theme-dark .footer-section h3 {
-    color: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.theme-dark .footer-section p {
+    color: var(--text-secondary);
 }
 
 .theme-dark .footer-section ul li a {

@@ -57,7 +57,7 @@
     
     .nav-menu {
         position: fixed;
-        top: 100%;
+        top: 0;
         left: 0;
         right: 0;
         background: var(--bg-navbar);
@@ -70,6 +70,8 @@
         visibility: hidden;
         transition: all var(--transition-normal);
         border-top: 1px solid var(--border-light);
+        z-index: 999;
+        padding-top: calc(var(--spacing-xl) + 80px);
     }
     
     .nav-menu.active {
