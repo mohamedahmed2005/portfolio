@@ -1,41 +1,41 @@
-/* Certificates Section */
+/* Certificates Section - Using Modern Card System */
 
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-xl);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.certificate-card {
-    display: flex;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-xl);
+/* Certificate-specific overrides */
+.certificate-card .card-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
 }
 
-.certificate-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--accent-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-inverse);
-    font-size: var(--font-size-xl);
-    flex-shrink: 0;
+.certificate-card .card-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+    color: #10b981;
 }
 
-.certificate-content {
-    flex: 1;
+.certificate-card .card-badge i {
+    color: #10b981;
 }
 
-.certificate-content h3 {
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-sm);
+.certificate-card .btn-outline {
+    border-color: #10b981;
+    color: #10b981;
 }
 
-.certificate-content p {
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
+.certificate-card .btn-outline:hover {
+    background: #10b981;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }

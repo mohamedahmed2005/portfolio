@@ -135,6 +135,30 @@
     animation: counterPulse 0.6s var(--ease-bounce);
 }
 
+.counter-glow {
+    animation: counterGlow 2s ease-in-out infinite;
+}
+
+.counter-celebration {
+    animation: counterCelebration 1s ease-in-out;
+}
+
+.counter-ripple {
+    animation: rippleExpand 1.5s ease-out forwards;
+}
+
+.counter-particle {
+    animation: particleFloat 1s ease-out forwards;
+}
+
+.counter-bounce {
+    animation: counterBounce 0.8s ease-in-out;
+}
+
+.counter-shake {
+    animation: counterShake 0.5s ease-in-out;
+}
+
 .text-reveal {
     animation: textReveal 1s var(--ease-smooth) forwards;
 }

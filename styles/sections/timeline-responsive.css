@@ -24,7 +24,7 @@
     .timeline-item:nth-child(even) .timeline-content {
         margin-left: 60px;
         margin-right: 0;
-        padding: 1.5rem;
+        padding: 0.6rem;
         text-align: left;
     }
     
@@ -48,15 +48,15 @@
     }
     
     .timeline-content h3 {
-        font-size: 1.3rem;
+        font-size: 10px;
     }
     
     .timeline-content h4 {
-        font-size: 1rem;
+        font-size: 10px;
     }
     
     .timeline-content p {
-        font-size: 0.9rem;
+        font-size: 10px;
     }
 }
 
@@ -74,7 +74,7 @@
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
         margin-left: 50px;
-        padding: 1rem;
+        padding: 0.4rem;
     }
     
     .timeline-marker {
@@ -93,15 +93,15 @@
     }
     
     .timeline-content h3 {
-        font-size: 1.2rem;
+        font-size: 10px;
     }
     
     .timeline-content h4 {
-        font-size: 0.95rem;
+        font-size: 10px;
     }
     
     .timeline-content p {
-        font-size: 0.85rem;
+        font-size: 10px;
     }
 }
 
@@ -119,17 +119,17 @@
   }
   
   .cards > li > h2 {
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      padding: 0.6rem 1rem;
+      font-size: 10px;
+      padding: 0.25rem 0.4rem;
       white-space: normal;
-      max-width: 80vw;
-      margin-bottom: 0.8rem;
+      max-width: 70vw;
+      margin-bottom: 2%;
   }
   
   .cards > li > p {
-      font-size: clamp(0.75rem, 2.5vw, 0.85rem);
-      padding: 1rem 1.2rem;
-      margin-top: 1.2rem;
+      font-size: 10px;
+      padding: 0.4rem 0.6rem;
+      margin-top: 2%;
   }
 }
 
@@ -146,15 +146,14 @@
   }
   
   .cards > li > h2 {
-      font-size: clamp(0.8rem, 4vw, 1rem);
-      padding: 0.5rem 0.8rem;
-      margin-bottom: 0.6rem;
+      font-size: 10px;
+      padding: 0.2rem 0.3rem;
+      margin-bottom: 2%;
   }
   
   .cards > li > p {
-      font-size: clamp(0.7rem, 3vw, 0.8rem);
-      padding: 0.8rem 1rem;
-      margin-top: 1rem;
+      font-size: 10px;
+      padding: 0.3rem 0.4rem;
   }
 }
 

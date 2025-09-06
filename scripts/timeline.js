@@ -28,6 +28,9 @@ class TimelineManager {
         this.setupIntersectionObserver();
         this.addProgressIndicator();
         
+        // Initialize rotation for the first checked item
+        this.initializeRotation();
+        
         // Start auto-rotation if enabled
         if (this.isAutoRotating && this.autoRotateOnLoad) {
             this.startAutoRotation();
@@ -65,7 +68,7 @@ class TimelineManager {
             }
         });
 
-        // Container interactions
+        // Container interactions - only pause on hover if enabled
         if (this.pauseOnHover) {
             this.timelineContainer.addEventListener('mouseenter', () => {
                 this.pauseAutoRotation();
@@ -123,9 +126,7 @@ class TimelineManager {
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
             isDragging = false;
-            if (this.isAutoRotating) {
-                this.pauseAutoRotation();
-            }
+            // Don't automatically pause on touch - let user control it
         }, { passive: true });
 
         this.timelineContainer.addEventListener('touchmove', (e) => {
@@ -160,11 +161,7 @@ class TimelineManager {
             startY = 0;
             isDragging = false;
             
-            setTimeout(() => {
-                if (!this.isUserInteracting && this.isAutoRotating) {
-                    this.resumeAutoRotation();
-                }
-            }, 2000);
+            // Don't automatically resume - let user control it
         });
     }
 
@@ -198,9 +195,7 @@ class TimelineManager {
         this.currentIndex = index;
         this.isUserInteracting = true;
         
-        if (this.isAutoRotating) {
-            this.pauseAutoRotation();
-        }
+        // Don't pause auto-rotation on manual selection - keep it running
         
         // Add selection animation
         this.timelineItems[index].classList.add('timeline-item-selected');
@@ -212,13 +207,40 @@ class TimelineManager {
             }
         });
 
-        // Resume auto-rotation after delay if enabled
+        // Update rotation class for the cards container
+        this.updateRotation(index);
+
+        // Update progress bar
+        this.updateProgressBar();
+
+        // Don't interfere with auto-rotation
         setTimeout(() => {
             this.isUserInteracting = false;
-            if (this.isAutoRotating) {
-                this.resumeAutoRotation();
-            }
-        }, 3000);
+        }, 1000);
+    }
+
+    initializeRotation() {
+        // Find the currently checked item
+        const checkedItem = this.timelineItems.find(item => {
+            const radio = item.querySelector('input[type="radio"]');
+            return radio && radio.checked;
+        });
+        
+        if (checkedItem) {
+            const index = this.timelineItems.indexOf(checkedItem);
+            this.currentIndex = index;
+            this.updateRotation(index);
+        }
+    }
+
+    updateRotation(index) {
+        const cardsContainer = this.timelineContainer.querySelector('.cards');
+        if (cardsContainer) {
+            // Remove all rotation classes
+            cardsContainer.classList.remove('rotate-0', 'rotate-1', 'rotate-2', 'rotate-3', 'rotate-4', 'rotate-5', 'rotate-6', 'rotate-7', 'rotate-8', 'rotate-9');
+            // Add the appropriate rotation class
+            cardsContainer.classList.add(`rotate-${index}`);
+        }
     }
 
     handleItemHover(index, isHovering) {
@@ -255,8 +277,10 @@ class TimelineManager {
             clearInterval(this.autoRotateInterval);
         }
 
+        console.log('Starting auto-rotation with delay:', this.autoRotateDelay);
         this.autoRotateInterval = setInterval(() => {
             if (this.isAutoRotating && !this.isUserInteracting) {
+                console.log('Auto-rotating to next item');
                 this.nextItem();
             }
         }, this.autoRotateDelay);
@@ -267,11 +291,13 @@ class TimelineManager {
         if (this.autoRotateInterval) {
             clearInterval(this.autoRotateInterval);
         }
+        console.log('Auto-rotation paused');
     }
 
     resumeAutoRotation() {
         this.isAutoRotating = true;
         this.startAutoRotation();
+        console.log('Auto-rotation resumed');
     }
 
     toggleAutoRotation() {
@@ -282,6 +308,8 @@ class TimelineManager {
             this.resumeAutoRotation();
             this.showNotification('Timeline auto-rotation resumed');
         }
+        // Update the button icon immediately
+        this.updateProgressBar();
     }
 
     enableAutoRotation() {
@@ -348,7 +376,9 @@ class TimelineManager {
         }
 
         if (playPauseIcon) {
-            playPauseIcon.className = this.isAutoRotating ? 'fas fa-pause' : 'fas fa-play';
+            const iconClass = this.isAutoRotating ? 'fas fa-pause' : 'fas fa-play';
+            playPauseIcon.className = iconClass;
+            console.log('Updated play/pause icon:', iconClass, 'isAutoRotating:', this.isAutoRotating);
         }
     }
 
@@ -600,9 +630,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Default configuration - you can modify these options
         const timelineOptions = {
             autoRotate: true,           // Enable/disable auto-rotation
-            autoRotateDelay: 5000,      // Delay between rotations (ms)
+            autoRotateDelay: 4000,      // Delay between rotations (ms) - 4 seconds
             autoRotateOnLoad: true,     // Start auto-rotation immediately
-            pauseOnHover: true          // Pause auto-rotation on hover
+            pauseOnHover: false         // Don't pause on hover - continuous rotation until user pauses
         };
         
         timelineManager = new TimelineManager(timelineOptions);

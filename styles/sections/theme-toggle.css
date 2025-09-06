@@ -31,7 +31,7 @@
 }
 
 .theme-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.15);
+    /* No hover effects for theme toggle */
 }
 
 .theme-toggle i {
@@ -85,7 +85,7 @@
 }
 
 .theme-toggle:hover::after {
-    left: 100%;
+    /* No hover effects for theme toggle after element */
 }
 
 /* Theme toggle focus states */

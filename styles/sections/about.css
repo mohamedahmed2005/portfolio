@@ -24,7 +24,7 @@
 .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-2xl);
     transition: all var(--transition-normal) var(--ease-smooth);
     animation: scaleIn 0.8s var(--ease-bounce) 0.6s both;
 }
@@ -35,10 +35,29 @@
     background: var(--bg-card);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-light);
-    transition: all var(--transition-normal) var(--ease-smooth);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center;
-    will-change: transform, box-shadow;
+    will-change: transform, box-shadow, background;
     animation: fadeInUp 0.8s var(--ease-smooth) both;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.stat-item:hover::before {
+    left: 100%;
 }
 
 .stat-item:nth-child(1) { animation-delay: 0.8s; }
@@ -46,10 +65,23 @@
 .stat-item:nth-child(3) { animation-delay: 1s; }
 
 .stat-item:hover {
-    transform: translateY(-8px) scale(1.05) rotateX(-2deg);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px) scale(1.02) rotateX(2deg);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.15),
+        0 5px 15px rgba(59, 130, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     border-color: var(--accent-primary);
-    animation: floatUp 0.3s var(--ease-smooth) forwards;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.stat-item:hover .stat-number {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.2) hue-rotate(10deg);
+}
+
+.stat-item:hover .stat-label {
+    transform: translateY(-2px);
+    color: var(--accent-primary);
 }
 
 .stat-number {
@@ -57,27 +89,78 @@
     font-weight: 700;
     color: var(--accent-primary);
     margin-bottom: var(--spacing-sm);
-    transition: all var(--transition-normal) var(--ease-smooth);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
     transform-origin: center;
-    will-change: transform, color;
+    will-change: transform, filter, color;
+    position: relative;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    overflow: visible;
 }
 
-.stat-item:hover .stat-number {
-    transform: scale(1.2) rotate(5deg);
-    color: var(--accent-secondary);
-    animation: counterPulse 0.6s var(--ease-bounce);
-    text-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
-}
 
 .stat-label {
     color: var(--text-secondary);
     font-size: var(--font-size-sm);
-    transition: all var(--transition-normal) var(--ease-smooth);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
 }
 
-.stat-item:hover .stat-label {
-    transform: translateY(-2px);
-    color: var(--text-primary);
-    font-weight: 600;
+/* Enhanced counter animations for different states */
+.stat-number.counter-pulse {
+    animation: counterPulse 0.6s ease-in-out;
 }
+
+.stat-number.counter-glow {
+    animation: counterGlow 2s ease-in-out infinite;
+}
+
+.stat-number.counter-celebration {
+    animation: counterCelebration 1s ease-in-out;
+}
+
+/* Responsive counter adjustments */
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .stat-item:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .stat-item:hover .stat-number {
+        transform: scale(1.05) rotate(1deg);
+    }
+}
+
+/* Dark theme counter adjustments */
+.theme-dark .stat-number {
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+.theme-dark .stat-item:hover {
+    background: rgba(96, 165, 250, 0.08);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(96, 165, 250, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .stat-item:hover .stat-label {
+    color: #60a5fa;
+}
+

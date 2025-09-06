@@ -1,5 +1,7 @@
 /* Enhanced Circular Timeline Component */
 
+/* Center Card Content Styles for Timeline Items */
+
 .cards-container {
   --base-rotation: 0deg;
   --full-circle: 360deg;
@@ -24,8 +26,8 @@
   --title-offset-y: 40px;
 
   --info-top: 50%;
-  --info-width: min(80%, 400px);
-  --info-offset-y: 40px;
+  --info-width: min(50%, 250px);
+  --info-offset-y: 0px;
 
   box-sizing: content-box;
   position: relative;
@@ -185,78 +187,32 @@
   box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
 }
 
-.cards > li > h2,
-.cards > li > p{
+/* Center card content styling for timeline items */
+.cards > li > .center-card-content {
   position: absolute;
   left: 50%;
-  text-align: center;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
   transform-origin: center;
-}
-
-.cards > li > h2{
-  top: var(--title-top);
-  opacity: var(--title-opacity,0);
-  transform: translate(-50%, var(--title-offset-y));
-  transition: all var(--duration) cubic-bezier(0.4, 0, 0.2, 1) var(--title-delay,0ms);
-  z-index: 4;
-  position: absolute;
-  color: white;
-  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  padding: 1rem 1.6rem;
-  border-radius: 1rem;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-  white-space: nowrap;
-  max-width: 90vw;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 1rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.cards > li > h2::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.cards > li > h2:hover::before {
-  transform: translateX(100%);
-}
-
-.cards > li > p{
-  top: var(--info-top);
-  left: 50%;
-  margin: 0;
-  width: var(--info-width);
-  z-index: 2;
-  font-size: clamp(0.85rem, 2.2vw, 1rem);
-  text-align: center;
-  text-wrap: pretty;
   opacity: var(--info-opacity,0);
-  transform: translate(-50%, calc(-50% + var(--info-offset-y)));
   transition: all var(--duration) cubic-bezier(0.4, 0, 0.2, 1) var(--info-delay,0ms);
-  line-height: 1.7;
-  color: var(--text-secondary);
+  z-index: 2;
+  width: var(--info-width);
+  text-align: center;
   background: var(--bg-card);
-  padding: 1.4rem 1.6rem;
-  border-radius: 1.2rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   border: 1px solid var(--border-light);
+  border-radius: 0.4rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(10px);
-  position: absolute;
+  padding: 0.8rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.cards > li > p::before {
+.cards > li > .center-card-content::before {
   content: '';
   position: absolute;
   top: 0;
@@ -269,13 +225,49 @@
   transition: transform 0.6s ease var(--info-delay, 0ms);
 }
 
-.cards > li > p:hover {
-  transform: translate(-50%, calc(-50% + var(--info-offset-y))) translateY(-2px);
+.cards > li > .center-card-content:hover {
+  transform: translate(-50%, -50%) translateY(-2px);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 }
 
+.cards > li > .center-card-content .center-card-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.6rem auto;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cards > li > .center-card-content .center-card-icon i {
+  font-size: 1rem;
+  color: white;
+}
+
+.cards > li > .center-card-content h3 {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.cards > li > .center-card-content p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
 /* update custom properties for checked item */
-li:has(input:checked){
+li input:checked {
     --label-opacity: 1;
     --label-color: var(--label-color-hover);
     --label-line-h: var(--label-line-h-current);
@@ -290,22 +282,17 @@ li:has(input:checked){
     --info-delay: calc(var(--duration) * 2.5);
 }
 
-li:has(input:checked) p::before {
-  transform: scaleX(1);
-}
-
-/* Ensure headings are visible when checked */
-li:has(input:checked) h2 {
-    opacity: 1 !important;
-    transform: translate(-50%, 0) !important;
-}
-
-li:has(input:checked) p {
+/* Ensure center card content is visible when checked */
+li input:checked ~ .center-card-content {
     opacity: 1 !important;
     transform: translate(-50%, -50%) !important;
 }
 
-li:has(input:checked) label {
+li input:checked ~ .center-card-content::before {
+    transform: scaleX(1);
+}
+
+li input:checked ~ label {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
     border-color: var(--accent-primary);
@@ -313,47 +300,30 @@ li:has(input:checked) label {
     transform: translateY(var(--label-offset)) scale(1.1);
 }
 
-li:has(input:checked) label::after {
+li input:checked ~ label::after {
     opacity: 0.2;
 }
 
-li:has(input:checked) label::before {
+li input:checked ~ label::before {
     transform: translate(-50%, 0) scaleX(1.5);
     box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
 }
 
-/* rotate container based on checked radio */
-.cards:has(input:checked) {
-  transform: rotate(calc(var(--base-rotation) - (var(--index) * var(--full-circle) / var(--items))));
+li input:checked ~ .connecting-line {
+    height: var(--label-line-h-current);
 }
 
-/* Timeline rotation rules */
-.cards:has(li:nth-child(1)>input:checked) { --index: 0; }
-.cards:has(li:nth-child(2)>input:checked) { --index: 1; }
-.cards:has(li:nth-child(3)>input:checked) { --index: 2; }
-.cards:has(li:nth-child(4)>input:checked) { --index: 3; }
-.cards:has(li:nth-child(5)>input:checked) { --index: 4; }
-.cards:has(li:nth-child(6)>input:checked) { --index: 5; }
-.cards:has(li:nth-child(7)>input:checked) { --index: 6; }
-.cards:has(li:nth-child(8)>input:checked) { --index: 7; }
-.cards:has(li:nth-child(9)>input:checked) { --index: 8; }
-.cards:has(li:nth-child(10)>input:checked) { --index: 9; }
-.cards:has(li:nth-child(11)>input:checked) { --index: 10; }
-.cards:has(li:nth-child(12)>input:checked) { --index: 11; }
-.cards:has(li:nth-child(13)>input:checked) { --index: 12; }
-.cards:has(li:nth-child(14)>input:checked) { --index: 13; }
-.cards:has(li:nth-child(15)>input:checked) { --index: 14; }
-.cards:has(li:nth-child(16)>input:checked) { --index: 15; }
-.cards:has(li:nth-child(17)>input:checked) { --index: 16; }
-.cards:has(li:nth-child(18)>input:checked) { --index: 17; }
-.cards:has(li:nth-child(19)>input:checked) { --index: 18; }
-.cards:has(li:nth-child(20)>input:checked) { --index: 19; }
-.cards:has(li:nth-child(21)>input:checked) { --index: 20; }
-.cards:has(li:nth-child(22)>input:checked) { --index: 21; }
-.cards:has(li:nth-child(23)>input:checked) { --index: 22; }
-.cards:has(li:nth-child(24)>input:checked) { --index: 23; }
-.cards:has(li:nth-child(25)>input:checked) { --index: 24; }
-.cards:has(li:nth-child(26)>input:checked) { --index: 25; }
+/* Timeline rotation rules - using JavaScript for better compatibility */
+.cards.rotate-0 { transform: rotate(calc(var(--base-rotation) - (0 * var(--full-circle) / var(--items)))); }
+.cards.rotate-1 { transform: rotate(calc(var(--base-rotation) - (1 * var(--full-circle) / var(--items)))); }
+.cards.rotate-2 { transform: rotate(calc(var(--base-rotation) - (2 * var(--full-circle) / var(--items)))); }
+.cards.rotate-3 { transform: rotate(calc(var(--base-rotation) - (3 * var(--full-circle) / var(--items)))); }
+.cards.rotate-4 { transform: rotate(calc(var(--base-rotation) - (4 * var(--full-circle) / var(--items)))); }
+.cards.rotate-5 { transform: rotate(calc(var(--base-rotation) - (5 * var(--full-circle) / var(--items)))); }
+.cards.rotate-6 { transform: rotate(calc(var(--base-rotation) - (6 * var(--full-circle) / var(--items)))); }
+.cards.rotate-7 { transform: rotate(calc(var(--base-rotation) - (7 * var(--full-circle) / var(--items)))); }
+.cards.rotate-8 { transform: rotate(calc(var(--base-rotation) - (8 * var(--full-circle) / var(--items)))); }
+.cards.rotate-9 { transform: rotate(calc(var(--base-rotation) - (9 * var(--full-circle) / var(--items)))); }
 
 /* Enhanced Responsive Design */
 @media (max-width: 768px) {
@@ -364,17 +334,31 @@ li:has(input:checked) label::before {
     margin: 2rem auto;
   }
   
-  .cards > li > h2 {
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
-    padding: 0.8rem 1.2rem;
-    max-width: 95vw;
+  
+  .cards > li > .center-card-content {
+    width: min(70%, 200px);
+    padding: 0.6rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  .cards > li > p {
-    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
-    padding: 1rem 1.2rem;
-    width: min(90%, 320px);
-    transform: translate(-50%, calc(-50% + var(--info-offset-y)));
+  .cards > li > .center-card-content .center-card-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cards > li > .center-card-content .center-card-icon i {
+    font-size: 0.9rem;
+  }
+  
+  .cards > li > .center-card-content h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .cards > li > .center-card-content p {
+    font-size: 0.75rem;
   }
   
   .cards li > label {
@@ -391,16 +375,31 @@ li:has(input:checked) label::before {
     margin: 1.5rem auto;
   }
   
-  .cards > li > h2 {
-    font-size: clamp(0.8rem, 3.5vw, 1rem);
-    padding: 0.6rem 1rem;
+  
+  .cards > li > .center-card-content {
+    width: min(75%, 180px);
+    padding: 0.5rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  .cards > li > p {
-    font-size: clamp(0.7rem, 3vw, 0.85rem);
-    padding: 0.8rem 1rem;
-    width: min(95%, 280px);
-    transform: translate(-50%, calc(-50% + var(--info-offset-y)));
+  .cards > li > .center-card-content .center-card-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.4rem;
+  }
+  
+  .cards > li > .center-card-content .center-card-icon i {
+    font-size: 0.8rem;
+  }
+  
+  .cards > li > .center-card-content h3 {
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .cards > li > .center-card-content p {
+    font-size: 0.7rem;
   }
   
   .cards li > label {
