@@ -36,7 +36,6 @@ class TimelineManager {
             this.startAutoRotation();
         }
         
-        console.log('Timeline Manager initialized with', this.timelineItems.length, 'items');
     }
 
     setupEventListeners() {
@@ -277,10 +276,8 @@ class TimelineManager {
             clearInterval(this.autoRotateInterval);
         }
 
-        console.log('Starting auto-rotation with delay:', this.autoRotateDelay);
         this.autoRotateInterval = setInterval(() => {
             if (this.isAutoRotating && !this.isUserInteracting) {
-                console.log('Auto-rotating to next item');
                 this.nextItem();
             }
         }, this.autoRotateDelay);
@@ -291,13 +288,11 @@ class TimelineManager {
         if (this.autoRotateInterval) {
             clearInterval(this.autoRotateInterval);
         }
-        console.log('Auto-rotation paused');
     }
 
     resumeAutoRotation() {
         this.isAutoRotating = true;
         this.startAutoRotation();
-        console.log('Auto-rotation resumed');
     }
 
     toggleAutoRotation() {
@@ -378,7 +373,6 @@ class TimelineManager {
         if (playPauseIcon) {
             const iconClass = this.isAutoRotating ? 'fas fa-pause' : 'fas fa-play';
             playPauseIcon.className = iconClass;
-            console.log('Updated play/pause icon:', iconClass, 'isAutoRotating:', this.isAutoRotating);
         }
     }
 

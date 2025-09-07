@@ -1,70 +1,72 @@
-/* Coupled Animation CSS - Enhanced Portfolio with Coordinated Animations */
+/* Enhanced Portfolio CSS - Modern Design with Advanced Animations */
 
 /* Import base sections */
-@import url('./sections/variables.css');
-@import url('./sections/reset.css');
-@import url('./sections/typography.css');
+@import url('./sections/Main_Form/variables.css');
+@import url('./sections/Main_Form/reset.css');
+@import url('./sections/Main_Form/typography.css');
 
 /* Import animation framework first */
-@import url('./sections/keyframes.css');
-@import url('./sections/transitions.css');
-@import url('./sections/hover-effects.css');
+@import url('./sections/Main_Form/keyframes.css');
+@import url('./sections/Main_Form/transitions.css');
+@import url('./sections/Main_Form/hover-effects.css');
 
-/* Import component sections with coupled animations */
-@import url('./sections/buttons.css');
-@import url('./sections/navigation.css');
-@import url('./sections/theme-toggle.css');
-@import url('./sections/cards.css');
-@import url('./sections/forms.css');
-@import url('./sections/social-links.css');
-@import url('./sections/loading.css');
-@import url('./sections/back-to-top.css');
+/* Import component sections with enhanced animations */
+@import url('./sections/Main_Form/buttons.css');
+@import url('./sections/Navigation/navigation.css');
+@import url('./sections/Main_Form/theme-toggle.css');
+@import url('./sections/Main_Form/cards.css');
+@import url('./sections/Main_Form/forms.css');
+@import url('./sections/Contact/social-links.css');
+@import url('./sections/Main_Form/loading.css');
+@import url('./sections/Main_Form/back-to-top.css');
 
-/* Import layout sections with coupled animations */
-@import url('./sections/container.css');
-@import url('./sections/sections.css');
-@import url('./sections/hero.css');
-@import url('./sections/about.css');
-@import url('./sections/projects.css');
-@import url('./sections/skills.css');
-@import url('./sections/certificates.css');
-@import url('./sections/contact.css');
-@import url('./sections/footer.css');
-@import url('./sections/features.css');
-@import url('./sections/timeline.css');
-@import url('./sections/circular-timeline.css');
-@import url('./sections/qr-codes.css');
+/* Import layout sections with coordinated animations */
+@import url('./sections/Main_Form/container.css');
+@import url('./sections/Main_Form/sections.css');
+@import url('./sections/About/hero.css');
+@import url('./sections/About/about.css');
+@import url('./sections/Projects/projects.css');
+@import url('./sections/Skills/skills.css');
+@import url('./sections/Certificates/certificates.css');
+@import url('./sections/Contact/contact.css');
+@import url('./sections/Main_Form/footer.css');
+@import url('./sections/Main_Form/features.css');
+@import url('./sections/Timeline/timeline.css');
+@import url('./sections/Timeline/circular-timeline.css');
+@import url('./sections/Contact/qr-codes.css');
 
 /* Import utility sections */
-@import url('./sections/utilities.css');
-@import url('./sections/visibility.css');
-@import url('./sections/responsive.css');
-@import url('./sections/qr-responsive.css');
-@import url('./sections/timeline-responsive.css');
-@import url('./sections/theme-toggle-responsive.css');
+@import url('./sections/Main_Form/utilities.css');
+@import url('./sections/Main_Form/visibility.css');
+@import url('./responsive.css');
+@import url('./sections/Contact/qr-responsive.css');
+@import url('./sections/Timeline/timeline-responsive.css');
+@import url('./sections/Main_Form/theme-toggle-responsive.css');
 
-/* Import theme styles with coupled animations */
+/* Import theme styles with enhanced animations */
 @import url('./themes/light.css');
 @import url('./themes/dark.css');
 
-/* Global Coupled Animation Enhancements */
+/* Global Enhanced Animation System */
 * {
     transition: transform var(--transition-fast), 
                 opacity var(--transition-normal), 
                 box-shadow var(--transition-normal),
                 background-color var(--transition-normal),
                 color var(--transition-normal),
-                border-color var(--transition-normal);
+                border-color var(--transition-normal),
+                filter var(--transition-normal);
 }
 
-/* Coupled Animation Performance Optimizations */
-.btn, .nav-link, .stat-item, .profile-card {
-    will-change: transform, box-shadow, opacity;
+/* Enhanced Performance Optimizations */
+.btn, .nav-link, .stat-item, .profile-card, .contact-details a {
+    will-change: transform, box-shadow, opacity, filter;
     backface-visibility: hidden;
     perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
-/* Coupled Animation Accessibility */
+/* Advanced Accessibility Support */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -72,15 +74,30 @@
         transition-duration: 0.01ms !important;
     }
     
-    .btn, .nav-link, .stat-item, .profile-card {
+    .btn, .nav-link, .stat-item, .profile-card, .contact-details a {
         transform: none !important;
         animation: none !important;
     }
 }
 
-/* Coupled Animation Loading States */
+/* Enhanced Loading States */
 .loading {
     animation: pulse 2s ease-in-out infinite;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--accent-primary);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
 .loading-dots::after {
@@ -88,19 +105,66 @@
     animation: loadingDots 1.5s ease-in-out infinite;
 }
 
-/* Coupled Animation Theme Transitions */
-body.theme-transitioning {
-    animation: themeTransition 0.5s ease-in-out;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* Coupled Animation Scroll Reveal */
+/* Enhanced Theme Transitions */
+body.theme-transitioning {
+    animation: themeTransition 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+@keyframes themeTransition {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Advanced Scroll Reveal System */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     transition: all var(--transition-slower) var(--ease-smooth);
+    filter: blur(2px);
 }
 
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Staggered Animation Support */
+.scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+.scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
+.scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
+.scroll-reveal:nth-child(4) { transition-delay: 0.4s; }
+.scroll-reveal:nth-child(5) { transition-delay: 0.5s; }
+
+/* Enhanced Focus Management */
+.focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Smooth Scrolling Enhancement */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* Enhanced Selection Styling */
+::selection {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    text-shadow: none;
 }

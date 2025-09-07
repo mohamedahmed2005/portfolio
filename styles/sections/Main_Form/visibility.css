@@ -1,0 +1,75 @@
+/* Text Visibility Rules */
+
+* {
+    /* Ensure text is always visible */
+    color: inherit;
+}
+
+/* Force text visibility on important elements */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button, input, textarea, label {
+    /* Ensure minimum contrast */
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Ensure form elements have visible text */
+input, textarea, select {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Ensure buttons have visible text */
+.btn {
+    color: var(--text-inverse) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure navigation links are visible */
+.nav-link {
+    color: var(--text-primary) !important;
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Ensure profile card text is visible */
+.profile-card * {
+    color: var(--text-primary) !important;
+}
+
+.profile-card h3,
+.profile-card p {
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Ensure stats are visible */
+.stat-number {
+    color: var(--accent-primary) !important;
+    text-shadow: 0 0 1px currentColor;
+}
+
+.stat-label {
+    color: var(--text-secondary) !important;
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Ensure project cards text is visible */
+.project-card h3,
+.project-card p {
+    color: var(--text-primary) !important;
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Ensure skill items text is visible */
+.skill-item h3,
+.skill-item p {
+    color: var(--text-primary) !important;
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Ensure contact form text is visible */
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+    color: var(--text-primary) !important;
+    text-shadow: 0 0 1px currentColor;
+}

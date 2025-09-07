@@ -126,7 +126,8 @@ function initContactForm() {
     
     if (contactForm) {
         // Initialize EmailJS with your credentials
-        emailjs.init('bSygB28KoF9b-BUeR');
+        emailjs.init('C55sSGl6YNJGL4k2A');
+        console.log('EmailJS initialized:', emailjs);
         
         // Initialize Email Manager
         const emailManager = new EmailManager();
@@ -173,7 +174,8 @@ function initContactForm() {
                 
                 if (result.success) {
                     console.log('Both emails sent successfully!');
-                    showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                    const message = result.message || 'Message sent successfully! I\'ll get back to you soon.';
+                    showNotification(message, 'success');
                     contactForm.reset();
                     
                     // Add success animation
