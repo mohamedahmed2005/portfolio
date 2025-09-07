@@ -43,6 +43,16 @@
     transform-origin: center;
 }
 
+/* Ensure hero fits below navbar on small screens */
+@media (max-width: 767px) {
+    .home-section {
+        padding-top: 100px;
+    }
+    .hero-title .name {
+        font-size: var(--font-size-2xl);
+    }
+}
+
 .hero-title .name:hover {
     transition: all var(--transition-normal) var(--ease-smooth);
 }
@@ -114,15 +124,15 @@
 }
 
 .profile-avatar {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     background: var(--accent-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--spacing-lg);
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--text-inverse);
     transition: all var(--transition-normal) var(--ease-smooth);
     transform-origin: center;
@@ -300,7 +310,8 @@
     padding: var(--spacing-md);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-sm);
+    gap: 10px;
+    margin-top: var(--spacing-md);
 }
 
 .info-item {

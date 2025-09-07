@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initBackToTop();
     initSmoothScrolling();
+    initCvDownloadPrompt();
     
     console.log('Portfolio initialized successfully');
 });
@@ -63,6 +64,63 @@ class ScrollManager {
         }
     }
 }
+// Download CV with user-chosen location
+function initCvDownloadPrompt() {
+    const buttons = [
+        document.getElementById('cv-nav-btn'),
+        document.getElementById('cv-hero-btn')
+    ].filter(Boolean);
+
+    if (buttons.length === 0) return;
+
+    const cvUrl = 'assets/Mohamed_Ahmed_CV.pdf';
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const supportsFS = 'showSaveFilePicker' in window && window.isSecureContext;
+
+            if (!supportsFS) {
+                // Simple fallback: use native download behavior and open in new tab
+                const a = document.createElement('a');
+                a.href = cvUrl;
+                a.download = 'Mohamed_Ahmed_CV.pdf';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                // Also open in a new tab so the PDF is immediately viewable
+                window.open(cvUrl, '_blank', 'noopener');
+                return;
+            }
+
+            try {
+                // Secure context with FS Access API available
+                const response = await fetch(cvUrl, { cache: 'no-store' });
+                if (!response.ok) throw new Error('Failed to fetch CV');
+                const blob = await response.blob();
+
+                const handle = await window.showSaveFilePicker({
+                    suggestedName: 'Mohamed_Ahmed_CV.pdf',
+                    types: [{
+                        description: 'PDF Files',
+                        accept: { 'application/pdf': ['.pdf'] }
+                    }]
+                });
+                const writable = await handle.createWritable();
+                await writable.write(blob);
+                await writable.close();
+                showNotification('CV saved successfully.', 'success');
+                // Also open in a new tab so the PDF is immediately viewable
+                window.open(cvUrl, '_blank', 'noopener');
+            } catch (err) {
+                console.error('CV download error:', err);
+                // Final fallback: open in new tab
+                window.open(cvUrl, '_blank');
+            }
+        });
+    });
+}
+
 
 // Navigation
 function initNavigation() {

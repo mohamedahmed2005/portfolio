@@ -2,11 +2,11 @@
 
 .theme-dark {
     /* Colors */
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-card: #334155;
-    --bg-footer: #0f172a;
-    --bg-navbar: rgba(15, 23, 42, 0.95);
+    --bg-primary: #0b1020;
+    --bg-secondary: #0e1528;
+    --bg-card: #141b2f;
+    --bg-footer: #0b1020;
+    --bg-navbar: rgba(11, 16, 32, 0.95);
     
     /* Text Colors - Enhanced for better readability */
     --text-primary: #f8fafc;
@@ -26,17 +26,17 @@
     --accent-danger: #f87171;
     
     /* Border Colors */
-    --border-color: #475569;
-    --border-light: #334155;
-    --border-dark: #64748b;
+    --border-color: #1f2a44;
+    --border-light: #16213a;
+    --border-dark: #2a3a5e;
     
     /* Enhanced Shadow Variables for Coupled Animations */
-    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.4);
-    --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.5);
-    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-glow: 0 0 20px rgba(107, 171, 255, 0.3);
-    --shadow-hover: 0 15px 35px rgba(107, 171, 255, 0.2);
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.45);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-heavy: 0 10px 24px rgba(0, 0, 0, 0.6);
+    --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.45);
+    --shadow-glow: 0 0 20px rgba(107, 171, 255, 0.25);
+    --shadow-hover: 0 18px 40px rgba(107, 171, 255, 0.18);
     
     /* Coupled Animation Colors */
     --animation-glow: rgba(107, 171, 255, 0.4);
@@ -46,7 +46,7 @@
 
 /* Dark theme specific overrides */
 .theme-dark .navbar {
-    background-color: rgba(13, 17, 23, 0.95);
+    background-color: rgba(11, 16, 32, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
 }

@@ -81,6 +81,11 @@ This portfolio represents a comprehensive showcase of my journey as a **Full Sta
 - **Form Validation** with real-time feedback
 - **Spam Protection** and error handling
 
+### 📄 **CV Download Experience**
+- **Download Prompt on Desktop**: When supported (Chrome/Edge secure contexts), the site opens a native Save dialog so you can choose the download location
+- **Graceful Fallbacks**: Falls back to standard browser download; if blocked, opens the CV in a new tab
+- **Multiple Entry Points**: Download available from the hero section and the navbar
+
 ---
 
 ## 🛠️ Tech Stack
@@ -121,7 +126,8 @@ portfolio/
 │   ├── 🖼️ github.png               # GitHub QR code
 │   ├── 🖼️ Gmail.png                # Gmail QR code
 │   ├── 🖼️ linkedin.png             # LinkedIn QR code
-│   └── 🖼️ my image.jpg             # Profile image
+│   ├── 🖼️ my image.jpg             # Profile image
+│   └── 📄 Mohamed_Ahmed_CV.pdf     # CV used in download buttons
 ├── 📁 scripts/                      # JavaScript modules
 │   ├── 🟨 main.js                  # Core functionality & navigation
 │   ├── 📧 email.js                 # EmailJS integration
@@ -207,6 +213,10 @@ portfolio/
    open index.html
    ```
 
+   For the best CV prompt experience (Save dialog requires a secure context):
+   - Serve locally over HTTP using one of the commands below, or
+   - Deploy to a host that serves over HTTPS
+
 3. **Local development server** (optional)
    ```bash
    # Python
@@ -218,6 +228,16 @@ portfolio/
    # PHP
    php -S localhost:8000
    ```
+
+### **CV Download Behavior**
+The site uses progressive enhancement for the CV download:
+- If `showSaveFilePicker` is available and the page is served over HTTPS or localhost, a native Save dialog is shown
+- Otherwise, the browser performs a normal download (and may save to the default downloads folder)
+- If even that fails (e.g., pop-up/download restrictions), the CV opens in a new tab
+
+Implementation reference:
+- HTML buttons with IDs: `cv-nav-btn` (navbar) and `cv-hero-btn` (hero)
+- Logic in `scripts/main.js` function `initCvDownloadPrompt()`
 
 ### **Live Preview**
 Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-one-30.vercel.app/)

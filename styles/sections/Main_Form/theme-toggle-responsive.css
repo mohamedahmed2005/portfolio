@@ -3,20 +3,20 @@
 /* Mobile responsive adjustments for theme toggle */
 @media (max-width: 768px) {
     .theme-toggle {
-        width: 50px;
-        height: 25px;
+        width: 64px;
+        height: 32px;
     }
     
     .theme-toggle::before {
-        width: 21px;
-        height: 21px;
+        width: 28px;
+        height: 28px;
     }
     
     .theme-dark .theme-toggle::before {
-        transform: translateX(25px);
+        transform: translateX(32px);
     }
     
     .theme-toggle i {
-        font-size: 10px;
+        font-size: 14px;
     }
 }

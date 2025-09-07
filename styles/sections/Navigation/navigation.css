@@ -34,6 +34,7 @@
     color: var(--accent-primary);
     transition: all var(--transition-normal) var(--ease-smooth);
     transform-origin: left center;
+    margin-left: var(--spacing-sm);
 }
 
 .nav-logo:hover .logo-text {

@@ -1,5 +1,10 @@
 /* Responsive Design - Mobile First Approach */
 
+/* Offset main content below fixed navbar */
+.main-content {
+    padding-top: 80px;
+}
+
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
@@ -90,15 +95,15 @@
 }
 
 .profile-avatar {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     background: var(--accent-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--spacing-lg);
-    font-size: 3rem;
+    font-size: 3.25rem;
     color: var(--text-inverse);
 }
 
@@ -329,6 +334,18 @@
         gap: var(--spacing-lg);
     }
     
+    /* Increase spacing between icon and text, and between heading and link */
+    .contact-item {
+        gap: var(--spacing-xl);
+        flex-direction: row; /* keep heading behind icon */
+        align-items: flex-start;
+        text-align: left;
+    }
+    .contact-details {
+        row-gap: var(--spacing-md);
+        justify-items: start;
+    }
+    
     .contact-info-header {
         padding: var(--spacing-md);
         margin-bottom: var(--spacing-md);
@@ -447,9 +464,13 @@
     
     .contact-item {
         padding: var(--spacing-sm);
-        gap: var(--spacing-sm);
-        flex-direction: column;
-        text-align: center;
+        gap: var(--spacing-md);
+        flex-direction: row; /* keep heading behind icon */
+        align-items: flex-start;
+        text-align: left;
+    }
+    .contact-details {
+        row-gap: var(--spacing-md);
     }
     
     .contact-icon {
@@ -732,6 +753,11 @@
         display: flex;
     }
     
+    /* Prevent hero from sliding under the fixed navbar */
+    .home-section {
+        padding-top: calc(var(--spacing-2xl) + 70px);
+    }
+    
     .nav-menu {
         position: fixed;
         top: 100%;
@@ -766,6 +792,18 @@
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+    }
+    
+    /* Make Download CV buttons smaller on mobile */
+    .nav-controls .btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        border-width: 1px;
+    }
+    .hero-buttons .btn-outline {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-sm);
+        border-width: 1px;
     }
     
     .hero-buttons .btn {
@@ -821,6 +859,11 @@
         padding: 0 var(--spacing-md);
     }
     
+    /* Extra safety padding for very small screens */
+    .home-section {
+        padding-top: calc(var(--spacing-2xl) + 80px);
+    }
+    
     .section {
         padding: var(--spacing-xl) 0;
     }
@@ -831,6 +874,16 @@
     
     .hero-title .greeting {
         font-size: var(--font-size-base);
+    }
+    
+    /* Extra small: even smaller CV buttons */
+    .nav-controls .btn {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    .hero-buttons .btn-outline {
+        padding: 6px 10px;
+        font-size: var(--font-size-xs);
     }
     
     .section-title {
@@ -851,9 +904,9 @@
     }
     
     .profile-avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 2.5rem;
+        width: 140px;
+        height: 140px;
+        font-size: 3rem;
     }
     
     .contact-form {

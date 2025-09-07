@@ -2,8 +2,8 @@
 
 .theme-toggle {
     position: relative;
-    width: 60px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     border: none;
@@ -12,8 +12,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5px;
+    padding: 0 3px;
     overflow: hidden;
+    margin-right: 24px;
 }
 
 .theme-toggle::before {
@@ -21,8 +22,8 @@
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 26px;
-    height: 26px;
+    width: 36px;
+    height: 36px;
     background-color: var(--text-inverse);
     border-radius: 50%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
@@ -35,7 +36,7 @@
 }
 
 .theme-toggle i {
-    font-size: 12px;
+    font-size: 16px;
     color: var(--text-primary);
     transition: all var(--transition-normal);
     z-index: 3;
@@ -58,7 +59,7 @@
 }
 
 .theme-dark .theme-toggle::before {
-    transform: translateX(30px);
+    transform: translateX(40px);
     background-color: #34323D;
 }
 
