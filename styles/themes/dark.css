@@ -8,19 +8,19 @@
     --bg-footer: #0b1020;
     --bg-navbar: rgba(11, 16, 32, 0.95);
     
-    /* Text Colors - Enhanced for better readability */
+    /* Text Colors */
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
     --text-inverse: #0f172a;
-    --text-accent: #6babff;
+    --text-accent: #99d4ff; /* lighter blue */
     --text-heading: #f8fafc;
     --text-body: #cbd5e1;
     --text-caption: #94a3b8;
     
     /* Accent Colors */
-    --accent-primary: #6babff;
-    --accent-secondary: #a78bfa;
+    --accent-primary: #99d4ff; /* lighter blue */
+    --accent-secondary: #c0aaff; /* lighter purple */
     --accent-success: #34d399;
     --accent-warning: #fbbf24;
     --accent-danger: #f87171;
@@ -30,19 +30,26 @@
     --border-light: #16213a;
     --border-dark: #2a3a5e;
     
-    /* Enhanced Shadow Variables for Coupled Animations */
+    /* Shadows */
     --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.45);
     --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.5);
     --shadow-heavy: 0 10px 24px rgba(0, 0, 0, 0.6);
     --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.45);
-    --shadow-glow: 0 0 20px rgba(107, 171, 255, 0.25);
-    --shadow-hover: 0 18px 40px rgba(107, 171, 255, 0.18);
+    --shadow-glow: 0 0 20px rgba(153, 212, 255, 0.25); /* lighter blue glow */
+    --shadow-hover: 0 18px 40px rgba(153, 212, 255, 0.18); /* lighter hover shadow */
     
     /* Coupled Animation Colors */
-    --animation-glow: rgba(107, 171, 255, 0.4);
-    --animation-pulse: rgba(107, 171, 255, 0.15);
-    --animation-ripple: rgba(107, 171, 255, 0.25);
+    --animation-glow: rgba(153, 212, 255, 0.4); /* lighter glow */
+    --animation-pulse: rgba(153, 212, 255, 0.15);
+    --animation-ripple: rgba(153, 212, 255, 0.25);
+
+    /* Timeline Progress Bar (Dark) */
+    --timeline-progress-bg: rgba(255, 255, 255, 0.22);
+    --timeline-progress-fill-start: color-mix(in srgb, var(--accent-primary) 85%, black 15%);
+    --timeline-progress-fill-end: color-mix(in srgb, var(--accent-secondary) 85%, black 15%);
+    --timeline-progress-shadow: 0 0 10px rgba(153, 212, 255, 0.35);
 }
+
 
 /* Dark theme specific overrides */
 .theme-dark .navbar {
@@ -157,10 +164,35 @@
 }
 
 .theme-dark .skill-icon,
-.theme-dark .certificate-icon,
-.theme-dark .contact-icon {
+.theme-dark .certificate-icon {
     background-color: var(--accent-primary);
     color: var(--text-inverse);
+}
+
+/* Contact icons and social links - match Skills style in dark mode */
+.theme-dark .contact-icon {
+    background: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.theme-dark .contact-item:hover .contact-icon {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-inverse);
+    border-color: transparent;
+}
+
+.theme-dark .social-links a {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    box-shadow: var(--shadow-light);
+}
+
+.theme-dark .social-links a:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-inverse);
+    border-color: transparent;
 }
 
 .theme-dark .profile-avatar {
@@ -311,3 +343,6 @@
     color: var(--text-accent);
     font-weight: 600;
 }
+
+/* Dark theme timeline progress bar overrides */
+/* Theming variables above will be consumed by base timeline styles */

@@ -5,16 +5,17 @@
 .cards-container {
   --base-rotation: 0deg;
   --full-circle: 360deg;
-  --radius: min(22vw, 220px);
+  --radius: min(18vw, 180px);
   --duration: 400ms;
 
   --cards-container-size: calc(var(--radius) * 2.6);
-  --cards-container-padding: 3rem;
+  --cards-container-size: calc(var(--radius) * 2.3);
+  --cards-container-padding: 2rem;
 
   --border-color: rgba(37, 99, 235, 0.1);
   --border-color-active: rgba(37, 99, 235, 0.3);
 
-  --label-offset: calc(var(--radius) * -1 - 1.2rem);
+  --label-offset: calc(var(--radius) * -1);
   --label-size: clamp(26px, 4vw, 36px);
   --label-color: var(--text-secondary);
   --label-color-hover: var(--accent-primary);
@@ -147,12 +148,13 @@
     top: calc(var(--cards-container-padding) + 0.6rem);
     left: 50%;
     transform: translate(-50%, 0);
-    width: 20px;
-    height: 3px;
+    width: 14px;
+    height: 2px;
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    transition: all var(--duration) cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 2px;
-    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+    transition: transform var(--duration) cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease;
+    border-radius: 999px;
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.25);
+    opacity: 0.85;
 }
 
 /* Circular connecting line from year to main circle */
@@ -162,13 +164,14 @@
   bottom: 100%;
   left: 50%;
   transform: translate(-50%, -0.5rem);
-  width: 3px;
+  width: 2px;
   height: var(--label-line-h);
   background: linear-gradient(to top, var(--accent-primary), var(--accent-secondary));
   transition: height 400ms ease-in-out var(--label-line-delay,0ms);
   z-index: 3;
   border-radius: 50px;
-  box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.25);
+  opacity: 0.9;
 }
 
 .cards li > label:hover{
@@ -325,12 +328,45 @@ li input:checked ~ .connecting-line {
 .cards.rotate-8 { transform: rotate(calc(var(--base-rotation) - (8 * var(--full-circle) / var(--items)))); }
 .cards.rotate-9 { transform: rotate(calc(var(--base-rotation) - (9 * var(--full-circle) / var(--items)))); }
 
+/* Optional: disable rotation and use fade-only transitions */
+.cards-container.no-rotation .cards {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Optional: fade-only mode for content visibility */
+.cards-container.fade-only .cards {
+  transition: none !important;
+}
+
+.cards-container.fade-only .cards > li > .center-card-content {
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.cards-container.fade-only li input:checked ~ .center-card-content {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.cards-container.fade-only .cards li > label::before,
+.cards-container.fade-only .cards li > .connecting-line {
+  transition: opacity 300ms ease;
+  opacity: 0;
+}
+
+.cards-container.fade-only li input:checked ~ label::before,
+.cards-container.fade-only li input:checked ~ .connecting-line {
+  opacity: 1;
+}
+
 /* Enhanced Responsive Design */
 @media (max-width: 768px) {
   .cards-container {
-    --radius: min(25vw, 180px);
-    --cards-container-size: calc(var(--radius) * 2.8);
-    --cards-container-padding: 2rem;
+    --radius: min(22vw, 160px);
+    --cards-container-size: calc(var(--radius) * 2.4);
+    --cards-container-padding: 1.6rem;
     margin: 2rem auto;
   }
   
@@ -369,9 +405,9 @@ li input:checked ~ .connecting-line {
 
 @media (max-width: 480px) {
   .cards-container {
-    --radius: min(30vw, 150px);
-    --cards-container-size: calc(var(--radius) * 3);
-    --cards-container-padding: 1.5rem;
+    --radius: min(28vw, 130px);
+    --cards-container-size: calc(var(--radius) * 2.5);
+    --cards-container-padding: 1.2rem;
     margin: 1.5rem auto;
   }
   

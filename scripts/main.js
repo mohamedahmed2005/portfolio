@@ -1,6 +1,5 @@
 // Main JavaScript for Portfolio Website
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM Content Loaded');
     
     // Initialize scroll manager first
     const scrollManager = new ScrollManager();
@@ -12,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initCvDownloadPrompt();
     
-    console.log('Portfolio initialized successfully');
+    
 });
 
 // Scroll Manager to prevent conflicts
@@ -185,7 +184,7 @@ function initContactForm() {
     if (contactForm) {
         // Initialize EmailJS with your credentials
         emailjs.init('C55sSGl6YNJGL4k2A');
-        console.log('EmailJS initialized:', emailjs);
+        
         
         // Initialize Email Manager
         const emailManager = new EmailManager();
@@ -231,7 +230,7 @@ function initContactForm() {
                 const result = await emailManager.sendBothEmails(name, email, subject, message);
                 
                 if (result.success) {
-                    console.log('Both emails sent successfully!');
+                    
                     const message = result.message || 'Message sent successfully! I\'ll get back to you soon.';
                     showNotification(message, 'success');
                     contactForm.reset();
@@ -245,10 +244,10 @@ function initContactForm() {
                     throw new Error('Failed to send emails');
                 }
             } catch (error) {
-                console.log('EmailJS Error Details:', error);
+                
                 
                 // Fallback: Use mailto as backup
-                console.log('EmailJS failed, using mailto fallback...');
+                
                 emailManager.useMailtoFallback(name, email, subject, message);
                 
                 showNotification('EmailJS failed. Opening your email client instead. Please send the email to complete your message.', 'error');

@@ -449,7 +449,7 @@ const timelineStyles = `
 .progress-bar {
     width: 200px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--timeline-progress-bg, rgba(255, 255, 255, 0.2));
     border-radius: 2px;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -457,10 +457,10 @@ const timelineStyles = `
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    background: linear-gradient(90deg, var(--timeline-progress-fill-start, var(--accent-primary)), var(--timeline-progress-fill-end, var(--accent-secondary)));
     border-radius: 2px;
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    box-shadow: var(--timeline-progress-shadow, 0 0 10px rgba(37, 99, 235, 0.5));
 }
 
 .progress-controls {

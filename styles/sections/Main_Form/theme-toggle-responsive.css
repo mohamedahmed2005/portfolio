@@ -5,22 +5,60 @@
     .theme-toggle {
         width: 82px;
         height: 40px;
+        padding: 0 6px;
     }
     
     .theme-toggle::before {
         top: 7px;
-        left: 7px;
+        left: 6px;
         width: 28px;
         height: 28px;
         transform: translateX(0);
     }
     
-    .theme-dark .theme-toggle::before { transform: translateX(46px); }
+    /* Travel so knob centers under right icon: 82 - 2*6 - 28 = 42px */
+    .theme-dark .theme-toggle::before { transform: translateX(42px); }
     
-    .theme-toggle .fa-sun { left: 23px; }
-    .theme-toggle .fa-moon { left: 59px; }
+    /* Icon centers: left = 6 + 14 = 20px, right = 6 + 42 + 14 = 62px */
+    .theme-toggle .fa-sun { left: 20px; }
+    .theme-toggle .fa-moon { left: 62px; }
     
     .theme-toggle i {
         font-size: 14px;
     }
+}
+
+/* Compact phones */
+@media (max-width: 480px) {
+    .theme-toggle {
+        width: 76px;
+        height: 40px;
+        margin-right: 14px;
+        padding: 0 8px;
+    }
+
+    .theme-toggle::before {
+        top: 6px;
+        left: 8px;
+        width: 28px;
+        height: 28px;
+        transform: translateX(0);
+    }
+
+    /* Travel so knob centers under right icon: 76 - 2*8 - 28 = 32px */
+    .theme-dark .theme-toggle::before { transform: translateX(32px); }
+
+    .theme-toggle i {
+        font-size: 13px;
+    }
+
+    /* Centers under knob: left center = 8 + 14 = 22; right center = 8 + 32 + 14 = 54 */
+    .theme-toggle .fa-sun { left: 22px; }
+    .theme-toggle .fa-moon { left: 54px; }
+
+    /* Dim inactive icon for clarity on compact UI */
+    body:not(.theme-dark) .theme-toggle .fa-sun { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    body:not(.theme-dark) .theme-toggle .fa-moon { opacity: 0.35; transform: translate(-50%, -50%) scale(0.95); }
+    .theme-dark .theme-toggle .fa-sun { opacity: 0.35; transform: translate(-50%, -50%) scale(0.95); }
+    .theme-dark .theme-toggle .fa-moon { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }

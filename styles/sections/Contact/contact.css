@@ -70,18 +70,22 @@
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background: transparent;
+    border: 2px solid var(--accent-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-inverse);
+    color: var(--accent-primary);
     font-size: var(--font-size-xl);
     flex-shrink: 0;
     transition: all var(--transition-normal);
 }
 
 .contact-item:hover .contact-icon {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-inverse);
+    border-color: transparent;
     transform: scale(1.1) rotate(5deg);
     box-shadow: var(--shadow-medium);
 }

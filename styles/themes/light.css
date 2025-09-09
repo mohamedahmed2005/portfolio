@@ -5,7 +5,7 @@
     --bg-primary: #ffffff;
     --bg-secondary: #f8fafc;
     --bg-card: #ffffff;
-    --bg-footer: #475569;
+    --bg-footer: #f1f5f9;
     --bg-navbar: rgba(255, 255, 255, 0.95);
     
     /* Text Colors - Enhanced for better readability */
@@ -42,6 +42,12 @@
     --animation-glow: rgba(37, 99, 235, 0.3);
     --animation-pulse: rgba(37, 99, 235, 0.1);
     --animation-ripple: rgba(37, 99, 235, 0.2);
+
+    /* Timeline Progress Bar (Light) */
+    --timeline-progress-bg: rgba(0, 0, 0, 0.1);
+    --timeline-progress-fill-start: var(--accent-primary);
+    --timeline-progress-fill-end: var(--accent-secondary);
+    --timeline-progress-shadow: 0 0 10px rgba(37, 99, 235, 0.35);
 }
 
 /* Light theme specific overrides */
@@ -251,22 +257,27 @@
 }
 
 /* Light theme footer */
+.theme-light .footer {
+    background-color: var(--bg-footer);
+    border-top: 1px solid var(--border-light);
+}
+
 .theme-light .footer-section h3 {
-    color: var(--text-inverse);
+    color: var(--text-heading);
 }
 
 .theme-light .footer-section p {
-    color: var(--text-inverse);
+    color: var(--text-body);
 }
 
 .theme-light .footer-section ul li a {
-    color: var(--text-inverse);
+    color: var(--text-body);
 }
 
 .theme-light .footer-section ul li a:hover {
-    color: var(--text-inverse);
+    color: var(--accent-primary);
 }
 
 .theme-light .footer-bottom {
-    color: var(--text-inverse);
+    color: var(--text-muted);
 }

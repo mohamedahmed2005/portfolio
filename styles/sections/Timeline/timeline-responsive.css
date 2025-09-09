@@ -3,7 +3,7 @@
 /* Mobile Timeline */
 @media (max-width: 768px) {
     .timeline-section {
-        padding: 2rem 0;
+        padding: 2.25rem 0 5rem; /* add bottom space so controls don't overlap */
         min-height: auto;
     }
     
@@ -17,26 +17,29 @@
     }
     
     .timeline-item {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
     
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
         margin-left: 60px;
         margin-right: 0;
-        padding: 0.6rem;
+        padding: 0.5rem;
         text-align: left;
     }
+
+    /* Reduce entire card width on mobile */
+    .timeline-item .timeline-content { max-width: clamp(220px, 78vw, 280px); }
     
     .timeline-marker {
         left: 30px;
-        width: 50px;
-        height: 50px;
+        width: 42px;
+        height: 42px;
         border-width: 3px;
     }
     
     .timeline-marker i {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .timeline-content::before {
@@ -47,23 +50,15 @@
         border-left-color: transparent;
     }
     
-    .timeline-content h3 {
-        font-size: 10px;
-    }
-    
-    .timeline-content h4 {
-        font-size: 10px;
-    }
-    
-    .timeline-content p {
-        font-size: 10px;
-    }
+    .timeline-content h3 { font-size: 10px; }
+    .timeline-content h4 { font-size: 9px; }
+    .timeline-content p { font-size: 9px; }
 }
 
 /* Small Mobile Timeline */
 @media (max-width: 480px) {
     .timeline-section {
-        padding: 1.5rem 0;
+        padding: 1.75rem 0 4.5rem;
     }
     
     .timeline::before {
@@ -74,17 +69,20 @@
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
         margin-left: 50px;
-        padding: 0.4rem;
+        padding: 0.35rem;
     }
+
+    /* Further reduce card width on small mobile */
+    .timeline-item .timeline-content { max-width: clamp(200px, 86vw, 240px); }
     
     .timeline-marker {
         left: 25px;
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
     }
     
     .timeline-marker i {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
     
     .timeline-content::before {
@@ -92,17 +90,30 @@
         border-width: 8px;
     }
     
-    .timeline-content h3 {
-        font-size: 10px;
+    .timeline-content h3 { font-size: 9px; }
+    .timeline-content h4 { font-size: 8px; }
+    .timeline-content p { font-size: 8px; }
+}
+
+/* Tablet Portrait / Small Laptop */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .timeline {
+        padding: 1.5rem 0;
+        width: min(820px, 92vw);
     }
-    
-    .timeline-content h4 {
-        font-size: 10px;
-    }
-    
-    .timeline-content p {
-        font-size: 10px;
-    }
+    .timeline-item { margin-bottom: 2.25rem; }
+    .timeline-item:nth-child(odd) .timeline-content { margin-right: 46%; }
+    .timeline-item:nth-child(even) .timeline-content { margin-left: 46%; }
+    .timeline-item .timeline-content { max-width: clamp(320px, 44vw, 420px); padding: 0.75rem; }
+    .timeline-content h3 { font-size: 13px; }
+    .timeline-content h4 { font-size: 12px; }
+    .timeline-content p { font-size: 11px; }
+}
+
+/* Large screens and desktops */
+@media (min-width: 1440px) {
+    .timeline { width: min(1100px, 70vw); }
+    .timeline-item .timeline-content { max-width: clamp(360px, 34vw, 520px); }
 }
 
 /* Circular Timeline Responsive */
@@ -114,8 +125,9 @@
       --label-line-h-current: 2.5rem;
       --title-top: calc(3rem + 2%);
       --info-top: 8rem;
-      --info-width: min(90%, 320px);
-      margin: 2rem auto;
+      /* Card size follows radius on mobile */
+      --info-width: clamp(120px, calc(var(--radius) * 0.95), 260px);
+      margin: 2.5rem auto 0; /* add more top gap under subtitle */
   }
   
   .cards > li > h2 {
@@ -141,7 +153,7 @@
       --label-line-h-current: 2rem;
       --title-top: calc(2.5rem + 2%);
       --info-top: 6.5rem;
-      --info-width: min(95%, 280px);
+      --info-width: clamp(110px, calc(var(--radius) * 0.95), 220px);
       margin: 1.5rem auto;
   }
   
@@ -165,8 +177,39 @@
       --label-line-h-current: 3.5rem;
       --title-top: calc(4rem + 2%);
       --info-top: 11rem;
-      --info-width: min(80%, 450px);
+      --info-width: clamp(160px, calc(var(--radius) * 0.95), 360px);
   }
+}
+
+/* Tablet portrait adjustments (e.g., iPad 768–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cards-container {
+      --radius: min(16vw, 190px);
+      --label-size: clamp(30px, 3vw, 40px);
+      --label-dot-size: 10px;
+      --label-line-h-current: 3rem;
+      --title-top: calc(3.2rem + 2%);
+      --info-top: 9.5rem;
+      --info-width: min(72%, 380px);
+      margin: 2.5rem auto;
+  }
+
+  .cards > li > h2 {
+      font-size: 11px;
+      margin-bottom: 1.5%;
+  }
+
+  .cards > li > p {
+      font-size: 10px;
+  }
+
+  .cards > li > .center-card-content {
+      width: min(52%, 300px);
+      padding: 0.5rem;
+  }
+  
+  .cards > li > .center-card-content h3 { font-size: 0.78rem; }
+  .cards > li > .center-card-content p { font-size: 0.68rem; }
 }
 
 @media (min-width: 1200px) {
@@ -177,6 +220,6 @@
       --label-line-h-current: 4rem;
       --title-top: calc(5rem + 2%);
       --info-top: 13rem;
-      --info-width: min(75%, 500px);
+      --info-width: clamp(180px, calc(var(--radius) * 0.95), 420px);
   }
 }

@@ -84,7 +84,7 @@ class ThemeManager {
         // Mark as loaded
         this.loadedThemes.add(theme);
         
-        console.log(`Theme ${theme} CSS loaded`);
+        
     }
 
     updateThemeToggle() {

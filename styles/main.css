@@ -47,8 +47,8 @@
 @import url('./themes/light.css');
 @import url('./themes/dark.css');
 
-/* Prevent paragraph movement globally */
-p, p:hover {
+/* Prevent paragraph movement globally (allow hero subtitle animations) */
+p:not(.hero-subtitle), p:hover:not(.hero-subtitle) {
     transition: none !important;
     animation: none !important;
     transform: none !important;

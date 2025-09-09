@@ -2,6 +2,7 @@
 
 .section {
     padding: var(--spacing-2xl) 0;
+    margin: var(--spacing-2xl) 0;
     scroll-margin-top: 80px; /* Prevent sections from going under navbar */
     transition: all var(--transition-normal);
 }
