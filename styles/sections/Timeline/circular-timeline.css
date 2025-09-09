@@ -15,7 +15,7 @@
   --border-color-active: rgba(37, 99, 235, 0.3);
 
   --label-offset: calc(var(--radius) * -1 - 1.2rem);
-  --label-size: clamp(40px, 5.5vw, 52px);
+  --label-size: clamp(26px, 4vw, 36px);
   --label-color: var(--text-secondary);
   --label-color-hover: var(--accent-primary);
   --label-line-h: 0;
@@ -26,7 +26,7 @@
   --title-offset-y: 40px;
 
   --info-top: 50%;
-  --info-width: min(50%, 250px);
+  --info-width: min(42%, 200px);
   --info-offset-y: 0px;
 
   box-sizing: content-box;
@@ -111,7 +111,7 @@
   pointer-events: initial;
   text-align: center;
   color: var(--label-color);
-  font-size: clamp(0.7rem, 2.2vw, 0.9rem);
+  font-size: clamp(0.6rem, 1.8vw, 0.8rem);
   font-weight: 600;
   transition: all var(--duration) cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -336,34 +336,34 @@ li input:checked ~ .connecting-line {
   
   
   .cards > li > .center-card-content {
-    width: min(70%, 200px);
-    padding: 0.6rem;
+    width: min(55%, 170px);
+    padding: 0.45rem;
     top: 50%;
     transform: translate(-50%, -50%);
   }
   
   .cards > li > .center-card-content .center-card-icon {
-    width: 35px;
-    height: 35px;
-    margin-bottom: 0.5rem;
-  }
-  
-  .cards > li > .center-card-content .center-card-icon i {
-    font-size: 0.9rem;
-  }
-  
-  .cards > li > .center-card-content h3 {
-    font-size: 0.8rem;
+    width: 30px;
+    height: 30px;
     margin-bottom: 0.4rem;
   }
   
-  .cards > li > .center-card-content p {
+  .cards > li > .center-card-content .center-card-icon i {
+    font-size: 0.85rem;
+  }
+  
+  .cards > li > .center-card-content h3 {
     font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+  
+  .cards > li > .center-card-content p {
+    font-size: 0.7rem;
   }
   
   .cards li > label {
-    --label-size: clamp(36px, 6.5vw, 44px);
-    font-size: clamp(0.65rem, 2.6vw, 0.8rem);
+    --label-size: clamp(26px, 5.5vw, 36px);
+    font-size: clamp(0.55rem, 2.2vw, 0.75rem);
   }
 }
 
@@ -377,34 +377,34 @@ li input:checked ~ .connecting-line {
   
   
   .cards > li > .center-card-content {
-    width: min(75%, 180px);
-    padding: 0.5rem;
+    width: min(55%, 150px);
+    padding: 0.4rem;
     top: 50%;
     transform: translate(-50%, -50%);
   }
   
   .cards > li > .center-card-content .center-card-icon {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 0.4rem;
+    width: 26px;
+    height: 26px;
+    margin-bottom: 0.35rem;
   }
   
   .cards > li > .center-card-content .center-card-icon i {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   
   .cards > li > .center-card-content h3 {
-    font-size: 0.75rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.28rem;
   }
   
   .cards > li > .center-card-content p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   
   .cards li > label {
-    --label-size: clamp(32px, 7.5vw, 40px);
-    font-size: clamp(0.6rem, 2.8vw, 0.75rem);
+    --label-size: clamp(24px, 6.5vw, 32px);
+    font-size: clamp(0.5rem, 2.4vw, 0.65rem);
   }
 }
 

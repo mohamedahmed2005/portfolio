@@ -72,8 +72,7 @@
 .theme-light .certificate-card:hover,
 .theme-light .skill-item:hover {
     box-shadow: var(--shadow-hover);
-    transform: translateY(-8px) scale(1.02) rotateX(-2deg);
-    animation: cardHover 0.3s var(--ease-smooth) forwards;
+    transform: scale(1.02) rotateX(-2deg);
 }
 
 .theme-light .contact-form {
@@ -105,9 +104,8 @@
 }
 
 .theme-light .profile-card:hover {
-    transform: translateY(-8px) scale(1.02) rotateX(-2deg);
+    transform: scale(1.02) rotateX(-2deg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    animation: floatUp 0.3s var(--ease-smooth) forwards;
 }
 
 .theme-light .stat-item {

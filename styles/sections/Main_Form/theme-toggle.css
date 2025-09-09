@@ -2,13 +2,13 @@
 
 .theme-toggle {
     position: relative;
-    width: 80px;
-    height: 40px;
+    width: 96px;
+    height: 48px;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 24px;
     border: none;
     cursor: pointer;
-    transition: all var(--transition-normal);
+    transition: background-color var(--transition-normal), filter var(--transition-normal);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,38 +20,41 @@
 .theme-toggle::before {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 36px;
-    height: 36px;
+    top: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
     background-color: var(--text-inverse);
     border-radius: 50%;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
     transition: transform var(--transition-normal);
+    transform: translateX(0);
+    will-change: transform;
     z-index: 2;
 }
 
-.theme-toggle:hover {
-    /* No hover effects for theme toggle */
-}
+.theme-toggle:hover { filter: brightness(0.98); }
 
 .theme-toggle i {
     font-size: 16px;
     color: var(--text-primary);
-    transition: all var(--transition-normal);
+    transition: opacity 220ms var(--ease-smooth), transform 220ms var(--ease-smooth);
     z-index: 3;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    will-change: opacity, transform;
 }
 
-.theme-toggle .fa-moon {
-    opacity: 1;
-    transform: scale(1);
-}
+/* Icon absolute positions to align under the knob center */
+.theme-toggle .fa-sun { left: 24px; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.theme-toggle .fa-moon { left: 72px; opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-.theme-toggle .fa-sun {
-    opacity: 0.5;
-    transform: scale(0.8);
-}
+/* Dark theme shows moon centered under the knob; hide sun */
+/* Keep both icons visible in all themes; knob indicates active */
+
+
 
 /* Dark theme toggle state */
 .theme-dark .theme-toggle {
@@ -59,18 +62,8 @@
 }
 
 .theme-dark .theme-toggle::before {
-    transform: translateX(40px);
+    transform: translateX(48px);
     background-color: #34323D;
-}
-
-.theme-dark .theme-toggle .fa-moon {
-    opacity: 0.5;
-    transform: scale(0.8);
-}
-
-.theme-dark .theme-toggle .fa-sun {
-    opacity: 1;
-    transform: scale(1);
 }
 
 /* Enhanced theme toggle animations */
@@ -85,9 +78,7 @@
     transition: left 0.5s;
 }
 
-.theme-toggle:hover::after {
-    /* No hover effects for theme toggle after element */
-}
+.theme-toggle:hover::after { left: -60%; }
 
 /* Theme toggle focus states */
 .theme-toggle:focus {

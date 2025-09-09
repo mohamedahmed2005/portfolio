@@ -47,6 +47,13 @@
 @import url('./themes/light.css');
 @import url('./themes/dark.css');
 
+/* Prevent paragraph movement globally */
+p, p:hover {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
 /* Global Enhanced Animation System */
 * {
     transition: transform var(--transition-fast), 

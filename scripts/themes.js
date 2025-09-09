@@ -9,9 +9,11 @@ class ThemeManager {
     }
 
     init() {
-        this.loadSavedTheme();
-        this.setupThemeToggle();
+        // Force reset to light theme on startup
+        try { localStorage.removeItem('portfolio-theme'); } catch (e) {}
+        this.currentTheme = 'light';
         this.applyTheme(this.currentTheme);
+        this.setupThemeToggle();
     }
 
     loadSavedTheme() {
@@ -86,25 +88,8 @@ class ThemeManager {
     }
 
     updateThemeToggle() {
-        if (this.themeToggle) {
-            const moonIcon = this.themeToggle.querySelector('.fa-moon');
-            const sunIcon = this.themeToggle.querySelector('.fa-sun');
-            
-            if (moonIcon && sunIcon) {
-                // Update icon visibility and styling based on theme
-                if (this.currentTheme === 'light') {
-                    moonIcon.style.opacity = '1';
-                    moonIcon.style.transform = 'scale(1)';
-                    sunIcon.style.opacity = '0.5';
-                    sunIcon.style.transform = 'scale(0.8)';
-                } else {
-                    moonIcon.style.opacity = '0.5';
-                    moonIcon.style.transform = 'scale(0.8)';
-                    sunIcon.style.opacity = '1';
-                    sunIcon.style.transform = 'scale(1)';
-                }
-            }
-        }
+        // No inline style updates; CSS handles icon states via body theme classes
+        return;
     }
 
     saveTheme(theme) {

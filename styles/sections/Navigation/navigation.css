@@ -84,6 +84,129 @@
     gap: var(--spacing-md);
 }
 
+/* Fancy Nav (animated pills) */
+.fancy-nav {
+    display: flex;
+    position: relative;
+    gap: var(--spacing-lg, 16px);
+    align-items: center;
+}
+
+.fancy-nav li {
+    position: relative;
+    list-style: none;
+    width: auto;
+    height: var(--nav-pill-size, 56px);
+    background: var(--bg-elevated, #ffffff);
+    box-shadow: var(--shadow-elevation, 0 10px 25px rgba(0, 0, 0, 0.08));
+    border-radius: var(--nav-pill-size, 56px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: flex-basis var(--transition-slow, 520ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
+                box-shadow var(--transition-normal, 360ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+    overflow: hidden;
+    will-change: flex-basis, box-shadow;
+    contain: layout paint;
+    flex: 0 0 var(--nav-pill-size, 56px);
+}
+
+.fancy-nav li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--nav-pill-size, 56px);
+    background: linear-gradient(45deg, var(--i, var(--accent-primary, #2563eb)), var(--j, var(--accent-secondary, #7c3aed)));
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity var(--transition-normal, 320ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+}
+
+.fancy-nav li::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--nav-pill-size, 56px);
+    background: linear-gradient(45deg, var(--i, var(--accent-primary, #2563eb)), var(--j, var(--accent-secondary, #7c3aed)));
+    transition: opacity var(--transition-normal, 320ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+    filter: blur(var(--blur-glow, 15px));
+    z-index: -1;
+    opacity: 0;
+}
+
+.fancy-nav li:hover {
+    flex-basis: var(--nav-pill-expanded, 160px);
+    box-shadow: var(--shadow-none, 0 10px 25px rgba(0, 0, 0, 0));
+}
+
+.fancy-nav li:hover::before { opacity: 1; animation: navGlow 3.5s ease-in-out infinite; }
+.fancy-nav li:hover::after { opacity: 0.45; }
+
+.fancy-nav a {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.fancy-nav .icon ion-icon {
+    color: var(--text-secondary, #777);
+    font-size: var(--nav-icon-size, 1.4em);
+    transition: transform var(--transition-fast, 260ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
+                color var(--transition-fast, 260ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+    transition-delay: 0.06s;
+    will-change: transform, color;
+}
+
+.fancy-nav li:hover .icon ion-icon {
+    transform: scale(0);
+    color: #fff;
+    transition-delay: 0s;
+}
+
+.fancy-nav .title {
+    position: absolute;
+    color: var(--text-on-accent, #fff);
+    font-size: var(--nav-title-size, 0.95em);
+    letter-spacing: var(--letter-spacing-wide, 0.08em);
+    text-transform: uppercase;
+    transform: translateX(-50%) scale(0);
+    left: 50%;
+    opacity: 0;
+    transition: opacity var(--transition-fast, 260ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
+                transform var(--transition-fast, 260ms) var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+    transition-delay: 0s;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+.fancy-nav li:hover .title {
+    transform: translateX(-50%) scale(1);
+    transition-delay: 0.08s;
+    opacity: 1;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .fancy-nav li,
+    .fancy-nav li::before,
+    .fancy-nav li::after,
+    .fancy-nav .icon ion-icon,
+    .fancy-nav .title { transition: none !important; animation: none !important; }
+}
+
+/* Fancy nav animations removed */
+
+/* Fancy nav removed */
+
 /* Coupled Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
@@ -97,9 +220,7 @@
     transform-origin: center;
 }
 
-.mobile-menu-toggle:hover {
-    /* No hover effects for mobile menu toggle */
-}
+.mobile-menu-toggle:hover { opacity: 0.9; }
 
 .mobile-menu-toggle span {
     width: 25px;
@@ -110,9 +231,7 @@
     transform-origin: center;
 }
 
-.mobile-menu-toggle:hover span {
-    /* No hover effects for mobile menu toggle spans */
-}
+.mobile-menu-toggle:hover span { opacity: 0.9; }
 
 .mobile-menu-toggle.active {
     transform: scale(1.1);

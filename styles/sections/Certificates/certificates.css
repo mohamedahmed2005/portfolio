@@ -100,16 +100,9 @@
 }
 
 /* Certificate card hover effects */
-.certificate-card:hover .card-icon {
-    transform: scale(1.1) rotate(5deg);
-    transition: all 0.3s ease;
-}
+.certificate-card:hover .card-icon { transform: none; }
 
-.certificate-card:hover .card-badge {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-    transition: all 0.3s ease;
-}
+.certificate-card:hover .card-badge { transform: none; box-shadow: none; }
 
 /* Certificate text styling - override general card styles */
 .certificate-card .card-title {
@@ -144,19 +137,132 @@
     overflow: hidden;
 }
 
-.certificate-card .card-badge::before {
+.certificate-card .card-badge::before { content: none; }
+
+.certificate-card:hover .card-badge::before { left: auto; }
+
+/* Disable all transitions/animations within certificates section */
+/* Re-enable transitions/animations in certificates */
+.certificates-section { will-change: transform; }
+
+/* Prevent paragraph movement on hover in certificates */
+.certificates-section p { transition: none !important; }
+.certificates-section p:hover { transform: none !important; }
+
+/* Neutralize card hover motion/effects in certificates */
+.certificates-section .certificate-card { transition: all 0.3s ease; }
+.certificates-section .certificate-card:hover { transition: all 0.3s ease; }
+.certificates-section .certificate-card .ag-courses-item_bg { transition: opacity 0.3s ease, transform 0.3s ease; }
+.certificates-section .feature-item,
+.certificates-section .card-icon,
+.certificates-section .card-badge,
+.certificates-section .btn,
+.certificates-section .btn::before,
+.certificates-section .btn-outline { transition: all 0.3s ease; }
+.certificates-section .feature-item:hover { transform: translateX(4px); }
+.certificates-section .btn:hover { transform: translateY(-2px); }
+.certificates-section .card-icon::before { transition: opacity 0.3s ease; }
+
+/* Remove animations for certificates cards */
+/* (intentionally left blank to keep static styling) */
+
+/* Apply provided card visuals (no animations/transitions) */
+.certificates-section .certificate-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.9));
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow, 0 4px 20px rgba(0,0,0,0.1));
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(5, 150, 105, 0.15);
+    transition: transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth), border-color 300ms var(--ease-smooth);
+}
+
+.certificates-section .certificate-card:before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
+    height: 5px;
+    background: var(--accent-success);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms var(--ease-smooth);
 }
 
-.certificate-card:hover .card-badge::before {
-    left: 100%;
+.certificates-section .certificate-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow, 0 12px 40px rgba(0,0,0,0.25));
+    border-color: var(--accent-success);
+}
+
+.certificates-section .certificate-card:hover:before { transform: scaleX(1); }
+
+.certificates-section .certificate-card .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.certificates-section .certificate-card .card-icon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    color: var(--accent-success);
+    background: transparent;
+    transition: color 250ms var(--ease-smooth), transform 250ms var(--ease-smooth);
+}
+
+.certificates-section .certificate-card:hover .card-icon { color: #059669; transform: translateY(-2px); }
+
+.certificates-section .certificate-card .card-title {
+    margin: 0;
+    color: var(--accent-success);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.certificates-section .certificate-card .card-content { flex-grow: 1; }
+
+.certificates-section .certificate-card .card-description,
+.certificates-section .certificate-card .card-provider {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+}
+
+.certificates-section .certificate-card .card-footer {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(5, 150, 105, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.certificates-section .certificate-card .card-link {
+    color: var(--accent-success);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.certificates-section .certificate-card .card-link i { margin-left: 0.4rem; }
+
+/* Visual style to match provided card design */
+.certificates-section .certificates-grid .certificate-card {
+    background: var(--surface, rgba(255, 255, 255, 0.1));
+    border: 2px solid transparent;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card, 0 4px 15px rgba(0,0,0,0.2));
+}
+
+.certificates-section .certificates-grid .certificate-card:hover {
+    border-color: var(--accent-success);
+    box-shadow: var(--shadow-heavy, 0 10px 30px rgba(0,0,0,0.35));
 }
 
 /* Responsive adjustments */

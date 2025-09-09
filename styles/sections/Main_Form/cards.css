@@ -135,7 +135,7 @@
 
 .feature-item:hover {
     background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
+    transform: none;
 }
 
 .feature-item i {
@@ -185,9 +185,7 @@
     transition: left 0.5s ease;
 }
 
-.btn:hover::before {
-    left: 100%;
-}
+.btn:hover::before { left: 100%; }
 
 .btn-outline {
     background: transparent;
@@ -198,8 +196,8 @@
 .btn-outline:hover {
     background: var(--accent-primary);
     color: var(--text-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Animated Background */
@@ -211,49 +209,13 @@
     height: 200%;
     background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
     opacity: 0;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scale(0);
+    transition: none;
+    transform: none;
     z-index: 1;
 }
 
 /* Hover Effects */
-.project-card:hover,
-.skill-card:hover,
-.certificate-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.project-card:hover .ag-courses-item_bg,
-.skill-card:hover .ag-courses-item_bg,
-.certificate-card:hover .ag-courses-item_bg {
-    opacity: 0.1;
-    transform: scale(1);
-}
-
-.project-card:hover .card-icon,
-.skill-card:hover .card-icon,
-.certificate-card:hover .card-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-.project-card:hover .card-icon::before,
-.skill-card:hover .card-icon::before,
-.certificate-card:hover .card-icon::before {
-    opacity: 1;
-}
-
-.project-card:hover .card-badge,
-.skill-card:hover .card-badge,
-.certificate-card:hover .card-badge {
-    background: rgba(255, 255, 255, 0.25);
-    transform: scale(1.05);
-}
+/* Hover Effects (enabled; specifics handled per-section and JS) */
 
 /* Grid Layouts */
 .skills-grid,
@@ -325,12 +287,11 @@
 /* Add subtle floating animation to cards */
 .project-card:nth-child(odd),
 .skill-card:nth-child(odd),
-.certificate-card:nth-child(odd) {
-    animation: cardFloat 6s ease-in-out infinite;
-}
+.certificate-card:nth-child(odd) { animation: none; }
 
 .project-card:nth-child(even),
 .skill-card:nth-child(even),
-.certificate-card:nth-child(even) {
-    animation: cardFloat 6s ease-in-out infinite 3s;
-}
+.certificate-card:nth-child(even) { animation: none; }
+
+/* Global override: disable card motion and transitions on hover */
+/* Removed global transition override to allow section-specific animations */

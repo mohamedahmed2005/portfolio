@@ -27,10 +27,7 @@
     color: #3b82f6;
 }
 
-.skill-card .btn-outline:hover {
-    background: #3b82f6;
-    color: var(--text-primary);
-}
+.skill-card .btn-outline:hover { background: none; color: #3b82f6; }
 
 /* Category-specific color variations */
 .skill-card[data-category="frontend"] .card-icon {
@@ -71,4 +68,153 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+}
+
+/* Disable all transitions/animations within skills section */
+/* Re-enable transitions/animations in skills */
+
+/* Neutralize card hover motion/effects in skills */
+.skills-section .skill-card { transition: none !important; }
+.skills-section .skill-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+}
+.skills-section .skill-card .ag-courses-item_bg {
+    transition: none !important;
+    transform: none !important;
+    opacity: 0 !important;
+}
+.skills-section .feature-item,
+.skills-section .card-icon,
+.skills-section .card-badge,
+.skills-section .btn,
+.skills-section .btn::before,
+.skills-section .btn-outline { transition: none !important; }
+.skills-section .feature-item:hover { transform: none !important; }
+.skills-section .btn:hover { transform: none !important; box-shadow: none !important; }
+.skills-section .card-icon::before { transition: none !important; }
+
+/* Remove animations for skills cards */
+/* (intentionally left blank to keep static styling) */
+
+/* Apply provided card visuals (no animations/transitions) */
+.skills-section .skill-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.9));
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow, 0 4px 20px rgba(0,0,0,0.1));
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    background-clip: padding-box; /* ensure border visible on all sides */
+    transition: transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth), border-color 300ms var(--ease-smooth) 200ms;
+}
+
+.skills-section .skill-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--accent-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms var(--ease-smooth);
+}
+
+.skills-section .skill-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow, 0 12px 40px rgba(0,0,0,0.25));
+    border: 2px solid var(--accent-primary) !important; /* force full border */
+}
+
+.skills-section .skill-card:hover:before { transform: scaleX(1); }
+
+.skills-section .skill-card .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.skills-section .skill-card .card-icon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    color: var(--accent-primary);
+    background: transparent;
+    transition: color 250ms var(--ease-smooth), transform 250ms var(--ease-smooth);
+}
+
+.skills-section .skill-card:hover .card-icon { color: #2563eb; transform: translateY(-2px); }
+
+.skills-section .skill-card .card-title {
+    margin: 0;
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.skills-section .skill-card .card-content { flex-grow: 1; }
+
+.skills-section .skill-card .card-description,
+.skills-section .skill-card .card-provider {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.skills-section .skill-card .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+
+.skills-section .skill-card .tag {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.skills-section .skill-card .card-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-section .skill-card .card-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.skills-section .skill-card .card-link i { margin-left: 0.4rem; }
+
+/* Visual style to match provided card design */
+.skills-section .skills-grid .skill-card {
+    background: var(--surface, rgba(255, 255, 255, 0.1));
+    border: 2px solid transparent;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card, 0 4px 15px rgba(0,0,0,0.2));
+}
+
+.skills-section .skills-grid .skill-card:hover {
+    box-shadow: var(--shadow-heavy, 0 10px 30px rgba(0,0,0,0.35));
+    border: 2px solid var(--accent-primary) !important; /* force full border */
+}
+
+/* removed border emphasis based on progress */
+
+/* Delayed border reveal for skills cards */
+.skills-section .skills-grid .skill-card {
+    transition: border-color 150ms var(--ease-smooth) 300ms !important;
+}
+.skills-section .skills-grid .skill-card:hover {
+    border-color: var(--accent-primary) !important;
 }

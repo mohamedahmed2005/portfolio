@@ -3,18 +3,22 @@
 /* Mobile responsive adjustments for theme toggle */
 @media (max-width: 768px) {
     .theme-toggle {
-        width: 64px;
-        height: 32px;
+        width: 82px;
+        height: 40px;
     }
     
     .theme-toggle::before {
+        top: 7px;
+        left: 7px;
         width: 28px;
         height: 28px;
+        transform: translateX(0);
     }
     
-    .theme-dark .theme-toggle::before {
-        transform: translateX(32px);
-    }
+    .theme-dark .theme-toggle::before { transform: translateX(46px); }
+    
+    .theme-toggle .fa-sun { left: 23px; }
+    .theme-toggle .fa-moon { left: 59px; }
     
     .theme-toggle i {
         font-size: 14px;

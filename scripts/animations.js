@@ -6,48 +6,42 @@ class AnimationManager {
 
     init() {
         this.setupScrollAnimations();
-        this.setupCardHoverEffects();
+        // Disabled to prevent hover/cursor-driven card movement
+        // this.setupCardHoverEffects();
         this.setupStaggeredAnimations();
     }
 
     setupScrollAnimations() {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.12,
+            rootMargin: '0px 0px -10% 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
+                    entry.target.dataset.revealed = 'true';
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        const animatedElements = document.querySelectorAll('.project-card, .skill-card, .certificate-card, .timeline-item, .section-header');
-        animatedElements.forEach(el => {
+        // Observe cards, timeline, headers, and any element marked .scroll-reveal
+        const animatedElements = document.querySelectorAll(
+            '.project-card, .skill-card, .certificate-card, .timeline-item, .section-header, .scroll-reveal'
+        );
+
+        animatedElements.forEach((el) => {
+            if (el.dataset.revealed === 'true') return;
             el.classList.add('animate-ready');
+            el.style.willChange = 'transform, opacity';
             observer.observe(el);
         });
     }
 
     setupCardHoverEffects() {
-        const cards = document.querySelectorAll('.project-card, .skill-card, .certificate-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', (e) => {
-                this.animateCardHover(e.target, true);
-            });
-
-            card.addEventListener('mouseleave', (e) => {
-                this.animateCardHover(e.target, false);
-            });
-
-            card.addEventListener('mousemove', (e) => {
-                this.animateCardTilt(e.target, e);
-            });
-        });
+        // Intentionally left empty to disable hover effects
     }
 
     animateCardHover(card, isEntering) {
@@ -55,69 +49,29 @@ class AnimationManager {
         const badge = card.querySelector('.card-badge');
         const features = card.querySelectorAll('.feature-item');
         
-        if (isEntering) {
-            // Subtle icon animation
-            if (icon) {
-                icon.style.transform = 'scale(1.05)';
-                icon.style.transition = 'transform 0.2s ease-out';
-            }
-
-            // Subtle badge animation
-            if (badge) {
-                badge.style.transform = 'scale(1.02)';
-                badge.style.transition = 'transform 0.2s ease-out';
-            }
-
-            // Gentle feature animation
-            features.forEach((feature, index) => {
-                setTimeout(() => {
-                    feature.style.transform = 'translateX(3px)';
-                    feature.style.transition = 'transform 0.15s ease-out';
-                }, index * 30);
-            });
-
-            // Subtle glow effect
-            card.style.boxShadow = '0 12px 24px rgba(37, 99, 235, 0.08)';
-            card.style.transition = 'box-shadow 0.2s ease-out';
-        } else {
-            // Reset animations
-            if (icon) {
-                icon.style.transform = 'scale(1)';
-            }
-            if (badge) {
-                badge.style.transform = 'scale(1)';
-            }
-            features.forEach(feature => {
-                feature.style.transform = 'translateX(0)';
-            });
-            card.style.boxShadow = '';
-        }
+        // No-op to prevent any hover-driven movement
+        if (!card) return;
+        if (icon) icon.style.transform = 'none';
+        if (badge) badge.style.transform = 'none';
+        features.forEach(feature => { feature.style.transform = 'none'; });
+        card.style.boxShadow = '';
     }
 
     animateCardTilt(card, event) {
-        const rect = card.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        // Much more subtle tilt effect
-        const rotateX = (y - centerY) / 30;
-        const rotateY = (centerX - x) / 30;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
-        card.style.transition = 'transform 0.15s ease-out';
+        // Disabled tilt to prevent movement following cursor
+        if (card) {
+            card.style.transform = 'none';
+        }
     }
 
     setupStaggeredAnimations() {
+        // Re-apply staggered reveal delays for these sections
         const grids = document.querySelectorAll('.projects-grid, .skills-grid, .certificates-grid');
-        
         grids.forEach(grid => {
             const cards = grid.querySelectorAll('.project-card, .skill-card, .certificate-card');
-            
             cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-ready');
+                card.style.transitionDelay = `${index * 0.08}s`;
             });
         });
     }
@@ -148,10 +102,9 @@ const animationStyles = `
     transform: translateY(0) scale(1);
 }
 
-/* Staggered Animation for Cards */
+/* Card slide-in for skills, certificates, projects */
 .project-card, .skill-card, .certificate-card {
-    animation: cardSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-fill-mode: both;
+    animation: cardSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @keyframes cardSlideIn {
@@ -167,28 +120,16 @@ const animationStyles = `
 
 /* Enhanced Hover Effects */
 .project-card:hover, .skill-card:hover, .certificate-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-6px) scale(1.02);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Feature Item Animations */
-.feature-item {
-    transition: all 0.3s ease-out;
-}
+.feature-item { transition: all 0.3s ease-out; }
+.feature-item:hover { transform: translateX(8px); }
 
-.feature-item:hover {
-    transform: translateX(8px);
-    color: var(--accent-primary);
-}
-
-.feature-item i {
-    transition: all 0.3s ease-out;
-}
-
-.feature-item:hover i {
-    transform: scale(1.2);
-    color: var(--accent-primary);
-}
+.feature-item i { transition: all 0.3s ease-out; }
+.feature-item:hover i { transform: scale(1.2); }
 
 /* Tech Tag Animations */
 .tech-tag {
@@ -283,9 +224,7 @@ const animationStyles = `
     50% { transform: scale(1.1); }
 }
 
-.card-icon:hover {
-    animation: iconPulse 1s infinite;
-}
+.card-icon:hover { animation: iconPulse 1s infinite; }
 
 /* Gradient Animation for Headers */
 @keyframes gradientShift {
@@ -294,10 +233,7 @@ const animationStyles = `
     100% { background-position: 0% 50%; }
 }
 
-.card-header {
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
-}
+.card-header { background-size: 200% 200%; animation: gradientShift 3s ease infinite; }
 `;
 
 // Inject animation styles
