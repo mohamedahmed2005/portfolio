@@ -16,12 +16,14 @@
   --border-color-active: rgba(37, 99, 235, 0.3);
 
   --label-offset: calc(var(--radius) * -1);
-  --label-size: clamp(26px, 4vw, 36px);
+  --label-size: clamp(32px, 5vw, 48px);
   --label-color: var(--text-secondary);
   --label-color-hover: var(--accent-primary);
   --label-line-h: 0;
   --label-line-h-current: 3.5rem;
-  --label-dot-size: 14px;
+  --label-dot-size: 16px;
+  --label-font-weight: 600;
+  --label-letter-spacing: 0.3px;
 
   --title-top: calc(var(--radius) * -1.8);
   --title-offset-y: 40px;
@@ -112,11 +114,15 @@
   pointer-events: initial;
   text-align: center;
   color: var(--label-color);
-  font-size: clamp(0.6rem, 1.8vw, 0.8rem);
-  font-weight: 600;
-  transition: all var(--duration) cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+  font-weight: var(--label-font-weight);
+  letter-spacing: var(--label-letter-spacing);
+  line-height: 1;
+  padding: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   justify-content: center;
   z-index: 10;
   background: var(--bg-card);
@@ -128,6 +134,8 @@
   overflow: visible;
   white-space: nowrap;
   padding: 0.2rem;
+  transform-origin: center;
+  will-change: transform, color, background-color, border-color;
 }
 
 .cards li > label::after {
@@ -179,6 +187,7 @@
   transform: translateY(var(--label-offset)) scale(1.15);
   box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
   border-color: var(--accent-primary);
+  filter: brightness(1.1);
 }
 
 .cards li > label:hover::after {
@@ -243,12 +252,27 @@
   justify-content: center;
   margin: 0 auto 0.6rem auto;
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  will-change: transform, box-shadow;
 }
 
 .cards > li > .center-card-content .center-card-icon i {
   font-size: 1rem;
   color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.cards > li > .center-card-content:hover .center-card-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.cards > li > .center-card-content:hover .center-card-icon i {
+  transform: scale(1.1);
+  filter: brightness(1.2);
 }
 
 .cards > li > .center-card-content h3 {
@@ -398,8 +422,10 @@ li input:checked ~ .connecting-line {
   }
   
   .cards li > label {
-    --label-size: clamp(26px, 5.5vw, 36px);
-    font-size: clamp(0.55rem, 2.2vw, 0.75rem);
+    --label-size: clamp(32px, 5.5vw, 42px);
+    font-size: clamp(0.6rem, 2.0vw, 0.75rem);
+    font-weight: var(--label-font-weight);
+    letter-spacing: var(--label-letter-spacing);
   }
 }
 
@@ -439,15 +465,29 @@ li input:checked ~ .connecting-line {
   }
   
   .cards li > label {
-    --label-size: clamp(24px, 6.5vw, 32px);
-    font-size: clamp(0.5rem, 2.4vw, 0.65rem);
+    --label-size: clamp(28px, 6.5vw, 36px);
+    font-size: clamp(0.55rem, 2.2vw, 0.7rem);
+    font-weight: var(--label-font-weight);
+    letter-spacing: var(--label-letter-spacing);
   }
 }
 
-/* Accessibility Improvements */
-.cards li > label:focus {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
+/* Extra small screens */
+@media (max-width: 360px) {
+  .cards-container {
+    --radius: min(30vw, 120px);
+    --cards-container-size: calc(var(--radius) * 2.4);
+    --cards-container-padding: 1rem;
+    margin: 1rem auto;
+  }
+  
+  .cards li > label {
+    --label-size: clamp(26px, 7vw, 32px);
+    font-size: clamp(0.5rem, 2.4vw, 0.65rem);
+    font-weight: var(--label-font-weight);
+    letter-spacing: var(--label-letter-spacing);
+    padding: 1px;
+  }
 }
 
 .cards li > label:focus-visible {

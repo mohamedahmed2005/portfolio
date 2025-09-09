@@ -2,14 +2,15 @@
 
 <div align="center">
 
-![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge&logo=vercel)
+![Portfolio Status](https://img.shields.io/badge/Portfolio-Updated-brightgreen?style=for-the-badge&logo=github)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Dynamic](https://img.shields.io/badge/Dynamic-Counters-blue?style=for-the-badge&logo=code)
 
-**A modern, responsive portfolio website showcasing expertise in Full Stack Development**
+**A modern, responsive portfolio website with dynamic features and enhanced user experience**
 
-[🌐 Live Demo](https://portfolio-rouge-one-30.vercel.app/) • [📧 Contact](mailto:medozahmed2005@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/mohamed-ahmed-ba0815307/)
+[📧 Contact](mailto:ahmd.mohamed200515@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/mohamed-ahmed-ba0815307/) • [🐙 GitHub](https://github.com/mohamedahmed2005)
 
 </div>
 
@@ -20,6 +21,7 @@
 ### **📖 Introduction**
 - [🌟 Overview](#-overview)
 - [✨ Features](#-features)
+- [🆕 Recent Updates](#-recent-updates)
 
 ### **🛠️ Technical Details**
 - [🛠️ Tech Stack](#️-tech-stack)
@@ -41,10 +43,12 @@
 
 ## 🌟 Overview
 
-This portfolio represents a comprehensive showcase of my journey as a **Full Stack Developer Trainee** at DEPI and a **Computer Science student** at FCAI-CU. Built with modern web technologies, it demonstrates proficiency in frontend development, responsive design, and user experience optimization.
+This portfolio represents a comprehensive showcase of my journey as a **Full Stack Developer Trainee** at DEPI and a **Computer Science student** at FCAI-CU. Built with modern web technologies and enhanced with dynamic features, it demonstrates proficiency in frontend development, responsive design, and interactive user experiences.
 
 ### 🎯 Key Highlights
 
+- **Dynamic Counter System**: Automatically counts and displays projects and certificates
+- **Enhanced Timeline**: Optimized circular timeline with improved font sizing
 - **Professional Design**: Clean, modern interface with attention to detail
 - **Fully Responsive**: Optimized for all devices from 320px to 4K displays
 - **Interactive Elements**: Smooth animations and engaging user interactions
@@ -59,8 +63,17 @@ This portfolio represents a comprehensive showcase of my journey as a **Full Sta
 - **Modern UI/UX** with clean, professional aesthetics
 - **Dual Theme Support** (Light/Dark mode) with smooth transitions
 - **Custom Animations** using CSS3 and JavaScript
-- **Interactive Timeline** with circular progress indicators
+- **Interactive Timeline** with circular progress indicators and optimized typography
 - **Gradient Text Effects** and hover animations
+- **Enhanced Typography** with improved readability across all screen sizes
+
+### 🔢 **Dynamic Counter System**
+- **Automatic Counting**: Dynamically counts actual projects and certificates from HTML
+- **Real-time Updates**: Counters update automatically when content changes
+- **Smooth Animations**: Beautiful counter animations with easing effects
+- **Data Persistence**: Counter values stored in HTML data attributes
+- **Easy Management**: Simple API for updating counters programmatically
+- **Responsive Scaling**: Counters adapt to different screen sizes
 
 ### 📱 **Responsive Design**
 - **Mobile-First Design** approach
@@ -68,23 +81,48 @@ This portfolio represents a comprehensive showcase of my journey as a **Full Sta
 - **Touch-Friendly** navigation and interactions
 - **Optimized Mobile Menu** with smooth slide animations
 - **Cross-Browser Compatibility** (Chrome, Firefox, Safari, Edge)
+- **Adaptive Typography** that scales perfectly on all devices
 
 ### 🚀 **Performance & SEO**
 - **Lighthouse Score**: 95+ across all metrics
 - **SEO Optimized** with semantic HTML and meta tags
 - **Fast Loading** with optimized assets and lazy loading
 - **Accessibility Compliant** (WCAG 2.1 AA standards)
+- **Optimized Images** with proper formats and compression
 
 ### 📧 **Contact Integration**
 - **EmailJS Integration** for seamless contact form functionality
 - **Dual Email System**: User confirmation + admin notification
 - **Form Validation** with real-time feedback
 - **Spam Protection** and error handling
+- **QR Code Integration** for easy contact sharing
 
 ### 📄 **CV Download Experience**
-- **Download Prompt on Desktop**: When supported (Chrome/Edge secure contexts), the site opens a native Save dialog so you can choose the download location
-- **Graceful Fallbacks**: Falls back to standard browser download; if blocked, opens the CV in a new tab
-- **Multiple Entry Points**: Download available from the hero section and the navbar
+- **Download Prompt on Desktop**: Native Save dialog for better user experience
+- **Graceful Fallbacks**: Falls back to standard browser download
+- **Multiple Entry Points**: Download available from hero section and navbar
+- **Progressive Enhancement**: Works across all browsers and contexts
+
+---
+
+## 🆕 Recent Updates
+
+### **v2.1.0 - Dynamic Counter System**
+- ✅ **Dynamic Counter Implementation**: Counters now automatically detect and display actual project/certificate counts
+- ✅ **HTML Data Integration**: Counter values stored in HTML data attributes for easy management
+- ✅ **Real-time Updates**: Counters update automatically when content changes
+- ✅ **Enhanced Animations**: Improved counter animations with better easing effects
+
+### **v2.0.0 - Timeline Enhancements**
+- ✅ **Optimized Font Sizing**: Timeline labels now fit perfectly within circular containers
+- ✅ **Enhanced Typography**: Improved readability across all screen sizes
+- ✅ **Better Theme Integration**: Enhanced dark/light theme support for timeline elements
+- ✅ **Responsive Improvements**: Better scaling for mobile and tablet devices
+
+### **v1.9.0 - Code Cleanup**
+- ✅ **Removed Demo Links**: Cleaned up portfolio project by removing live demo references
+- ✅ **Code Optimization**: Improved code structure and performance
+- ✅ **Documentation Updates**: Enhanced documentation and setup guides
 
 ---
 
@@ -93,27 +131,33 @@ This portfolio represents a comprehensive showcase of my journey as a **Full Sta
 ### **Frontend Technologies**
 ```javascript
 // Core Technologies
-HTML5          // Semantic markup and structure
-CSS3           // Modern styling with Flexbox/Grid
+HTML5          // Semantic markup with data attributes
+CSS3           // Modern styling with Flexbox/Grid and custom properties
 JavaScript ES6+ // Interactive functionality and DOM manipulation
 
 // External Libraries
 Font Awesome   // Icon library
 Google Fonts   // Typography (Poppins, Inter)
 EmailJS        // Email service integration
+
+// Advanced Features
+Intersection Observer API  // Scroll animations
+CSS Custom Properties     // Dynamic theming
+CSS Grid & Flexbox       // Responsive layouts
 ```
 
 ### **Development Tools**
 - **Git** - Version control
 - **GitHub** - Repository hosting and collaboration
-- **Vercel** - Deployment and hosting platform
 - **VS Code** - Development environment
+- **Modern Browser DevTools** - Debugging and optimization
 
 ### **Performance & Optimization**
 - **CSS Custom Properties** for maintainable theming
 - **CSS Grid & Flexbox** for responsive layouts
 - **Intersection Observer API** for scroll animations
 - **Debounced scroll events** for performance optimization
+- **Dynamic Counter System** for real-time content updates
 
 ---
 
@@ -121,19 +165,19 @@ EmailJS        // Email service integration
 
 ```
 portfolio/
-├── 📄 index.html                    # Main HTML structure
+├── 📄 index.html                    # Main HTML structure with dynamic data attributes
 ├── 📁 assets/                       # Static assets
 │   ├── 🖼️ github.png               # GitHub QR code
 │   ├── 🖼️ Gmail.png                # Gmail QR code
 │   ├── 🖼️ linkedin.png             # LinkedIn QR code
 │   ├── 🖼️ my image.jpg             # Profile image
-│   └── 📄 Mohamed_Ahmed_CV.pdf     # CV used in download buttons
+│   └── 📄 Mohamed_Ahmed_CV.pdf     # CV for download
 ├── 📁 scripts/                      # JavaScript modules
 │   ├── 🟨 main.js                  # Core functionality & navigation
 │   ├── 📧 email.js                 # EmailJS integration
 │   ├── 🎨 themes.js                # Theme switching
 │   ├── ✨ animations.js             # Animation controls
-│   ├── 🔢 counters.js               # Counter animations
+│   ├── 🔢 counters.js               # Dynamic counter system
 │   └── ⏰ timeline.js               # Timeline functionality
 ├── 📁 styles/                       # Styling system
 │   ├── 🎨 main.css                 # Main stylesheet
@@ -177,17 +221,14 @@ portfolio/
 │   │   ├── 📁 Skills/              # Skills section
 │   │   │   └── skills.css          # Skills display styling
 │   │   └── 📁 Timeline/            # Timeline section
-│   │       ├── circular-timeline.css # Circular timeline styling
+│   │       ├── circular-timeline.css # Enhanced circular timeline styling
 │   │       ├── timeline-responsive.css # Timeline responsive design
 │   │       └── timeline.css        # Timeline base styling
 │   └── 📁 themes/                  # Theme variations
-│       ├── ☀️ light.css            # Light theme
-│       └── 🌙 dark.css             # Dark theme
+│       ├── ☀️ light.css            # Light theme with timeline enhancements
+│       └── 🌙 dark.css             # Dark theme with timeline enhancements
 ├── 📖 README.md                    # Project documentation
-├── 📋 EMAILJS_SETUP.md            # EmailJS setup guide
-├── 📋 EMAILJS_TEMPLATE_SETUP.md   # EmailJS template configuration
-├── 📋 FORMSPREE_SETUP.md          # Formspree alternative setup
-└── 📋 TROUBLESHOOTING.md          # Troubleshooting guide
+└── 📄 LICENSE                      # MIT License
 ```
 
 ---
@@ -229,22 +270,34 @@ portfolio/
    php -S localhost:8000
    ```
 
+### **Dynamic Counter System Usage**
+
+The portfolio includes a dynamic counter system that automatically counts projects and certificates:
+
+```javascript
+// Update specific counter
+updateCounter('projects', 6);
+updateCounter('certificates', 5);
+
+// Increment counters
+incrementCounter('projects', 1);
+incrementCounter('certificates', 2);
+
+// Reload from HTML
+reloadCounters();
+
+// Auto-count from actual HTML elements
+autoCountFromHTML();
+
+// Trigger animations manually
+triggerCounterAnimation();
+```
+
 ### **CV Download Behavior**
 The site uses progressive enhancement for the CV download:
 - If `showSaveFilePicker` is available and the page is served over HTTPS or localhost, a native Save dialog is shown
-- Otherwise, the browser performs a normal download (and may save to the default downloads folder)
+- Otherwise, the browser performs a normal download
 - If even that fails (e.g., pop-up/download restrictions), the CV opens in a new tab
-
-Implementation reference:
-- HTML buttons with IDs: `cv-nav-btn` (navbar) and `cv-hero-btn` (hero)
-- Logic in `scripts/main.js` function `initCvDownloadPrompt()`
-
-### **Live Preview**
-Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-one-30.vercel.app/)
-
-```
-
-> **⚠️ Important**: Replace the placeholder values above with your actual EmailJS service IDs, public key, and template IDs. See the setup guides in the project root for detailed configuration instructions.
 
 ### **Customization Guide**
 
@@ -252,15 +305,17 @@ Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-o
 - Update content in `index.html`
 - Replace profile image in `assets/my image.jpg`
 - Modify contact information and social links
+- Update counter values in the `data-counter-config` attribute
 
 #### **Styling & Themes**
 - Customize colors in `styles/themes/light.css` and `styles/themes/dark.css`
 - Modify typography in `styles/main.css`
 - Adjust spacing using CSS custom properties
+- Update timeline styling in `styles/sections/Timeline/`
 
 #### **Content Updates**
-- Add/remove projects in the projects section
-- Update skills and certificates
+- Add/remove projects in the projects section (counters update automatically)
+- Update skills and certificates (counters update automatically)
 - Modify timeline entries
 - Customize about section content
 
@@ -298,6 +353,7 @@ Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-o
 - **Responsive typography** that scales appropriately
 - **Optimized images** for different screen densities
 - **Fast loading** on mobile networks
+- **Dynamic counter scaling** for all screen sizes
 
 ## 🎨 Design System
 
@@ -358,6 +414,7 @@ Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-o
 - **Optimized Images** with proper formats
 - **Efficient Animations** using CSS transforms
 - **Debounced Events** for scroll and resize handlers
+- **Dynamic Counter System** with optimized animations
 
 ### **Loading Performance**
 - **First Contentful Paint**: < 1.5s
@@ -370,11 +427,12 @@ Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-o
 ## 🔧 Development
 
 ### **Code Quality**
-- **Semantic HTML5** structure
+- **Semantic HTML5** structure with data attributes
 - **BEM CSS Methodology** for maintainable styles
 - **ES6+ JavaScript** with modern features
 - **Modular Architecture** with separated concerns
 - **Cross-browser Testing** and compatibility
+- **Dynamic Counter System** with clean API
 
 ### **Browser Support**
 - ✅ Chrome 90+
@@ -388,7 +446,7 @@ Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-o
 2. **Code Review** process for quality assurance
 3. **Testing** across different devices and browsers
 4. **Performance Monitoring** with Lighthouse CI
-5. **Automated Deployment** via Vercel
+5. **Continuous Updates** with dynamic features
 
 ---
 
@@ -399,7 +457,7 @@ Visit the deployed version: [🌐 Portfolio Live Demo](https://portfolio-rouge-o
 **Mohamed Ahmed**  
 *Full Stack Developer Trainee & Computer Science Student*
 
-[![Email](https://img.shields.io/badge/Email-medozahmed2005@gmail.com-blue?style=for-the-badge&logo=gmail)](mailto:medozahmed2005@gmail.com)
+[![Email](https://img.shields.io/badge/Email-ahmd.mohamed200515@gmail.com-blue?style=for-the-badge&logo=gmail)](mailto:ahmd.mohamed200515@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mohamed--ahmed--ba0815307-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohamed-ahmed-ba0815307/)
 [![GitHub](https://img.shields.io/badge/GitHub-mohamedahmed2005-black?style=for-the-badge&logo=github)](https://github.com/mohamedahmed2005)
 
@@ -422,8 +480,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Font Awesome** for the comprehensive icon library
 - **Google Fonts** for beautiful typography options
 - **EmailJS** for seamless email integration
-- **Vercel** for reliable hosting and deployment
 - **Open Source Community** for inspiration and tools
+- **Modern Web Standards** for enabling dynamic features
 
 ---
 

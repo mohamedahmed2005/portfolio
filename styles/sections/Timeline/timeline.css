@@ -123,6 +123,14 @@
 .timeline-marker i {
     color: var(--text-inverse);
     font-size: 1.3rem; /* slightly smaller icon */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform, color;
+}
+
+.timeline-item:hover .timeline-marker i {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 /* Content */
@@ -309,9 +317,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    transform-origin: center;
+    will-change: transform, color, background-color;
 }
 
 .progress-btn:hover {
@@ -319,6 +329,17 @@
     color: white;
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    filter: brightness(1.1);
+}
+
+.progress-btn i {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform;
+}
+
+.progress-btn:hover i {
+    transform: scale(1.1);
 }
 
 .progress-btn:active {

@@ -9,6 +9,7 @@
 @import url('./sections/Main_Form/keyframes.css');
 @import url('./sections/Main_Form/transitions.css');
 @import url('./sections/Main_Form/hover-effects.css');
+@import url('./sections/Main_Form/icon-transitions.css');
 
 /* Import component sections with enhanced animations */
 @import url('./sections/Main_Form/buttons.css');

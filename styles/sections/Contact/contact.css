@@ -79,7 +79,9 @@
     color: var(--accent-primary);
     font-size: var(--font-size-xl);
     flex-shrink: 0;
-    transition: all var(--transition-normal);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform, color, background-color, border-color;
 }
 
 .contact-item:hover .contact-icon {
@@ -87,7 +89,8 @@
     color: var(--text-inverse);
     border-color: transparent;
     transform: scale(1.1) rotate(5deg);
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    filter: brightness(1.1);
 }
 
 /* Heading stays in first row */

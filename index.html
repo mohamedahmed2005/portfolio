@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Ahmed - Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/my icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/my icon.png">
+    <link rel="apple-touch-icon" href="assets/my icon.png">
+    <link rel="icon" sizes="16x16" href="assets/my icon.png">
+    <link rel="icon" sizes="32x32" href="assets/my icon.png">
+    <meta name="msapplication-TileImage" content="assets/my icon.png">
+    
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -119,17 +128,17 @@
                         <p>I specialize in building responsive web applications, developing efficient algorithms, and creating intuitive user interfaces. My projects range from web applications to desktop software, always focusing on clean code and excellent user experience.</p>
                         
                     </div>
-                    <div class="about-stats">
+                    <div class="about-stats" data-counter-config='{"projects": 5, "certificates": 4, "experience": 2}'>
                         <div class="stat-item">
-                            <div class="stat-number">4+</div>
+                            <div class="stat-number" data-counter="projects" data-suffix="+">0+</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">4</div>
+                            <div class="stat-number" data-counter="certificates" data-suffix="">0</div>
                             <div class="stat-label">Certificates Earned</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">2+</div>
+                            <div class="stat-number" data-counter="experience" data-suffix="+">0+</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                     </div>
@@ -287,6 +296,47 @@
                             </div>
                             <div class="card-links">
                                 <a href="https://github.com/Amr-Khaled-Ahmed/Online-Library-website" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Website Project -->
+                    <div class="project-card">
+                        <div class="ag-courses-item_bg"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="card-badge">
+                                <i class="fas fa-globe"></i>
+                                <span>Portfolio</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Professional Portfolio</h3>
+                            <p class="card-description">A modern, responsive portfolio website showcasing my skills, projects, and achievements. Built with HTML5, CSS3, and JavaScript featuring smooth animations, dark/light theme, and interactive elements.</p>
+                            <div class="card-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Responsive Design</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Interactive Animations</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Dark/Light Theme</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Contact Form</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://github.com/mohamedahmed2005/portfolio" target="_blank" class="btn btn-outline">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1128,5 +1178,46 @@
     <script src="scripts/counters.js"></script>
     <script src="scripts/animations.js"></script>
     <script src="scripts/timeline.js"></script>
+    
+    <!-- Counter Management Utilities -->
+    <script>
+        // Utility functions for easy counter management
+        window.updateCounter = function(type, value) {
+            if (window.counterManager) {
+                window.counterManager.updateCounter(type, value);
+            }
+        };
+        
+        window.incrementCounter = function(type, amount = 1) {
+            if (window.counterManager) {
+                window.counterManager.incrementCounter(type, amount);
+            }
+        };
+        
+        window.reloadCounters = function() {
+            if (window.counterManager) {
+                window.counterManager.reloadCountersFromHTML();
+            }
+        };
+        
+        window.autoCountFromHTML = function() {
+            if (window.counterManager) {
+                return window.counterManager.autoCountFromHTML();
+            }
+        };
+        
+        window.triggerCounterAnimation = function() {
+            if (window.counterManager) {
+                window.counterManager.triggerCounterAnimation();
+            }
+        };
+        
+        // Example usage:
+        // updateCounter('projects', 6);
+        // incrementCounter('certificates', 1);
+        // reloadCounters();
+        // autoCountFromHTML();
+        // triggerCounterAnimation();
+    </script>
 </body>
 </html>

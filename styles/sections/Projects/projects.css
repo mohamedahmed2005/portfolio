@@ -88,10 +88,16 @@
     margin-right: 1rem;
     color: var(--accent-primary);
     background: transparent;
-    transition: color 250ms var(--ease-smooth), transform 250ms var(--ease-smooth);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform, color;
 }
 
-.projects-section .project-card:hover .card-icon { color: #1d4ed8; transform: translateY(-2px); }
+.projects-section .project-card:hover .card-icon { 
+    color: var(--accent-primary); 
+    transform: scale(1.1) translateY(-2px);
+    filter: brightness(1.2);
+}
 
 .projects-section .project-card .card-title {
     margin: 0;

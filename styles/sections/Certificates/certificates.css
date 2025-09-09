@@ -129,6 +129,15 @@
 
 .certificate-card .feature-item i {
     color: var(--accent-success) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform, color;
+}
+
+.certificate-card:hover .feature-item i {
+    color: var(--accent-success) !important;
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 /* Certificate verification badge */
@@ -211,10 +220,16 @@
     margin-right: 1rem;
     color: var(--accent-success);
     background: transparent;
-    transition: color 250ms var(--ease-smooth), transform 250ms var(--ease-smooth);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform, color;
 }
 
-.certificates-section .certificate-card:hover .card-icon { color: #059669; transform: translateY(-2px); }
+.certificates-section .certificate-card:hover .card-icon { 
+    color: var(--accent-success); 
+    transform: scale(1.1) translateY(-2px);
+    filter: brightness(1.2);
+}
 
 .certificates-section .certificate-card .card-title {
     margin: 0;

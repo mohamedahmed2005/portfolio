@@ -1,0 +1,375 @@
+/* Universal Icon Transition System */
+
+/* Base icon transition properties */
+.icon-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    will-change: transform, color, background-color, box-shadow;
+}
+
+/* Icon color transitions */
+.icon-primary {
+    color: var(--accent-primary);
+}
+
+.icon-secondary {
+    color: var(--accent-secondary);
+}
+
+.icon-success {
+    color: var(--accent-success);
+}
+
+.icon-warning {
+    color: var(--accent-warning);
+}
+
+.icon-danger {
+    color: var(--accent-danger);
+}
+
+.icon-muted {
+    color: var(--text-muted);
+}
+
+/* Icon hover effects */
+.icon-hover-scale:hover {
+    transform: scale(1.1);
+}
+
+.icon-hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.icon-hover-bounce:hover {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+.icon-hover-glow:hover {
+    box-shadow: 0 0 15px currentColor;
+    filter: brightness(1.2);
+}
+
+.icon-hover-color-primary:hover {
+    color: var(--accent-primary);
+}
+
+.icon-hover-color-secondary:hover {
+    color: var(--accent-secondary);
+}
+
+.icon-hover-color-success:hover {
+    color: var(--accent-success);
+}
+
+.icon-hover-color-warning:hover {
+    color: var(--accent-warning);
+}
+
+.icon-hover-color-danger:hover {
+    color: var(--accent-danger);
+}
+
+/* Icon background transitions */
+.icon-bg-transparent {
+    background: transparent;
+    border: 2px solid currentColor;
+}
+
+.icon-bg-primary {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.icon-bg-secondary {
+    background: var(--accent-secondary);
+    color: var(--text-inverse);
+}
+
+.icon-bg-gradient {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-inverse);
+}
+
+/* Icon hover background effects */
+.icon-hover-bg-primary:hover {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
+}
+
+.icon-hover-bg-secondary:hover {
+    background: var(--accent-secondary);
+    color: var(--text-inverse);
+    border-color: var(--accent-secondary);
+}
+
+.icon-hover-bg-gradient:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-inverse);
+    border-color: transparent;
+}
+
+/* Icon size variations */
+.icon-sm {
+    font-size: 0.875rem;
+}
+
+.icon-md {
+    font-size: 1rem;
+}
+
+.icon-lg {
+    font-size: 1.25rem;
+}
+
+.icon-xl {
+    font-size: 1.5rem;
+}
+
+.icon-2xl {
+    font-size: 2rem;
+}
+
+.icon-3xl {
+    font-size: 2.5rem;
+}
+
+/* Icon shape variations */
+.icon-circle {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-square {
+    border-radius: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-rounded {
+    border-radius: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon animation keyframes */
+@keyframes iconBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-4px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes iconRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Icon animation classes */
+.icon-animate-pulse {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.icon-animate-rotate {
+    animation: iconRotate 2s linear infinite;
+}
+
+.icon-animate-float {
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+/* Icon ripple effect */
+.icon-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    z-index: 1;
+}
+
+.icon-ripple:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+/* Icon focus states */
+.icon-focus:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Icon disabled state */
+.icon-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Icon loading state */
+.icon-loading {
+    animation: iconRotate 1s linear infinite;
+}
+
+/* Responsive icon sizes */
+@media (max-width: 768px) {
+    .icon-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .icon-circle {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .icon-square {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .icon-rounded {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+/* Dark theme icon adjustments */
+.theme-dark .icon-primary {
+    color: var(--accent-primary);
+}
+
+.theme-dark .icon-secondary {
+    color: var(--accent-secondary);
+}
+
+.theme-dark .icon-hover-glow:hover {
+    box-shadow: 0 0 20px currentColor;
+    filter: brightness(1.3);
+}
+
+/* Icon group transitions */
+.icon-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.icon-group .icon-transition {
+    transition-delay: calc(var(--icon-delay, 0) * 0.1s);
+}
+
+/* Icon with text */
+.icon-with-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-with-text .icon-transition {
+    flex-shrink: 0;
+}
+
+/* Icon button styles */
+.icon-button {
+    background: transparent;
+    border: 2px solid currentColor;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    background: currentColor;
+    color: var(--text-inverse);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon tooltip */
+.icon-tooltip {
+    position: relative;
+}
+
+.icon-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-medium);
+}
+
+.icon-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}

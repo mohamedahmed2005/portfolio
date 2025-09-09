@@ -1,26 +1,50 @@
 // Enhanced Dynamic Counter System with Advanced Animations
 class CounterManager {
     constructor() {
-        this.counters = {
-            projects: 4,
-            certificates: 4,
-            experience: 2
-        };
+        this.counters = {};
         this.animationDuration = 2500; // 2.5 seconds for smoother animation
         this.delayBetweenCounters = 300; // 300ms delay between each counter
         this.init();
     }
 
     init() {
+        this.loadCountersFromHTML();
+        this.autoCountFromHTML(); // Automatically count actual projects and certificates
         this.setupCounters();
         this.setupIntersectionObserver();
     }
 
+    loadCountersFromHTML() {
+        const statsSection = document.querySelector('.about-stats');
+        if (statsSection && statsSection.dataset.counterConfig) {
+            try {
+                this.counters = JSON.parse(statsSection.dataset.counterConfig);
+            } catch (error) {
+                console.warn('Failed to parse counter config from HTML:', error);
+                // Fallback to default values
+                this.counters = {
+                    projects: 5,
+                    certificates: 4,
+                    experience: 2
+                };
+            }
+        } else {
+            // Fallback to default values if no config found
+            this.counters = {
+                projects: 5,
+                certificates: 4,
+                experience: 2
+            };
+        }
+    }
+
     setupCounters() {
-        // Initialize counters with 0
-        this.updateCounterElement('stat-number', 0, 0, '+');
-        this.updateCounterElement('stat-number', 1, 0, '');
-        this.updateCounterElement('stat-number', 2, 0, '+');
+        // Initialize counters with 0 using data attributes
+        const counterElements = document.querySelectorAll('.stat-number[data-counter]');
+        counterElements.forEach(element => {
+            const suffix = element.dataset.suffix || '';
+            element.textContent = '0' + suffix;
+        });
     }
 
     setupIntersectionObserver() {
@@ -47,35 +71,28 @@ class CounterManager {
     }
 
     animateCounters() {
-        // Animate projects counter with delay
-        setTimeout(() => {
-            this.animateCounter('.stat-number', 0, 0, this.counters.projects, '+');
-        }, 0);
+        const counterElements = document.querySelectorAll('.stat-number[data-counter]');
+        let delay = 0;
         
-        // Animate certificates counter with delay
-        setTimeout(() => {
-            this.animateCounter('.stat-number', 1, 0, this.counters.certificates, '');
-        }, this.delayBetweenCounters);
-        
-        // Animate experience counter with delay
-        setTimeout(() => {
-            this.animateCounter('.stat-number', 2, 0, this.counters.experience, '+');
-        }, this.delayBetweenCounters * 2);
+        counterElements.forEach((element, index) => {
+            const counterType = element.dataset.counter;
+            const suffix = element.dataset.suffix || '';
+            const targetValue = this.counters[counterType] || 0;
+            
+            setTimeout(() => {
+                this.animateCounterElement(element, 0, targetValue, suffix);
+            }, delay);
+            
+            delay += this.delayBetweenCounters;
+        });
     }
 
-    animateCounter(selector, index, start, end, suffix = '') {
-        const elements = document.querySelectorAll(selector);
-        if (!elements[index]) return;
-
-        const element = elements[index];
+    animateCounterElement(element, start, end, suffix = '') {
         const duration = this.animationDuration;
         const startTime = performance.now();
 
         // Add enhanced animation classes
-        element.classList.add('counter-pulse', 'counter-glow');
-        
-        // Add ripple effect
-        this.createRippleEffect(element);
+        element.classList.add('counter-bubble');
 
         const animate = (currentTime) => {
             const elapsed = currentTime - startTime;
@@ -108,111 +125,46 @@ class CounterManager {
             
             element.style.transform = `scale(${scale}) rotate(${rotation}deg) translateY(${translateY}px)`;
             
-            // Add color transition effect
-            const hue = 200 + (progress * 60); // Blue to green transition
-            element.style.filter = `hue-rotate(${hue}deg) brightness(${1 + progress * 0.2})`;
             
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
-                // Final celebration effect
-                this.celebrateCounter(element);
+                // Trigger celebration animation when counter finishes
+                element.classList.add('counter-celebration');
                 
-                // Remove classes and reset styles
+                // Remove classes and reset styles after celebration animation completes
                 setTimeout(() => {
-                    element.classList.remove('counter-pulse', 'counter-glow');
+                    element.classList.remove('counter-bubble', 'counter-celebration');
                     element.style.transform = 'scale(1) rotate(0deg) translateY(0px)';
-                    element.style.filter = 'none';
-                }, 500);
+                }, 2000); // Increased timeout to allow celebration animation to complete
             }
         };
 
         requestAnimationFrame(animate);
     }
 
-    createRippleEffect(element) {
-        const ripple = document.createElement('div');
-        ripple.className = 'counter-ripple';
-        ripple.style.cssText = `
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 1;
-            animation: rippleExpand 1.5s ease-out forwards;
-        `;
-        
-        element.style.position = 'relative';
-        element.appendChild(ripple);
-        
-        // Remove ripple after animation
-        setTimeout(() => {
-            if (ripple.parentNode) {
-                ripple.parentNode.removeChild(ripple);
-            }
-        }, 1500);
+    // Legacy method for backward compatibility
+    animateCounter(selector, index, start, end, suffix = '') {
+        const elements = document.querySelectorAll(selector);
+        if (!elements[index]) return;
+        this.animateCounterElement(elements[index], start, end, suffix);
     }
 
-    celebrateCounter(element) {
-        // Add celebration particles
-        for (let i = 0; i < 6; i++) {
-            setTimeout(() => {
-                this.createParticle(element);
-            }, i * 100);
-        }
-        
-        // Add final glow effect
-        element.classList.add('counter-celebration');
-        setTimeout(() => {
-            element.classList.remove('counter-celebration');
-        }, 1000);
-    }
-
-    createParticle(element) {
-        const particle = document.createElement('div');
-        particle.className = 'counter-particle';
-        
-        const angle = Math.random() * Math.PI * 2;
-        const distance = 50 + Math.random() * 30;
-        const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance;
-        
-        particle.style.cssText = `
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 4px;
-            height: 4px;
-            background: linear-gradient(45deg, #3b82f6, #10b981);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 10;
-            animation: particleFloat 1s ease-out forwards;
-            --particle-x: ${x}px;
-            --particle-y: ${y}px;
-        `;
-        
-        element.appendChild(particle);
-        
-        // Remove particle after animation
-        setTimeout(() => {
-            if (particle.parentNode) {
-                particle.parentNode.removeChild(particle);
-            }
-        }, 1000);
-    }
 
     // Method to update counters dynamically
     updateCounter(type, newValue) {
         if (this.counters.hasOwnProperty(type)) {
             this.counters[type] = newValue;
+            this.updateHTMLCounterConfig();
             this.setupCounters();
+        }
+    }
+
+    // Method to update HTML data attributes
+    updateHTMLCounterConfig() {
+        const statsSection = document.querySelector('.about-stats');
+        if (statsSection) {
+            statsSection.dataset.counterConfig = JSON.stringify(this.counters);
         }
     }
 
@@ -220,8 +172,15 @@ class CounterManager {
     incrementCounter(type, amount = 1) {
         if (this.counters.hasOwnProperty(type)) {
             this.counters[type] += amount;
+            this.updateHTMLCounterConfig();
             this.setupCounters();
         }
+    }
+
+    // Method to reload counters from HTML (useful for dynamic updates)
+    reloadCountersFromHTML() {
+        this.loadCountersFromHTML();
+        this.setupCounters();
     }
 
     // Method to trigger counter animation manually
@@ -242,47 +201,62 @@ class CounterManager {
     // Method to reset all counters
     resetCounters() {
         this.counters = {
-            projects: 4,
+            projects: 5, // Updated to include portfolio project
             certificates: 4,
             experience: 2
         };
+        this.updateHTMLCounterConfig();
         this.setupCounters();
     }
 
-    // Method to add celebration effect to specific counter
-    celebrateCounterByType(type) {
-        const typeMap = {
-            'projects': 0,
-            'certificates': 1,
-            'experience': 2
-        };
+    // Method to automatically count projects and certificates from HTML
+    autoCountFromHTML() {
+        // Count actual project cards
+        const projectCards = document.querySelectorAll('.projects-grid .project-card');
+        const actualProjectCount = projectCards.length;
         
-        const index = typeMap[type];
-        if (index !== undefined) {
-            const elements = document.querySelectorAll('.stat-number');
-            if (elements[index]) {
-                this.celebrateCounter(elements[index]);
-            }
+        // Count actual certificate cards
+        const certificateCards = document.querySelectorAll('.certificates-grid .certificate-card');
+        const actualCertificateCount = certificateCards.length;
+        
+        // Update counters if they differ from actual counts
+        if (this.counters.projects !== actualProjectCount) {
+            this.counters.projects = actualProjectCount;
+        }
+        
+        if (this.counters.certificates !== actualCertificateCount) {
+            this.counters.certificates = actualCertificateCount;
+        }
+        
+        // Update HTML data attributes
+        this.updateHTMLCounterConfig();
+        
+        return {
+            projects: actualProjectCount,
+            certificates: actualCertificateCount
+        };
+    }
+
+
+    // Method to sync with portfolio data manager
+    syncWithPortfolioData() {
+        if (window.portfolioDataManager) {
+            const portfolioData = window.portfolioDataManager.getCounters();
+            this.counters.projects = portfolioData.projects;
+            this.counters.certificates = portfolioData.certificates;
+            this.updateHTMLCounterConfig();
+            this.setupCounters();
         }
     }
 
     // Method to add shake effect to specific counter
     shakeCounterByType(type) {
-        const typeMap = {
-            'projects': 0,
-            'certificates': 1,
-            'experience': 2
-        };
-        
-        const index = typeMap[type];
-        if (index !== undefined) {
-            const elements = document.querySelectorAll('.stat-number');
-            if (elements[index]) {
-                elements[index].classList.add('counter-shake');
-                setTimeout(() => {
-                    elements[index].classList.remove('counter-shake');
-                }, 500);
-            }
+        const counterElement = document.querySelector(`[data-counter="${type}"]`);
+        if (counterElement) {
+            counterElement.classList.add('counter-shake');
+            setTimeout(() => {
+                counterElement.classList.remove('counter-shake');
+            }, 500);
         }
     }
 }
@@ -292,4 +266,12 @@ let counterManager;
 
 document.addEventListener('DOMContentLoaded', function() {
     counterManager = new CounterManager();
+    
+    // Sync with portfolio data manager after a short delay to ensure it's initialized
+    setTimeout(() => {
+        counterManager.syncWithPortfolioData();
+    }, 100);
+    
+    // Expose counter manager globally for external access
+    window.counterManager = counterManager;
 });
