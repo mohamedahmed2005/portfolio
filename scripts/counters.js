@@ -24,7 +24,7 @@ class CounterManager {
                 // Fallback to default values
                 this.counters = {
                     projects: 5,
-                    certificates: 4,
+                    certificates: 5,
                     experience: 2
                 };
             }
@@ -32,7 +32,7 @@ class CounterManager {
             // Fallback to default values if no config found
             this.counters = {
                 projects: 5,
-                certificates: 4,
+                certificates: 5,
                 experience: 2
             };
         }
@@ -202,7 +202,7 @@ class CounterManager {
     resetCounters() {
         this.counters = {
             projects: 5, // Updated to include portfolio project
-            certificates: 4,
+            certificates: 5,
             experience: 2
         };
         this.updateHTMLCounterConfig();

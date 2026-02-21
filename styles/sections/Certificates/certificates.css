@@ -100,9 +100,14 @@
 }
 
 /* Certificate card hover effects */
-.certificate-card:hover .card-icon { transform: none; }
+.certificate-card:hover .card-icon {
+    transform: none;
+}
 
-.certificate-card:hover .card-badge { transform: none; box-shadow: none; }
+.certificate-card:hover .card-badge {
+    transform: none;
+    box-shadow: none;
+}
 
 /* Certificate text styling - override general card styles */
 .certificate-card .card-title {
@@ -146,31 +151,62 @@
     overflow: hidden;
 }
 
-.certificate-card .card-badge::before { content: none; }
+.certificate-card .card-badge::before {
+    content: none;
+}
 
-.certificate-card:hover .card-badge::before { left: auto; }
+.certificate-card:hover .card-badge::before {
+    left: auto;
+}
 
 /* Disable all transitions/animations within certificates section */
 /* Re-enable transitions/animations in certificates */
-.certificates-section { will-change: transform; }
+.certificates-section {
+    will-change: transform;
+}
 
 /* Prevent paragraph movement on hover in certificates */
-.certificates-section p { transition: none !important; }
-.certificates-section p:hover { transform: none !important; }
+.certificates-section p {
+    transition: none !important;
+}
+
+.certificates-section p:hover {
+    transform: none !important;
+}
 
 /* Neutralize card hover motion/effects in certificates */
-.certificates-section .certificate-card { transition: all 0.3s ease; }
-.certificates-section .certificate-card:hover { transition: all 0.3s ease; }
-.certificates-section .certificate-card .ag-courses-item_bg { transition: opacity 0.3s ease, transform 0.3s ease; }
+.certificates-section .certificate-card {
+    transition: all 0.3s ease;
+}
+
+.certificates-section .certificate-card:hover {
+    transition: all 0.3s ease;
+}
+
+.certificates-section .certificate-card .ag-courses-item_bg {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .certificates-section .feature-item,
 .certificates-section .card-icon,
 .certificates-section .card-badge,
 .certificates-section .btn,
 .certificates-section .btn::before,
-.certificates-section .btn-outline { transition: all 0.3s ease; }
-.certificates-section .feature-item:hover { transform: translateX(4px); }
-.certificates-section .btn:hover { transform: translateY(-2px); }
-.certificates-section .card-icon::before { transition: opacity 0.3s ease; }
+.certificates-section .btn-outline {
+    transition: all 0.3s ease;
+}
+
+.certificates-section .feature-item:hover {
+    transform: translateX(4px);
+}
+
+.certificates-section .btn:hover {
+    transform: translateY(-2px);
+}
+
+.certificates-section .card-icon::before {
+    transition: opacity 0.3s ease;
+}
 
 /* Remove animations for certificates cards */
 /* (intentionally left blank to keep static styling) */
@@ -180,7 +216,7 @@
     background: var(--card-bg, rgba(255, 255, 255, 0.9));
     border-radius: 16px;
     padding: 2rem;
-    box-shadow: var(--shadow, 0 4px 20px rgba(0,0,0,0.1));
+    box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, 0.1));
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -203,11 +239,13 @@
 
 .certificates-section .certificate-card:hover {
     transform: scale(1.02);
-    box-shadow: var(--shadow, 0 12px 40px rgba(0,0,0,0.25));
+    box-shadow: var(--shadow, 0 12px 40px rgba(0, 0, 0, 0.25));
     border-color: var(--accent-success);
 }
 
-.certificates-section .certificate-card:hover:before { transform: scaleX(1); }
+.certificates-section .certificate-card:hover:before {
+    transform: scaleX(1);
+}
 
 .certificates-section .certificate-card .card-header {
     display: flex;
@@ -225,8 +263,8 @@
     will-change: transform, color;
 }
 
-.certificates-section .certificate-card:hover .card-icon { 
-    color: var(--accent-success); 
+.certificates-section .certificate-card:hover .card-icon {
+    color: var(--accent-success);
     transform: scale(1.1) translateY(-2px);
     filter: brightness(1.2);
 }
@@ -238,7 +276,9 @@
     font-weight: 700;
 }
 
-.certificates-section .certificate-card .card-content { flex-grow: 1; }
+.certificates-section .certificate-card .card-content {
+    flex-grow: 1;
+}
 
 .certificates-section .certificate-card .card-description,
 .certificates-section .certificate-card .card-provider {
@@ -265,19 +305,21 @@
     align-items: center;
 }
 
-.certificates-section .certificate-card .card-link i { margin-left: 0.4rem; }
+.certificates-section .certificate-card .card-link i {
+    margin-left: 0.4rem;
+}
 
 /* Visual style to match provided card design */
 .certificates-section .certificates-grid .certificate-card {
     background: var(--surface, rgba(255, 255, 255, 0.1));
     border: 2px solid transparent;
     border-radius: 16px;
-    box-shadow: var(--shadow-card, 0 4px 15px rgba(0,0,0,0.2));
+    box-shadow: var(--shadow-card, 0 4px 15px rgba(0, 0, 0, 0.2));
 }
 
 .certificates-section .certificates-grid .certificate-card:hover {
     border-color: var(--accent-success);
-    box-shadow: var(--shadow-heavy, 0 10px 30px rgba(0,0,0,0.35));
+    box-shadow: var(--shadow-heavy, 0 10px 30px rgba(0, 0, 0, 0.35));
 }
 
 /* Responsive adjustments */
@@ -286,8 +328,178 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .certificate-card .card-provider {
         font-size: 0.8rem;
     }
+}
+
+/* =====================================================
+   DEPI Certificate - Premium Gold Styling
+   ===================================================== */
+
+/* DEPI gold color variables */
+:root {
+    --depi-gold: #f59e0b;
+    --depi-gold-dark: #d97706;
+    --depi-gold-light: #fcd34d;
+    --depi-gold-glow: rgba(245, 158, 11, 0.35);
+    --depi-bg-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* DEPI Card - Override base certificate card */
+.certificates-section .certificate-card--depi {
+    border: 2px solid var(--depi-gold) !important;
+    background: var(--card-bg, rgba(255, 255, 255, 0.95));
+    position: relative;
+    overflow: hidden;
+}
+
+.certificates-section .certificate-card--depi::before {
+    background: var(--depi-bg-gradient) !important;
+}
+
+.certificates-section .certificate-card--depi:hover {
+    border-color: var(--depi-gold-light) !important;
+    box-shadow: 0 12px 40px var(--depi-gold-glow), 0 0 0 1px var(--depi-gold) !important;
+    transform: scale(1.02);
+}
+
+/* Shimmer animation on hover */
+.certificate-card--depi::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(255, 255, 255, 0.18) 50%,
+            transparent 100%);
+    transform: skewX(-20deg);
+    transition: none;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.certificate-card--depi:hover::after {
+    animation: depi-shimmer 0.8s ease forwards;
+}
+
+@keyframes depi-shimmer {
+    0% {
+        left: -75%;
+        opacity: 1;
+    }
+
+    100% {
+        left: 130%;
+        opacity: 0;
+    }
+}
+
+/* DEPI Ribbon */
+.depi-ribbon {
+    position: absolute;
+    top: 16px;
+    right: -30px;
+    width: 120px;
+    background: var(--depi-bg-gradient);
+    color: #fff;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 5px 0;
+    transform: rotate(35deg);
+    box-shadow: 0 2px 8px var(--depi-gold-glow);
+    z-index: 10;
+    pointer-events: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.certificate-card--depi:hover .depi-ribbon {
+    box-shadow: 0 4px 16px var(--depi-gold-glow);
+}
+
+/* DEPI Icon */
+.depi-icon {
+    background: var(--depi-bg-gradient) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px var(--depi-gold-glow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificate-card--depi:hover .depi-icon {
+    transform: scale(1.12) translateY(-3px) !important;
+    box-shadow: 0 8px 20px var(--depi-gold-glow) !important;
+    filter: brightness(1.15);
+}
+
+/* DEPI Badge */
+.depi-badge {
+    background: rgba(245, 158, 11, 0.12) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+    color: var(--depi-gold) !important;
+}
+
+.depi-badge i {
+    color: var(--depi-gold) !important;
+}
+
+/* DEPI Provider text */
+.depi-provider {
+    color: var(--depi-gold) !important;
+    font-weight: 700 !important;
+}
+
+/* DEPI card titles and features */
+.certificate-card--depi .card-title {
+    color: var(--depi-gold) !important;
+}
+
+.certificate-card--depi .feature-item i {
+    color: var(--depi-gold) !important;
+}
+
+.certificate-card--depi:hover .feature-item i {
+    color: var(--depi-gold-light) !important;
+    filter: brightness(1.2);
+}
+
+/* DEPI button */
+.depi-btn {
+    border-color: var(--depi-gold) !important;
+    color: var(--depi-gold) !important;
+}
+
+.depi-btn:hover {
+    background: var(--depi-bg-gradient) !important;
+    color: #fff !important;
+    border-color: var(--depi-gold-dark) !important;
+    box-shadow: 0 4px 12px var(--depi-gold-glow) !important;
+}
+
+/* Theme overrides for DEPI card */
+.theme-light .certificate-card--depi .card-title {
+    color: var(--depi-gold) !important;
+}
+
+.theme-dark .certificate-card--depi .card-title {
+    color: var(--depi-gold-light) !important;
+}
+
+.theme-light .certificate-card--depi .depi-btn {
+    color: var(--depi-gold) !important;
+    border-color: var(--depi-gold) !important;
+}
+
+.theme-dark .certificate-card--depi .depi-btn {
+    color: var(--depi-gold-light) !important;
+    border-color: var(--depi-gold-light) !important;
+}
+
+.theme-dark .certificate-card--depi .depi-provider {
+    color: var(--depi-gold-light) !important;
 }
