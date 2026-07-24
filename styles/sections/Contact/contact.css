@@ -93,28 +93,39 @@
     filter: brightness(1.1);
 }
 
-/* Heading stays in first row */
-.contact-details h3 {
-    grid-column: 1;
-    grid-row: 1;
+
+.contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--spacing-md);
 }
 
-
-/* Paragraphs start from row 3 */
-.contact-details p {
-    grid-column: 1;
-    grid-row: 3;
-}
-/* Link goes directly under heading */
-.contact-details a.contact-link {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: start; /* Align to left if needed */
+.contact-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
 }
 
+.contact-text-block h3 {
+    margin: 0 0 0.2rem 0;
+    font-size: var(--font-size-lg);
+    color: var(--text-heading);
+}
 
-.contact-details p:last-of-type {
-    margin-bottom: 0;
+.contact-text-block p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.contact-text-block a.contact-link {
+    margin-top: 0.25rem;
+    display: inline-block;
+    width: fit-content;
 }
 
 .contact-note {
@@ -123,55 +134,25 @@
     font-style: italic;
 }
 
-.contact-details {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    column-gap: var(--spacing-md);
-    row-gap: var(--spacing-sm);
-    width: 100%;
-}
-
-.contact-details img {
-    width: 100px;
-    height: 100px;
-    border-radius: var(--radius-md);
-    margin-top: var(--spacing-sm);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-    border: 2px solid var(--border-light);
-}
-
-/* Push QR image to the far right of the card */
-/* Place text in left column and QR in right column */
-.contact-details h3 { grid-column: 1; grid-row: 1; margin: 0; }
-.contact-details p,
-.contact-details a { grid-column: 1; }
-
-/* Ensure the link sits directly under the heading */
-.contact-details .contact-link {
-    grid-row: 2;
-    margin: 0;
-}
-
 .contact-details .qr-image {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    justify-self: end;
-    align-self: start;
-    margin: 0;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
     background: #fff;
     padding: 6px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-light);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
-.contact-details img:hover {
+.contact-details .qr-image:hover {
     transform: scale(1.1);
     box-shadow: var(--shadow-medium);
     border-color: var(--accent-primary);
 }
+
 
 /* Contact Me Section */
 .contact-me-section {

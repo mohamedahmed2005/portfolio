@@ -254,20 +254,29 @@
 }
 
 .certificates-section .certificate-card .card-icon {
-    font-size: 1.8rem;
-    margin-right: 1rem;
-    color: var(--accent-success);
-    background: transparent;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent-success), #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.25);
+    flex-shrink: 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
-    will-change: transform, color;
+}
+
+.certificates-section .certificate-card .card-icon i {
+    color: #ffffff !important;
 }
 
 .certificates-section .certificate-card:hover .card-icon {
-    color: var(--accent-success);
-    transform: scale(1.1) translateY(-2px);
-    filter: brightness(1.2);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
 }
+
 
 .certificates-section .certificate-card .card-title {
     margin: 0;

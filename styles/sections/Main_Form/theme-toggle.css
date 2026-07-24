@@ -49,23 +49,41 @@
     will-change: opacity, transform;
 }
 
-/* Icon absolute positions to align under the knob center */
-.theme-toggle .fa-sun { left: 24px; opacity: 1; transform: translate(-50%, -50%) scale(1); }
-.theme-toggle .fa-moon { left: 72px; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+/* Icon absolute positions & theme colors */
+.theme-toggle .fa-sun {
+    left: 24px;
+    opacity: 1;
+    color: #d97706; /* Golden amber sun in light mode */
+    transform: translate(-50%, -50%) scale(1);
+}
 
-/* Dark theme shows moon centered under the knob; hide sun */
-/* Keep both icons visible in all themes; knob indicates active */
-
-
+.theme-toggle .fa-moon {
+    left: 72px;
+    opacity: 0.6;
+    color: #64748b; /* Slate moon on track in light mode */
+    transform: translate(-50%, -50%) scale(0.9);
+}
 
 /* Dark theme toggle state */
 .theme-dark .theme-toggle {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
 .theme-dark .theme-toggle::before {
     transform: translateX(48px);
-    background-color: #34323D;
+    background-color: #1e293b;
+}
+
+.theme-dark .theme-toggle .fa-sun {
+    opacity: 0.5;
+    color: #94a3b8;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.theme-dark .theme-toggle .fa-moon {
+    opacity: 1;
+    color: #38bdf8; /* Glowing light blue moon in dark mode */
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* Enhanced theme toggle animations */

@@ -148,13 +148,18 @@
 }
 
 /* Theme-specific button overrides */
+.theme-light .btn-primary,
+.theme-dark .btn-primary {
+    color: #ffffff !important;
+}
+
 .theme-light .btn-outline {
     color: var(--accent-primary) !important;
     border-color: var(--accent-primary) !important;
 }
 
 .theme-light .btn-outline:hover {
-    color: white !important;
+    color: #ffffff !important;
     background-color: var(--accent-primary) !important;
 }
 
@@ -164,6 +169,6 @@
 }
 
 .theme-dark .btn-outline:hover {
-    color: white !important;
+    color: #ffffff !important;
     background-color: var(--accent-primary) !important;
 }

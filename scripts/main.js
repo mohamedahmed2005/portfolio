@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize only working components
     initNavigation();
+    initNavDropdown();
     initContactForm();
     initBackToTop();
     initSmoothScrolling();
@@ -70,9 +71,9 @@ function initCvDownloadPrompt() {
         document.getElementById('cv-hero-btn')
     ].filter(Boolean);
 
-    if (buttons.length === 0) return;
+    const isInsidePagesDir = window.location.pathname.includes('/pages/') || window.location.pathname.includes('\\pages\\');
+    const cvUrl = isInsidePagesDir ? '../assets/Mohamed_Ahmed_CV.pdf' : 'assets/Mohamed_Ahmed_CV.pdf';
 
-    const cvUrl = 'assets/Mohamed_Ahmed_CV.pdf';
 
     buttons.forEach(btn => {
         btn.addEventListener('click', async (e) => {
@@ -128,10 +129,7 @@ function initNavigation() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    if (!navbar || !mobileMenuToggle || !navMenu) {
-        console.warn('Navigation elements not found');
-        return;
-    }
+    if (!navbar || !mobileMenuToggle || !navMenu) return;
 
     // Mobile menu toggle
     mobileMenuToggle.addEventListener('click', function() {
@@ -140,7 +138,7 @@ function initNavigation() {
         document.body.classList.toggle('menu-open');
     });
 
-    // Close mobile menu when clicking on a link
+    // Close mobile menu on link click
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             mobileMenuToggle.classList.remove('active');
@@ -149,7 +147,7 @@ function initNavigation() {
         });
     });
 
-    // Close mobile menu when clicking outside
+    // Close mobile menu on outside click
     document.addEventListener('click', function(e) {
         if (!navbar.contains(e.target)) {
             mobileMenuToggle.classList.remove('active');
@@ -158,22 +156,95 @@ function initNavigation() {
         }
     });
 
-    // Active navigation link highlighting
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPos = window.scrollY + 100;
+    // Determine current route
+    const rawPath = window.location.pathname.split('/').pop() || 'index.html';
+    const isHomePage = (rawPath === 'index.html' || rawPath === '');
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                if (navLink) navLink.classList.add('active');
+    if (!isHomePage) {
+        // Subpages: highlight current page nav link
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && (href === rawPath || href.includes(rawPath))) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
+    }
+
+    // Scroll active highlighting on index.html (Home & About)
+    const sections = document.querySelectorAll('section[id]');
+    if (sections.length > 0 && isHomePage) {
+        const updateScrollActive = () => {
+            const scrollPos = window.scrollY + 140;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href === `#${sectionId}` || href === `index.html#${sectionId}`) {
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateScrollActive);
+        updateScrollActive();
+    }
+}
+
+
+
+// Nav Dropdown (More menu)
+function initNavDropdown() {
+    const dropdown = document.querySelector('.nav-dropdown');
+    const toggleBtn = document.getElementById('nav-more-btn');
+    const menu = document.getElementById('nav-dropdown-menu');
+    if (!dropdown || !toggleBtn || !menu) return;
+
+    // Toggle open/close on button click
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close on item click
+    menu.querySelectorAll('.nav-dropdown-item').forEach(item => {
+        item.addEventListener('click', function() {
+            dropdown.classList.remove('open');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Mark dropdown toggle active when a child section is in view
+    const dropdownSections = ['certificates', 'experience', 'timeline'];
+    window.addEventListener('scroll', function() {
+        const scrollPos = window.scrollY + 120;
+        let dropdownActive = false;
+        dropdownSections.forEach(id => {
+            const section = document.getElementById(id);
+            const item = menu.querySelector(`[href="#${id}"]`);
+            if (!section) return;
+            const inView = scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight;
+            if (item) item.classList.toggle('active', inView);
+            if (inView) dropdownActive = true;
+        });
+        toggleBtn.classList.toggle('active', dropdownActive);
     });
 }
 
@@ -405,31 +476,46 @@ function initBackToTop() {
 
 // Smooth Scrolling
 function initSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
+    const links = document.querySelectorAll('a[href*="#"]');
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
             
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const hashIndex = href.indexOf('#');
+            if (hashIndex === -1) return;
             
-            if (targetSection) {
-                // Calculate offset more precisely
-                const navbarHeight = 80;
-                const offsetTop = targetSection.offsetTop - navbarHeight;
-                
-                // Use requestAnimationFrame for smoother scrolling
-                requestAnimationFrame(() => {
-                    window.scrollTo({
-                        top: Math.max(0, offsetTop),
-                        behavior: 'smooth'
+            const pagePath = href.substring(0, hashIndex);
+            const targetId = href.substring(hashIndex);
+            
+            // Check if link targets a hash section on the current page
+            const isSamePage = (pagePath === '' || pagePath === currentPath || (currentPath === 'index.html' && (pagePath === 'index.html' || pagePath === '')));
+            
+            if (isSamePage) {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    e.preventDefault();
+                    const navbarHeight = 80;
+                    const offsetTop = targetSection.offsetTop - navbarHeight;
+                    
+                    try {
+                        window.history.pushState(null, null, targetId);
+                    } catch (err) {}
+                    
+                    requestAnimationFrame(() => {
+                        window.scrollTo({
+                            top: Math.max(0, offsetTop),
+                            behavior: 'smooth'
+                        });
                     });
-                });
+                }
             }
         });
     });
 }
+
 
 // Keyboard navigation support
 document.addEventListener('keydown', function(e) {

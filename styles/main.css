@@ -29,11 +29,11 @@
 @import url('./sections/Projects/projects.css');
 @import url('./sections/Skills/skills.css');
 @import url('./sections/Certificates/certificates.css');
+@import url('./sections/Experience/experience.css');
 @import url('./sections/Contact/contact.css');
 @import url('./sections/Main_Form/footer.css');
 @import url('./sections/Main_Form/features.css');
-@import url('./sections/Timeline/timeline.css');
-@import url('./sections/Timeline/circular-timeline.css');
+@import url('./sections/Timeline/vertical-timeline.css');
 @import url('./sections/Contact/qr-codes.css');
 
 /* Import utility sections */
@@ -41,29 +41,39 @@
 @import url('./sections/Main_Form/visibility.css');
 @import url('./responsive.css');
 @import url('./sections/Contact/qr-responsive.css');
-@import url('./sections/Timeline/timeline-responsive.css');
 @import url('./sections/Main_Form/theme-toggle-responsive.css');
 
 /* Import theme styles with enhanced animations */
 @import url('./themes/light.css');
 @import url('./themes/dark.css');
 
-/* Prevent paragraph movement globally (allow hero subtitle animations) */
-p:not(.hero-subtitle), p:hover:not(.hero-subtitle) {
-    transition: none !important;
+/* Prevent paragraph layout shifts (allow hero subtitle animations & color transitions) */
+p:not(.hero-subtitle) {
+    transition: color var(--transition-normal), background-color var(--transition-normal) !important;
     animation: none !important;
     transform: none !important;
 }
 
-/* Global Enhanced Animation System */
-* {
-    transition: transform var(--transition-fast), 
-                opacity var(--transition-normal), 
+/* Targeted transitions — only interactive & visual elements */
+.btn, .nav-link, .card, .project-card, .skill-card, .certificate-card,
+.experience-card, .contact-item, .stat-item, .profile-card,
+.contact-details a, .social-link, .vtl-card, .vtl-dot, .vtl-connector,
+.theme-toggle, .mobile-menu-toggle span, .card-icon, .feature-item,
+.back-to-top, .notification, .exp-tag, .vtl-now-badge {
+    transition: transform var(--transition-fast),
+                opacity var(--transition-normal),
                 box-shadow var(--transition-normal),
                 background-color var(--transition-normal),
                 color var(--transition-normal),
                 border-color var(--transition-normal),
                 filter var(--transition-normal);
+}
+
+/* Allow color transitions on all elements for smooth theme switching */
+* {
+    transition: color var(--transition-normal),
+                background-color var(--transition-normal),
+                border-color var(--transition-normal);
 }
 
 /* Enhanced Performance Optimizations */
@@ -135,13 +145,11 @@ body.theme-transitioning {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     transition: all var(--transition-slower) var(--ease-smooth);
-    filter: blur(2px);
 }
 
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0);
 }
 
 /* Staggered Animation Support */

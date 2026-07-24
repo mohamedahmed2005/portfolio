@@ -4,53 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Ahmed - Portfolio</title>
+    <title>Mohamed Ahmed - Backend Developer Portfolio</title>
+    <meta name="description" content="Mohamed Ahmed - Backend Developer specializing in ASP.NET Core & Spring Boot. Junior IS Student at Cairo University. View my projects, skills, and experience.">
+    <meta name="keywords" content="Mohamed Ahmed, Backend Developer, ASP.NET Core, Spring Boot, Java, C#, SQL, Portfolio, Cairo University">
+    <meta name="author" content="Mohamed Ahmed">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mohamed Ahmed - Backend Developer">
+    <meta property="og:description" content="Backend Developer specializing in ASP.NET Core & Spring Boot. Currently interning at Innovera.">
+    <meta property="og:image" content="assets/my-image.jpg">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/my icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/my icon.png">
-    <link rel="apple-touch-icon" href="assets/my icon.png">
-    <link rel="icon" sizes="16x16" href="assets/my icon.png">
-    <link rel="icon" sizes="32x32" href="assets/my icon.png">
-    <meta name="msapplication-TileImage" content="assets/my icon.png">
+    <link rel="icon" type="image/x-icon" href="assets/my-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/my-icon.png">
+    <link rel="apple-touch-icon" href="assets/my-icon.png">
 
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="theme-light" data-theme="light">
-
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">MA</span>
+                <a href="index.html" style="text-decoration:none;"><span class="logo-text">MA</span></a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#certificates" class="nav-link">Certificates</a>
-                <a href="#timeline" class="nav-link">Timeline</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="index.html#home" class="nav-link active">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="pages/projects.html" class="nav-link">Projects</a>
+                <a href="pages/skills.html" class="nav-link">Skills</a>
+                <a href="pages/certificates.html" class="nav-link">Certificates</a>
+                <a href="pages/experience.html" class="nav-link">Experience</a>
+                <a href="pages/contact.html" class="nav-link">Contact</a>
             </div>
             <div class="nav-controls">
-                <a href="https://drive.google.com/file/d/1Ib2q4ZGviIAUmMkozBEQGSlZfT46RSrK/view?usp=sharing" target="_blank" class="btn btn-outline btn-sm" id="cv-nav-btn"
-                    rel="noopener">
+                <a href="https://drive.google.com/file/d/1Ib2q4ZGviIAUmMkozBEQGSlZfT46RSrK/view?usp=sharing" target="_blank" class="btn btn-outline btn-sm" id="cv-nav-btn" rel="noopener">
                     <i class="fas fa-file-download"></i>
                     <span>Download CV</span>
                 </a>
-                <button class="theme-toggle" id="theme-toggle">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-sun"></i>
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -61,7 +65,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Home Section -->
+        <!-- Home / Hero Section -->
         <section id="home" class="section home-section">
             <div class="container">
                 <div class="hero-content">
@@ -71,14 +75,13 @@
                             <span class="name">Mohamed Ahmed</span>
                         </h1>
                         <p class="hero-subtitle">
-                            Backend Developer | ASP.NET Core Expert<br>
-                            Clean Architecture Advocate | SQL Performance Tuning
+                            Backend Developer | Spring Boot &amp; ASP.NET Core<br>
+                            Backend Intern @ Innovera | Clean Architecture Advocate
                         </p>
                         <div class="hero-buttons">
-                            <a href="#projects" class="btn btn-primary">View My Work</a>
-                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                            <a href="https://drive.google.com/file/d/1Ib2q4ZGviIAUmMkozBEQGSlZfT46RSrK/view?usp=sharing" target="_blank" class="btn btn-outline" id="cv-hero-btn"
-                                rel="noopener">
+                            <a href="pages/projects.html" class="btn btn-primary"><i class="fas fa-code"></i> View My Work</a>
+                            <a href="pages/contact.html" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                            <a href="https://drive.google.com/file/d/1Ib2q4ZGviIAUmMkozBEQGSlZfT46RSrK/view?usp=sharing" target="_blank" class="btn btn-outline" id="cv-hero-btn" rel="noopener">
                                 <i class="fas fa-file-download"></i> Download CV
                             </a>
                         </div>
@@ -86,7 +89,7 @@
                     <div class="hero-image">
                         <div class="profile-card">
                             <div class="profile-avatar">
-                                <img src="assets/my image.jpg" alt="Mohamed Ahmed" class="profile-image">
+                                <img src="assets/my-image.jpg" alt="Mohamed Ahmed" class="profile-image">
                             </div>
                             <div class="profile-info">
                                 <h3>Mohamed Ahmed</h3>
@@ -94,19 +97,11 @@
                             <div class="compact-content">
                                 <div class="info-item">
                                     <i class="fas fa-university"></i>
-                                    <span>Junior IS Student</span>
+                                    <span>Junior IS Student @ FCAI-CU</span>
                                 </div>
                                 <div class="info-item">
                                     <i class="fas fa-server"></i>
-                                    <span>Backend Developer</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-database"></i>
-                                    <span>Database Engineer</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-laptop-code"></i>
-                                    <span>Competitive Programmer</span>
+                                    <span>Backend Developer Intern @ Innovera</span>
                                 </div>
                             </div>
                         </div>
@@ -115,905 +110,251 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section Overview -->
         <section id="about" class="section about-section">
             <div class="container">
                 <div class="section-header fade-in">
                     <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Get to know me better</p>
+                    <p class="section-subtitle">Passionate backend developer with a strong foundation in computer science and software engineering</p>
                 </div>
                 <div class="about-content">
                     <div class="about-text">
-                        <ul style="list-style-type: none; padding: 0; margin-bottom: 20px; line-height: 1.8;">
-                            <li style="margin-bottom: 10px;"><i class="fas fa-graduation-cap" style="color: var(--primary-color); width: 25px;"></i> <strong>Junior IS Student</strong> at the Faculty of Computers and AI, Cairo University.</li>
-                            <li style="margin-bottom: 10px;"><i class="fas fa-server" style="color: var(--primary-color); width: 25px;"></i> <strong>Backend Developer</strong> specializing in building scalable systems with <strong>ASP.NET Core</strong>.</li>
-                            <li style="margin-bottom: 10px;"><i class="fas fa-database" style="color: var(--primary-color); width: 25px;"></i> Deeply interested in <strong>Database Engineering</strong>, Query Optimization, and ETL processes (SSIS).</li>
-                            <li style="margin-bottom: 10px;"><i class="fas fa-code" style="color: var(--primary-color); width: 25px;"></i> <strong>Competitive Programmer</strong> active on Codeforces and LeetCode.</li>
-                            <li style="margin-bottom: 10px;"><i class="fas fa-layer-group" style="color: var(--primary-color); width: 25px;"></i> Currently focused on refining <strong>Clean Architecture</strong> patterns in enterprise-level applications.</li>
+                        <p>I am a Junior Information Systems student at the <strong>Faculty of Computers and Artificial Intelligence, Cairo University (FCAI-CU)</strong>. I specialize in backend software development with a passion for designing scalable APIs and robust database systems.</p>
+                        <ul class="about-highlights" style="list-style: none; padding: 0; margin: 1.5rem 0;">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-briefcase" style="color: var(--accent-primary); width: 25px;"></i> Currently working as a <strong>Backend Developer Intern @ Innovera</strong>, building production APIs with <strong>Spring Boot &amp; Java</strong>.</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-certificate" style="color: var(--accent-primary); width: 25px;"></i> State Certified in <strong>Full Stack Web Development</strong> by the Ministry of Communications &amp; IT (DEPI Initiative).</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-layer-group" style="color: var(--accent-primary); width: 25px;"></i> Deeply focused on <strong>Clean Architecture</strong>, SOLID principles, and database performance optimization.</li>
                         </ul>
                     </div>
-                    <div class="about-stats" data-counter-config='{"projects": 5, "certificates": 5, "experience": 2}'>
+                    <div class="about-stats" data-counter-config='{"projects": 5, "certificates": 5, "experience": 1}'>
                         <div class="stat-item">
                             <div class="stat-number" data-counter="projects" data-suffix="+">0+</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" data-counter="certificates" data-suffix="">0</div>
-                            <div class="stat-label">Certificates Earned</div>
+                            <div class="stat-number" data-counter="certificates" data-suffix="+">0+</div>
+                            <div class="stat-label">Certifications</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number" data-counter="experience" data-suffix="+">0+</div>
-                            <div class="stat-label">Years Experience</div>
+                            <div class="stat-label">Years Coding</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section projects-section">
+        <!-- Featured Projects Showcase -->
+        <section class="section projects-preview-section" style="background: var(--bg-secondary); padding: 4rem 0;">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">My Projects</h2>
-                    <p class="section-subtitle">Some of my recent work</p>
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">A glimpse of my software engineering &amp; backend applications</p>
                 </div>
                 <div class="projects-grid">
-                    <!-- Photoshop GUI Demo Project -->
+                    <!-- Project 1: Online Library -->
                     <div class="project-card">
-                        <div class="ag-courses-item_bg"></div>
                         <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-desktop"></i>
-                                <span>Desktop App</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Photoshop GUI Demo</h3>
-                            <p class="card-description">A desktop application demonstrating Photoshop-like GUI
-                                functionality built with C++ and modern UI frameworks, showcasing image manipulation
-                                capabilities and user interface design.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Image Manipulation</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Modern UI</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>C++ Development</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/mohamedahmed2005/Demo_photoshop-GUI" target="_blank"
-                                    class="btn btn-outline">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Task Manager Project -->
-                    <div class="project-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-tasks"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-desktop"></i>
-                                <span>Desktop App</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Task Manager</h3>
-                            <p class="card-description">A comprehensive task management application with intuitive
-                                interface for organizing, tracking, and managing daily tasks and projects efficiently.
-                            </p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Task Organization</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Progress Tracking</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>User-Friendly</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/mohamedahmed2005/Demo-Task-Manager" target="_blank"
-                                    class="btn btn-outline">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- OOP Board Games Project -->
-                    <div class="project-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-chess"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-code"></i>
-                                <span>OOP</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">OOP Board Games</h3>
-                            <p class="card-description">Object-Oriented Programming implementation of classic board
-                                games demonstrating advanced programming concepts, design patterns, and software
-                                architecture principles.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Design Patterns</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>OOP Principles</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Game Logic</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/mohamedahmed2005/Assignment2_OOP_Board_Games"
-                                    target="_blank" class="btn btn-outline">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Online Library Website Project -->
-                    <div class="project-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-globe"></i>
-                                <span>Web App</span>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-book"></i></div>
+                            <div class="card-badge"><i class="fas fa-globe"></i><span>Web App</span></div>
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Online Library Website</h3>
-                            <p class="card-description">A full-stack web application for managing library resources,
-                                books, and user accounts with modern web technologies and responsive design.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Full-Stack</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>User Management</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Responsive Design</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Amr-Khaled-Ahmed/Online-Library-website" target="_blank"
-                                    class="btn btn-outline">
+                            <p class="card-description">Full-stack web application for managing library resources, user authentication, and book catalogs built with responsive design.</p>
+                            <div class="card-links" style="margin-top: 1rem;">
+                                <a href="https://github.com/Amr-Khaled-Ahmed/Online-Library-website" target="_blank" class="btn btn-outline" rel="noopener">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Portfolio Website Project -->
+                    <!-- Project 2: Photoshop GUI -->
                     <div class="project-card">
-                        <div class="ag-courses-item_bg"></div>
                         <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-globe"></i>
-                                <span>Portfolio</span>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+                            <div class="card-badge"><i class="fas fa-desktop"></i><span>Desktop App</span></div>
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">Professional Portfolio</h3>
-                            <p class="card-description">A modern, responsive portfolio website showcasing my skills,
-                                projects, and achievements. Built with HTML5, CSS3, and JavaScript featuring smooth
-                                animations, dark/light theme, and interactive elements.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Responsive Design</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Interactive Animations</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Dark/Light Theme</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Contact Form</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/mohamedahmed2005/portfolio" target="_blank"
-                                    class="btn btn-outline">
+                            <h3 class="card-title">Photoshop GUI Demo</h3>
+                            <p class="card-description">C++ desktop application demonstrating image manipulation algorithms and Photoshop-like graphical interface design.</p>
+                            <div class="card-links" style="margin-top: 1rem;">
+                                <a href="https://github.com/mohamedahmed2005/Demo_photoshop-GUI" target="_blank" class="btn btn-outline" rel="noopener">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Project 3: Task Manager -->
+                    <div class="project-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                            <div class="card-badge"><i class="fas fa-desktop"></i><span>Desktop App</span></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Task Manager</h3>
+                            <p class="card-description">Desktop task management software for organizing daily task queues, tracking progress, and managing personal projects.</p>
+                            <div class="card-links" style="margin-top: 1rem;">
+                                <a href="https://github.com/mohamedahmed2005/Demo-Task-Manager" target="_blank" class="btn btn-outline" rel="noopener">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Banner -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="pages/projects.html" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                        <i class="fas fa-th-large"></i> Explore All Projects (5+)
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section skills-section">
+        <!-- Core Skills Showcase -->
+        <section class="section skills-preview-section" style="padding: 4rem 0;">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Skills & Technologies</h2>
-                    <p class="section-subtitle">What I'm proficient in</p>
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Technical Stack</h2>
+                    <p class="section-subtitle">Technologies and frameworks I use to build robust software</p>
                 </div>
                 <div class="skills-grid">
-                    <!-- .NET -->
+                    <!-- Skill 1: Spring Boot -->
                     <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fab fa-java"></i></div>
+                            <div class="card-badge"><i class="fas fa-leaf"></i><span>Innovera Stack</span></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Spring Boot &amp; Java</h3>
+                            <p class="card-description">Building production RESTful microservices, JPA persistence layers, and security integrations in corporate internship.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: .NET -->
+                    <div class="skill-card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fab fa-microsoft"></i></div>
                             <div class="card-badge"><i class="fas fa-server"></i><span>Framework</span></div>
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">.NET & ASP.NET Core</h3>
-                            <p class="card-description">Building scalable enterprise systems, RESTful APIs, and robust backend applications.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Clean Architecture</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Web APIs</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Scalable Systems</span></div>
-                            </div>
+                            <h3 class="card-title">.NET &amp; ASP.NET Core</h3>
+                            <p class="card-description">Enterprise Web APIs, Clean Architecture design patterns, C# LINQ, and SQL integration.</p>
                         </div>
                     </div>
 
-                    <!-- C# -->
+                    <!-- Skill 3: SQL -->
                     <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-database"></i></div>
+                            <div class="card-badge"><i class="fas fa-database"></i><span>Databases</span></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">MS SQL Server &amp; MySQL</h3>
+                            <p class="card-description">Relational database design, T-SQL query optimization, stored procedures, and SSIS ETL pipelines.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: C++ -->
+                    <div class="skill-card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-code"></i></div>
                             <div class="card-badge"><i class="fas fa-laptop-code"></i><span>Language</span></div>
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">C#</h3>
-                            <p class="card-description">Object-oriented programming, modern language features, and enterprise-level application logic.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>OOP Principles</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>LINQ</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Design Patterns</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MS SQL Server -->
-                    <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-database"></i></div>
-                            <div class="card-badge"><i class="fas fa-database"></i><span>Database</span></div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">MS SQL Server</h3>
-                            <p class="card-description">Database design, complex queries, performance tuning, and ETL processes (SSIS).</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Query Optimization</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>SSIS (ETL)</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>T-SQL</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MySQL -->
-                    <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-database"></i></div>
-                            <div class="card-badge"><i class="fas fa-database"></i><span>Database</span></div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">MySQL</h3>
-                            <p class="card-description">Relational database management, schema design, and data integrity for web applications.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Schema Design</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Optimization</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Data Integrity</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Python -->
-                    <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fab fa-python"></i></div>
-                            <div class="card-badge"><i class="fas fa-code"></i><span>Language</span></div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Python</h3>
-                            <p class="card-description">Scripting, data analysis, and automation for problem-solving and rapid development.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Data Structures</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Algorithms</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Scripting</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- C++ -->
-                    <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-code"></i></div>
-                            <div class="card-badge"><i class="fas fa-laptop-code"></i><span>Language</span></div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">C++</h3>
-                            <p class="card-description">High-performance programming, problem solving, and competitive programming solutions.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Competitive Programming</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Memory Management</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Algorithms</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Git -->
-                    <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fab fa-git-alt"></i></div>
-                            <div class="card-badge"><i class="fas fa-code-branch"></i><span>Version Control</span></div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Git & GitHub</h3>
-                            <p class="card-description">Version control, team collaboration, and maintaining clean commit histories.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Version Control</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Branching</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Collaboration</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tools (Visual Studio, VS Code, Postman) -->
-                    <div class="skill-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-tools"></i></div>
-                            <div class="card-badge"><i class="fas fa-wrench"></i><span>Tools</span></div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Development Tools</h3>
-                            <p class="card-description">Proficient in modern IDEs and API testing tools to streamline the development workflow.</p>
-                            <div class="card-features">
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Visual Studio</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>VS Code</span></div>
-                                <div class="feature-item"><i class="fas fa-check"></i><span>Postman</span></div>
-                            </div>
+                            <h3 class="card-title">C++ &amp; Problem Solving</h3>
+                            <p class="card-description">Data structures, memory management, STL algorithms, and competitive programming logic.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- CTA Banner -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="pages/skills.html" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                        <i class="fas fa-laptop-code"></i> View Full Skill Matrix
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <!-- Certificates Section -->
-        <section id="certificates" class="section certificates-section">
+        <!-- Certifications Highlight -->
+        <section class="section certificates-preview-section" style="background: var(--bg-secondary); padding: 4rem 0;">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Certificates & Achievements</h2>
-                    <p class="section-subtitle">My professional certifications</p>
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Certifications Highlight</h2>
+                    <p class="section-subtitle">Verified state and industry credentials</p>
                 </div>
                 <div class="certificates-grid">
-                    <div class="certificate-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Verified</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">SQL (Basic)</h3>
-                            <p class="card-provider">HackerRank</p>
-                            <p class="card-description">Core SQL fundamentals.</p>
-                            <p class="card-description">Simple queries and relationships.</p>
-                            <p class="card-description">Aggregations and filtering.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Database Queries</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Relationships</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Aggregators</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://www.hackerrank.com/certificates/iframe/7185eaa54406" target="_blank"
-                                    class="btn btn-outline">
-                                    <i class="fas fa-external-link-alt"></i> View Certificate
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Verified</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Software Engineer</h3>
-                            <p class="card-provider">HackerRank</p>
-                            <p class="card-description">Problem‑solving and algorithms.</p>
-                            <p class="card-description">REST API design basics.</p>
-                            <p class="card-description">Practical engineering skills.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Problem Solving</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>REST API</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Software Engineering</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://www.hackerrank.com/certificates/iframe/2f34867e062a" target="_blank"
-                                    class="btn btn-outline">
-                                    <i class="fas fa-external-link-alt"></i> View Certificate
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Verified</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">SQL (Intermediate)</h3>
-                            <p class="card-provider">HackerRank</p>
-                            <p class="card-description">Advanced SQL topics.</p>
-                            <p class="card-description">Complex joins and unions.</p>
-                            <p class="card-description">Sub‑queries and analysis.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Complex Joins</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Unions</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Sub-queries</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://www.hackerrank.com/certificates/iframe/fd292ecd3f54" target="_blank"
-                                    class="btn btn-outline">
-                                    <i class="fas fa-external-link-alt"></i> View Certificate
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <div class="ag-courses-item_bg"></div>
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fab fa-css3-alt"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Verified</span>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">CSS (Basic)</h3>
-                            <p class="card-provider">HackerRank</p>
-                            <p class="card-description">CSS fundamentals.</p>
-                            <p class="card-description">Cascading and inheritance.</p>
-                            <p class="card-description">Responsive layout basics.</p>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Cascading</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Inheritance</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Responsive Layouts</span>
-                                </div>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://www.hackerrank.com/certificates/iframe/58a4c72d086f" target="_blank"
-                                    class="btn btn-outline">
-                                    <i class="fas fa-external-link-alt"></i> View Certificate
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="certificate-card">
-                        <div class="ag-courses-item_bg"></div>
-
-                        <!-- Card Header -->
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="card-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Verified</span>
-                            </div>
-                        </div>
-
-                        <!-- Card Content -->
-                        <div class="card-content">
-                            <h3 class="card-title">Front-End Track</h3>
-                            <p class="card-provider">Google Developer Groups (GDG) on Campus</p>
-                            <p class="card-provider">Damanhour University</p>
-
-                            <p class="card-description">60 hours of intensive learning.</p>
-                            <p class="card-description">Practical application in web technologies.</p>
-                            <p class="card-description">Completion: 2024 – 2025</p>
-
-                            <!-- Features -->
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Front-End Development</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Modern Web Technologies</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Hands-on Projects</span>
-                                </div>
-                            </div>
-
-                            <!-- Links -->
-                            <div class="card-links">
-                                <a href="assets/my_certificate.pdf" target="_blank" class="btn btn-outline">
-                                    <i class="fas fa-external-link-alt"></i> View Certificate
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DEPI Full Stack Development Certificate -->
+                    <!-- DEPI Gold Card -->
                     <div class="certificate-card certificate-card--depi">
-                        <div class="ag-courses-item_bg"></div>
                         <div class="depi-ribbon"><span>DEPI</span></div>
-
-                        <!-- Card Header -->
                         <div class="card-header">
-                            <div class="card-icon depi-icon">
-                                <i class="fas fa-layer-group"></i>
-                            </div>
-                            <div class="card-badge depi-badge">
-                                <i class="fas fa-medal"></i>
-                                <span>Official</span>
-                            </div>
+                            <div class="card-icon depi-icon"><i class="fas fa-layer-group"></i></div>
+                            <div class="card-badge depi-badge"><i class="fas fa-medal"></i><span>State Certified</span></div>
                         </div>
-
-                        <!-- Card Content -->
                         <div class="card-content">
                             <h3 class="card-title">Full Stack Web Development</h3>
-                            <p class="card-provider depi-provider">Digital Egypt Pioneers Initiative (DEPI)</p>
-                            <p class="card-provider depi-provider">Ministry of Communications &amp; IT — Egypt</p>
-
-                            <p class="card-description">Intensive full-stack development training.</p>
-                            <p class="card-description">Built real-world web apps with modern stack.</p>
-                            <p class="card-description">Completion: December 2025</p>
-
-                            <!-- Features -->
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>ASP.NET Core &amp; C#</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>React &amp; Modern Frontend</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check"></i>
-                                    <span>Database Design &amp; APIs</span>
-                                </div>
-                            </div>
-
-                            <!-- Links -->
-                            <div class="card-links">
-                                <a href="assets/Mohamed Ahmed Mohamed.pdf" target="_blank"
-                                    class="btn btn-outline depi-btn">
-                                    <i class="fas fa-external-link-alt"></i> View Certificate
-                                </a>
-                            </div>
+                            <p class="card-provider depi-provider">Digital Egypt Pioneers Initiative (DEPI) — Ministry of Communications &amp; IT</p>
+                            <p class="card-description">Intensive state-sponsored training in full stack engineering with ASP.NET Core &amp; React.</p>
                         </div>
                     </div>
+                </div>
 
+                <!-- CTA Banner -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="pages/certificates.html" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                        <i class="fas fa-certificate"></i> View All Certifications (5)
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Timeline Section -->
-        <section id="timeline" class="section timeline-section">
+        <!-- Experience & Journey Teaser -->
+        <section class="section experience-preview-section" style="padding: 4rem 0;">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">My Journey</h2>
-                    <p class="section-subtitle">Interactive timeline of my education and professional experience</p>
+                    <h2 class="section-title">Experience &amp; Career Journey</h2>
+                    <p class="section-subtitle">Active corporate internship and key milestones</p>
                 </div>
 
-                <!-- Circular Timeline Component -->
-                <div class="cards-container">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-
-                    <ul class="cards" style="--items: 7;">
-                        <li style="--i: 0;">
-                            <input type="radio" id="item-0" name="gallery-item" checked>
-                            <label for="item-0">9/2023</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-university"></i></div>
-                                <h3>Started University</h3>
-                                <p>B.Sc. Computer Science at FCAI‑CU.</p>
-                                <p>Focus: AI & software engineering.</p>
+                <div class="experience-list">
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-icon"><i class="fas fa-building"></i></div>
+                            <div class="exp-title-block">
+                                <h3 class="exp-role">Backend Developer Intern</h3>
+                                <p class="exp-company">Innovera</p>
                             </div>
-                        </li>
-
-                        <li style="--i: 1;">
-                            <input type="radio" id="item-1" name="gallery-item">
-                            <label for="item-1">3/2024</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-certificate"></i></div>
-                                <h3>First Certifications</h3>
-                                <p>Completed HackerRank certifications.</p>
-                                <p>• SQL (Basic) — fundamentals</p>
-                                <p>• CSS (Basic) — responsive layouts</p>
+                            <div class="exp-meta">
+                                <span class="exp-badge exp-badge--current"><i class="fas fa-circle"></i> Currently Working</span>
+                                <span class="exp-date"><i class="fas fa-calendar-alt"></i> July 2026 – Present</span>
                             </div>
-                        </li>
+                        </div>
+                        <div class="exp-body">
+                            <p class="exp-description">Building production REST APIs with Spring Boot and Java. Collaborating on enterprise applications.</p>
+                        </div>
+                    </div>
+                </div>
 
-                        <li style="--i: 2;">
-                            <input type="radio" id="item-2" name="gallery-item">
-                            <label for="item-2">6/2024</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-award"></i></div>
-                                <h3>Advanced Certifications</h3>
-                                <p>Deepened skills in databases & engineering.</p>
-                                <p>• SQL (Intermediate) — joins & sub-queries</p>
-                                <p>• Software Engineering — REST APIs</p>
-                            </div>
-                        </li>
-
-                        <li style="--i: 3;">
-                            <input type="radio" id="item-3" name="gallery-item">
-                            <label for="item-3">8/2024</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-code"></i></div>
-                                <h3>Project Development</h3>
-                                <p>Built Online Library (full‑stack).</p>
-                                <p>Other projects: Photoshop GUI, Task Manager, OOP games.</p>
-                            </div>
-                        </li>
-
-                        <li style="--i: 4;">
-                            <input type="radio" id="item-4" name="gallery-item">
-                            <label for="item-4">6/2025</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-briefcase"></i></div>
-                                <h3>DEPI Training</h3>
-                                <p>Joined as Full‑Stack Trainee.</p>
-                                <p>Worked on modern web projects with team collaboration.</p>
-                            </div>
-                        </li>
-
-                        <li style="--i: 5;">
-                            <input type="radio" id="item-5" name="gallery-item">
-                            <label for="item-5">2/2026</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-medal"></i></div>
-                                <h3>DEPI Certificate</h3>
-                                <p>Earned Full Stack Web Development certificate.</p>
-                                <p>Ministry of Communications &amp; IT — Egypt.</p>
-                            </div>
-                        </li>
-
-                        <li style="--i: 6;">
-                            <input type="radio" id="item-6" name="gallery-item">
-                            <label for="item-6">7/2027</label>
-                            <div class="connecting-line"></div>
-                            <div class="center-card-content">
-                                <div class="center-card-icon"><i class="fas fa-rocket"></i></div>
-                                <h3>Future Goals</h3>
-                                <p>Graduate FCAI‑CU (B.Sc. CS).</p>
-                                <p>Pursue software &amp; AI roles.</p>
-                                <p>Create impactful products.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <!-- CTA Banner -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="pages/experience.html" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                        <i class="fas fa-stream"></i> View Full Journey &amp; Timeline
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
+        <!-- Contact Call To Action Banner -->
+        <section class="section contact-cta-section" style="background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); padding: 4rem 0; color: #fff; text-align: center;">
             <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's work together and create something amazing</p>
-                </div>
-
-
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-info-header">
-                            <h3>Contact Information</h3>
-                            <p>Feel free to reach out through any of these channels</p>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Email</h3>
-                                <a href="https://mail.google.com/mail/?view=cm&to=ahmd.mohamed200515@gmail.com"
-                                    target="_blank" rel="noopener" class="contact-link">Send me an email</a>
-                                <img src="assets/Gmail.png" alt="Email QR Code" class="qr-image">
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>LinkedIn</h3>
-                                <a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank"
-                                    rel="noopener" class="contact-link btn btn-outline btn-sm"
-                                    style="margin-top:6px; display:inline-block; width:max-content;">View my LinkedIn
-                                    account</a>
-                                <img src="assets/linkedin.png" alt="LinkedIn QR Code" class="qr-image">
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>GitHub</h3>
-                                <a href="https://github.com/mohamedahmed2005" target="_blank" rel="noopener"
-                                    class="contact-link">View my Github</a>
-                                <img src="assets/github.png" alt="GitHub QR Code" class="qr-image">
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Codeforces</h3>
-                                <a href="https://codeforces.com/profile/hamood_ahmed" target="_blank" rel="noopener"
-                                    class="contact-link">View my Codeforces</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>LeetCode</h3>
-                                <a href="https://leetcode.com/mohamedahmed2005" target="_blank" rel="noopener"
-                                    class="contact-link">View my LeetCode</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Location</h3>
-                                <p>Cairo, Egypt</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <div class="form-header">
-                            <h3>Send me a message</h3>
-                            <p>I'll get back to you within 24 hours</p>
-                        </div>
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="Enter your email address"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="What's this about?"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message"
-                                    placeholder="Tell me about your project or question..." rows="6"
-                                    required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
+                <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem; color: #ffffff;">Let's Build Something Together!</h2>
+                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; color: rgba(255,255,255,0.9);">Looking for a dedicated Backend Developer Intern or Junior Software Engineer? Feel free to reach out anytime!</p>
+                <a href="pages/contact.html" class="btn btn-outline" style="background: #ffffff; color: var(--accent-primary); border-color: #ffffff; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 700;">
+                    <i class="fas fa-paper-plane"></i> Get In Touch / Send Message
+                </a>
             </div>
         </section>
     </main>
@@ -1024,88 +365,38 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Mohamed Ahmed</h3>
-                    <p>Backend Developer & ASP.NET Core Expert</p>
+                    <p>Backend Developer specializing in Spring Boot &amp; ASP.NET Core. Currently interning at Innovera.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="pages/projects.html">Projects</a></li>
+                        <li><a href="pages/skills.html">Skills</a></li>
+                        <li><a href="pages/certificates.html">Certificates</a></li>
+                        <li><a href="pages/experience.html">Experience</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Connect</h3>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="mailto:ahmd.mohamed200515@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                        <a href="https://github.com/mohamedahmed2005" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://codeforces.com/profile/hamood_ahmed" target="_blank"><i class="fas fa-code"></i></a>
-                        <a href="https://leetcode.com/mohamedahmed2005" target="_blank"><i class="fas fa-laptop-code"></i></a>
+                        <a href="https://github.com/mohamedahmed2005" target="_blank" aria-label="GitHub" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/mohamed-ahmed" target="_blank" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:mohamed.ahmed.backend@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Mohamed Ahmed. All rights reserved.</p>
+                <p>&copy; 2026 Mohamed Ahmed. Built with clean code &amp; modern design.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <!-- Scripts -->
-    <script src="scripts/email.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/themes.js"></script>
     <script src="scripts/counters.js"></script>
+    <script src="scripts/themes.js"></script>
     <script src="scripts/animations.js"></script>
-    <script src="scripts/timeline.js"></script>
-
-    <!-- Counter Management Utilities -->
-    <script>
-        // Utility functions for easy counter management
-        window.updateCounter = function (type, value) {
-            if (window.counterManager) {
-                window.counterManager.updateCounter(type, value);
-            }
-        };
-
-        window.incrementCounter = function (type, amount = 1) {
-            if (window.counterManager) {
-                window.counterManager.incrementCounter(type, amount);
-            }
-        };
-
-        window.reloadCounters = function () {
-            if (window.counterManager) {
-                window.counterManager.reloadCountersFromHTML();
-            }
-        };
-
-        window.autoCountFromHTML = function () {
-            if (window.counterManager) {
-                return window.counterManager.autoCountFromHTML();
-            }
-        };
-
-        window.triggerCounterAnimation = function () {
-            if (window.counterManager) {
-                window.counterManager.triggerCounterAnimation();
-            }
-        };
-
-        // Example usage:
-        // updateCounter('projects', 6);
-        // incrementCounter('certificates', 1);
-        // reloadCounters();
-        // autoCountFromHTML();
-        // triggerCounterAnimation();
-    </script>
+    <script src="scripts/main.js"></script>
 </body>
-
 </html>

@@ -209,22 +209,20 @@ class CounterManager {
         this.setupCounters();
     }
 
-    // Method to automatically count projects and certificates from HTML
+    // Method to automatically count projects and certificates from HTML if present and greater
     autoCountFromHTML() {
-        // Count actual project cards
         const projectCards = document.querySelectorAll('.projects-grid .project-card');
         const actualProjectCount = projectCards.length;
         
-        // Count actual certificate cards
         const certificateCards = document.querySelectorAll('.certificates-grid .certificate-card');
         const actualCertificateCount = certificateCards.length;
         
-        // Update counters if they differ from actual counts
-        if (this.counters.projects !== actualProjectCount) {
+        // Only increase count if actual cards on full page exceed configured target
+        if (actualProjectCount > (this.counters.projects || 0)) {
             this.counters.projects = actualProjectCount;
         }
         
-        if (this.counters.certificates !== actualCertificateCount) {
+        if (actualCertificateCount > (this.counters.certificates || 0)) {
             this.counters.certificates = actualCertificateCount;
         }
         
@@ -232,10 +230,11 @@ class CounterManager {
         this.updateHTMLCounterConfig();
         
         return {
-            projects: actualProjectCount,
-            certificates: actualCertificateCount
+            projects: this.counters.projects,
+            certificates: this.counters.certificates
         };
     }
+
 
 
     // Method to sync with portfolio data manager

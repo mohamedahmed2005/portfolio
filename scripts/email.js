@@ -1,99 +1,114 @@
-// EmailManager.js
-class EmailManager {
-    constructor() {
-        // Service and template IDs for EmailJS
-        this.userServiceId = 'service_fnot1h5';          // Service for user confirmation
-        this.userTemplateId = 'template_mprp551';        // Template for user confirmation
-        this.notificationServiceId = 'service_lr2aszf';  // Service for notification to you
-        this.notificationTemplateId = 'template_7oe7c6v'; // Template for notification to you (same template, different params)
+// Contact Form Handler — Vercel Serverless Function & Resend API Integration
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
 
-        this.myEmail = 'medozahmed2005@gmail.com';
-    }
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    // Generic email sender
-    async sendEmail(serviceId, templateId, params) {
-        try {
-            // Check if EmailJS is properly initialized
-            if (!emailjs || !emailjs.send) {
-                throw new Error('EmailJS is not properly initialized');
-            }
-            
-            const response = await emailjs.send(serviceId, templateId, params);
-            return { success: true, response };
-        } catch (error) {
-            return { success: false, error };
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnHTML = submitBtn ? submitBtn.innerHTML : 'Send Message';
+
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const subject = subjectInput ? subjectInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+
+        if (!name || !email || !message) {
+            showNotification('Please fill in all required fields.', 'error');
+            return;
         }
-    }
 
-    // Send confirmation email to user
-async sendUserConfirmation(name, email, subject, message) {
-    const templateParams = {
-        fullName: name,
-        user_email: email,
-        subject: subject,
-        message: message
-    };
-    return this.sendEmail(this.userServiceId, this.userTemplateId, templateParams);
-}
+        // Disable button & show loading state
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        }
 
-// Send notification email to yourself
-async sendNotificationToMe(name, email, subject, message) {
-    const templateParams = {
-        fullName: name,
-        user_email: email,
-        subject: subject,
-        message: message,
-        to_email: this.myEmail
-    };
-    return this.sendEmail(this.notificationServiceId, this.notificationTemplateId, templateParams);
-}
-
-    // Send both emails with timeout handling
-    async sendBothEmails(name, email, subject, message) {
         try {
-            // Send both emails in parallel for faster processing
-            const [userResult, notificationResult] = await Promise.allSettled([
-                this.sendUserConfirmation(name, email, subject, message),
-                this.sendNotificationToMe(name, email, subject, message)
-            ]);
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, subject, message })
+            });
 
-            const userSuccess = userResult.status === 'fulfilled' && userResult.value.success;
-            const notificationSuccess = notificationResult.status === 'fulfilled' && notificationResult.value.success;
+            const data = await response.json();
 
-            // If at least one email succeeds, consider it a success
-            if (userSuccess || notificationSuccess) {
-                return {
-                    success: true,
-                    userEmail: userSuccess ? userResult.value.response : null,
-                    notificationEmail: notificationSuccess ? notificationResult.value.response : null,
-                    message: 'Emails are being processed. Delivery may take a few minutes.'
-                };
+            if (response.ok && data.success) {
+                showNotification('Thank you! Your message has been sent successfully.', 'success');
+                contactForm.reset();
             } else {
-                throw new Error('Both emails failed to send');
+                console.warn('API Response Warning:', data);
+                showNotification(data.error || 'Failed to send message. Opening email client fallback...', 'warning');
+                setTimeout(() => {
+                    useMailtoFallback(name, email, subject, message);
+                }, 1500);
             }
         } catch (error) {
-            return { success: false, error };
+            console.error('Contact Form Error:', error);
+            showNotification('Connection error. Opening email client fallback...', 'error');
+            setTimeout(() => {
+                useMailtoFallback(name, email, subject, message);
+            }, 1500);
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+            }
         }
-    }
+    });
+});
 
-    // Test function to send only notification email
-    async testNotificationOnly(name, email, subject, message) {
-        return this.sendNotificationToMe(name, email, subject, message);
-    }
-
-    // Test function to send only user confirmation
-    async testUserConfirmationOnly(name, email, subject, message) {
-        return this.sendUserConfirmation(name, email, subject, message);
-    }
-
-    // Fallback using mailto
-    useMailtoFallback(name, email, subject, message) {
-        const emailSubject = encodeURIComponent(subject);
-        const emailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        window.location.href = `mailto:${this.myEmail}?subject=${emailSubject}&body=${emailBody}`;
-        return { success: true, method: 'mailto', message: 'EmailJS failed, using mailto fallback...' };
-    }
+// Fallback using mailto if local dev without Vercel Serverless or API key missing
+function useMailtoFallback(name, email, subject, message) {
+    const targetEmail = 'ahmd.mohamed200515@gmail.com';
+    const emailSubject = encodeURIComponent(subject || `Message from ${name}`);
+    const emailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:${targetEmail}?subject=${emailSubject}&body=${emailBody}`;
 }
 
-// Export for global usage
-window.EmailManager = EmailManager;
+// Global Notification Toast
+function showNotification(message, type = 'info') {
+    const existingToast = document.querySelector('.custom-toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = `custom-toast toast-${type}`;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#f59e0b'};
+        color: #ffffff;
+        padding: 14px 24px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        z-index: 9999;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: toastIn 0.3s ease-out forwards;
+    `;
+
+    const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle';
+    toast.innerHTML = `<i class="fas fa-${icon}"></i> <span>${message}</span>`;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 4500);
+}

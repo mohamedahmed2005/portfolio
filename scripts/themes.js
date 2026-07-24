@@ -9,19 +9,24 @@ class ThemeManager {
     }
 
     init() {
-        // Force reset to light theme on startup
-        try { localStorage.removeItem('portfolio-theme'); } catch (e) {}
-        this.currentTheme = 'light';
+        this.loadSavedTheme();
         this.applyTheme(this.currentTheme);
         this.setupThemeToggle();
     }
 
     loadSavedTheme() {
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        if (savedTheme && this.themes.includes(savedTheme)) {
-            this.currentTheme = savedTheme;
+        try {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            if (savedTheme && this.themes.includes(savedTheme)) {
+                this.currentTheme = savedTheme;
+            } else {
+                this.currentTheme = 'light';
+            }
+        } catch (e) {
+            this.currentTheme = 'light';
         }
     }
+
 
     setupThemeToggle() {
         if (this.themeToggle) {
@@ -72,10 +77,13 @@ class ThemeManager {
             existingThemeCSS.remove();
         }
 
+        const isInsidePagesDir = window.location.pathname.includes('/pages/') || window.location.pathname.includes('\\pages\\');
+        const basePath = isInsidePagesDir ? '../styles/themes/' : 'styles/themes/';
+
         // Create new link element for theme CSS
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = `styles/themes/${theme}.css`;
+        link.href = `${basePath}${theme}.css`;
         link.id = `theme-${theme}-css`;
         
         // Add to head
@@ -83,9 +91,8 @@ class ThemeManager {
         
         // Mark as loaded
         this.loadedThemes.add(theme);
-        
-        
     }
+
 
     updateThemeToggle() {
         // No inline style updates; CSS handles icon states via body theme classes

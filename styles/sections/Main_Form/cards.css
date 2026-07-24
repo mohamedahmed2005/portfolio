@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
+    color: #ffffff !important;
     font-size: 1.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -92,10 +92,6 @@
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .card-provider {
@@ -110,8 +106,13 @@
 .card-description {
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     flex: 1;
+}
+
+/* Last description in a card gets more breathing room before features */
+.card-description:last-of-type {
+    margin-bottom: 1rem;
 }
 
 /* Card Features */
@@ -127,14 +128,15 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-secondary, rgba(0,0,0,0.04));
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-light);
     transition: all 0.3s ease;
 }
 
 .feature-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(37, 99, 235, 0.08);
+    border-color: var(--accent-primary);
     transform: none;
 }
 
@@ -146,7 +148,7 @@
 }
 
 .feature-item span {
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
     font-size: 0.875rem;
     font-weight: 500;
 }
@@ -195,7 +197,7 @@
 
 .btn-outline:hover {
     background: var(--accent-primary);
-    color: var(--text-primary);
+    color: #ffffff !important;
     transform: none;
     box-shadow: none;
 }

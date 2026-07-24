@@ -155,9 +155,10 @@
     font-weight: 600;
 }
 
-.theme-light p, 
-.theme-light span, 
-.theme-light div {
+.theme-light .section > .container,
+.theme-light .section-header p,
+.theme-light .about-text li,
+.theme-light .about-text p {
     color: var(--text-body);
 }
 
@@ -304,3 +305,59 @@
 .theme-light .footer-bottom {
     color: var(--text-muted);
 }
+
+/* ===== Light theme: Experience Section ===== */
+.theme-light .experience-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+.theme-light .experience-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+}
+
+.theme-light .exp-role {
+    color: var(--text-heading);
+}
+
+.theme-light .exp-description {
+    color: var(--text-secondary);
+}
+
+.theme-light .exp-date {
+    color: var(--text-muted);
+}
+
+/* ===== Both themes: ensure card-description is readable ===== */
+.card-description {
+    color: var(--text-secondary) !important;
+}
+
+/* ===== Both themes: card-badge text always readable ===== */
+.card-badge {
+    color: var(--text-primary) !important;
+}
+
+/* ===== Light theme icon contrast enhancements ===== */
+.theme-light .feature-item i {
+    color: var(--accent-primary) !important;
+}
+
+.theme-light .card-badge i {
+    color: var(--accent-primary) !important;
+}
+
+.theme-light .contact-icon {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.theme-light .social-links a {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.theme-light .btn i {
+    color: inherit;
+}

@@ -1,0 +1,255 @@
+/* Clean Vertical Timeline Styles */
+
+:root {
+  --vtl-line-color: var(--accent-primary);
+}
+
+.timeline-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.vtl-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 1.5rem 0;
+}
+
+/* The centered vertical line */
+.vtl-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--accent-primary);
+  opacity: 0.3;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.vtl-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.vtl-left {
+  left: 0;
+  text-align: right;
+  transform: translateX(-16px);
+}
+
+.vtl-right {
+  left: 50%;
+  text-align: left;
+  transform: translateX(16px);
+}
+
+.vtl-item.vtl-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered animation delays */
+.vtl-item:nth-child(1) { transition-delay: 0s; }
+.vtl-item:nth-child(2) { transition-delay: 0.05s; }
+.vtl-item:nth-child(3) { transition-delay: 0.1s; }
+.vtl-item:nth-child(4) { transition-delay: 0.15s; }
+.vtl-item:nth-child(5) { transition-delay: 0.2s; }
+.vtl-item:nth-child(6) { transition-delay: 0.25s; }
+.vtl-item:nth-child(7) { transition-delay: 0.3s; }
+.vtl-item:nth-child(8) { transition-delay: 0.35s; }
+
+/* Dot on the timeline */
+.vtl-dot {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--bg-primary);
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.vtl-left .vtl-dot {
+  right: -6px;
+}
+
+.vtl-right .vtl-dot {
+  left: -6px;
+}
+
+/* Horizontal Connector */
+.vtl-connector {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  background-color: var(--border-color, #e2e8f0);
+  z-index: 1;
+  width: 2rem;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease;
+}
+
+.vtl-left .vtl-connector {
+  right: 0;
+}
+
+.vtl-right .vtl-connector {
+  left: 0;
+}
+
+/* The Card */
+.vtl-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.vtl-item:hover .vtl-card {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.vtl-item:hover .vtl-connector {
+  background-color: var(--accent-primary);
+}
+
+/* Date Pill */
+.vtl-date {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: var(--accent-primary);
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Icon */
+.vtl-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.vtl-left .vtl-icon {
+  margin-left: auto;
+}
+
+.vtl-right .vtl-icon {
+  margin-right: auto;
+}
+
+/* Title and Description */
+.vtl-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.vtl-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Current active milestone styling */
+.vtl-current .vtl-dot {
+  background-color: #22c55e;
+  box-shadow: 0 0 0 4px var(--bg-primary);
+}
+
+.vtl-current .vtl-card {
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.vtl-now-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.vtl-now-badge i {
+  font-size: 0.45rem;
+}
+
+/* Future goals styling */
+.vtl-future .vtl-card {
+  border-style: dashed;
+}
+
+.vtl-future .vtl-icon {
+  border-style: dashed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .vtl-wrapper::before {
+    left: 18px;
+    transform: none;
+  }
+
+  .vtl-item {
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  }
+
+  .vtl-left, .vtl-right {
+    left: 0;
+    text-align: left;
+    transform: translateX(16px);
+  }
+
+  .vtl-item.vtl-visible {
+    transform: translateX(0);
+  }
+
+  .vtl-left .vtl-dot, .vtl-right .vtl-dot {
+    left: 12px;
+    right: auto;
+  }
+
+  .vtl-left .vtl-connector, .vtl-right .vtl-connector {
+    left: 18px;
+    right: auto;
+    width: 1.25rem;
+  }
+
+  .vtl-left .vtl-icon, .vtl-right .vtl-icon {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}

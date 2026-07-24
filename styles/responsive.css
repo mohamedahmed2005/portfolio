@@ -90,8 +90,8 @@
     box-shadow: var(--shadow-heavy);
     text-align: center;
     border: 1px solid var(--border-light);
-    animation: none !important;
-    transform: none !important;
+    width: 100%;
+    max-width: 380px;
 }
 
 .profile-avatar {
@@ -760,19 +760,20 @@
     
     .nav-menu {
         position: fixed;
-        top: 100%;
+        top: 75px;
         left: 0;
         right: 0;
         background: var(--bg-navbar);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(16px);
         flex-direction: column;
         padding: var(--spacing-xl);
-        gap: var(--spacing-lg);
-        transform: translateY(-100%);
+        gap: var(--spacing-md);
+        transform: translateY(-10px);
         opacity: 0;
         visibility: hidden;
         transition: all var(--transition-normal);
-        border-top: 1px solid var(--border-light);
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
     
     .nav-menu.active {
@@ -780,6 +781,7 @@
         opacity: 1;
         visibility: visible;
     }
+
     
     .hero-title .name {
         font-size: var(--font-size-3xl);

@@ -265,9 +265,9 @@
     font-weight: 600;
 }
 
-.theme-dark p, 
-.theme-dark span, 
-.theme-dark div {
+.theme-dark .section-header p,
+.theme-dark .about-text li,
+.theme-dark .about-text p {
     color: var(--text-body);
 }
 
@@ -390,4 +390,51 @@
     background: rgba(155, 214, 255, 0.15);
     border-color: var(--accent-primary);
     text-shadow: 0 0 10px rgba(155, 214, 255, 0.5);
+}
+
+/* ===== Dark theme: Experience Section ===== */
+.theme-dark .experience-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+.theme-dark .experience-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.theme-dark .exp-role {
+    color: var(--text-heading);
+}
+
+.theme-dark .exp-description {
+    color: var(--text-secondary);
+}
+
+.theme-dark .exp-description strong {
+    color: var(--text-primary);
+}
+
+.theme-dark .exp-date {
+    color: var(--text-muted);
+}
+
+.theme-dark .exp-tag {
+    background: rgba(155, 214, 255, 0.08);
+    color: var(--accent-primary);
+    border-color: rgba(155, 214, 255, 0.2);
+}
+
+.theme-dark .exp-tag:hover {
+    background: var(--accent-primary);
+    color: #0b1020;
+}
+
+/* ===== Card titles: theme-specific ===== */
+.theme-light .card-title {
+    color: var(--text-heading) !important;
+}
+
+.theme-dark .card-title {
+    color: var(--text-heading) !important;
 }
