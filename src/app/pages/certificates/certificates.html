@@ -1,0 +1,64 @@
+<section class="page-hero">
+  <div class="page-container">
+    <div class="page-header">
+      <span class="page-tag">Credentials</span>
+      <h1>Certificates &amp; Achievements</h1>
+      <p>Verified professional credentials from national initiatives and technical platforms</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="page-container">
+    <div class="certs-full-grid">
+      @for (cert of certificates(); track cert.id) {
+        <div class="cert-full-card" [class.cert-gold]="cert.isGold">
+          @if (cert.isStateCertified) {
+            <div class="cfc-ribbon"><span>DEPI</span></div>
+          }
+          <div class="cfc-header">
+            <div class="cfc-icon"><i [class]="cert.icon"></i></div>
+            <div class="cfc-meta">
+              <span class="cfc-badge" [class]="cert.badgeClass">
+                <i class="fas" [class.fa-medal]="cert.isStateCertified" [class.fa-certificate]="!cert.isStateCertified"></i>
+                {{ cert.badgeText }}
+              </span>
+              <span class="cfc-year">{{ cert.year }}</span>
+            </div>
+          </div>
+          <h3>{{ cert.title }}</h3>
+          <p class="cfc-org">{{ cert.issuer }}</p>
+          <p>{{ cert.description }}</p>
+
+          @if (cert.features && cert.features.length > 0) {
+            <ul class="proj-features">
+              @for (feat of cert.features; track feat) {
+                <li><i class="fas fa-check"></i><span>{{ feat }}</span></li>
+              }
+            </ul>
+          }
+
+          <div class="cfc-tags">
+            @for (tag of cert.tags; track tag) {
+              <span>{{ tag }}</span>
+            }
+          </div>
+
+          @if (cert.credentialUrl) {
+            <div class="proj-links" style="margin-top: 1.2rem;">
+              <a [href]="cert.credentialUrl" target="_blank" rel="noopener" class="btn-page btn-page-outline btn-sm">
+                <i class="fas fa-external-link-alt"></i> View Certificate {{ cert.credentialUrl.endsWith('.pdf') ? 'PDF' : '' }}
+              </a>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="page-cta">
+      <a routerLink="/" class="btn-page btn-page-outline">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </div>
+</section>

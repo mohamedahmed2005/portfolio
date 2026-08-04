@@ -1,0 +1,45 @@
+<section class="page-hero">
+  <div class="page-container">
+    <div class="page-header">
+      <span class="page-tag">Expertise</span>
+      <h1>Skills &amp; Technologies</h1>
+      <p>Core frameworks, programming languages, databases, and engineering tools I build with</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="page-container">
+
+    <div class="projects-full-grid">
+      @for (skill of skills(); track skill.id) {
+        <div class="proj-card">
+          <div class="proj-top">
+            <div class="proj-icon"><i [class]="skill.icon"></i></div>
+            <div class="proj-badge web"><i class="fas fa-layer-group"></i> {{ skill.categoryTag }}</div>
+          </div>
+          <h3>{{ skill.name }}</h3>
+          <p>{{ skill.description }}</p>
+
+          @if (skill.features && skill.features.length > 0) {
+            <ul class="proj-features">
+              @for (feat of skill.features; track feat) {
+                <li><i class="fas fa-check"></i><span>{{ feat }}</span></li>
+              }
+            </ul>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="page-cta">
+      <a routerLink="/" class="btn-page btn-page-outline">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+      <a routerLink="/projects" class="btn-page btn-page-primary">
+        <i class="fas fa-code"></i> See My Projects
+      </a>
+    </div>
+
+  </div>
+</section>

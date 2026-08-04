@@ -1,0 +1,112 @@
+<section class="page-hero">
+  <div class="page-container">
+    <div class="page-header">
+      <span class="page-tag">Connect</span>
+      <h1>Get In Touch</h1>
+      <p>Open to opportunities, collaborations, and conversations</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="page-container">
+    <div class="contact-layout">
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div class="ci-content">
+            <h3>Email</h3>
+            <a href="mailto:ahmd.mohamed200515@gmail.com">contact with me</a>
+          </div>
+        </div>
+
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="ci-content">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank" rel="noopener">
+              view my linkedin profile
+            </a>
+          </div>
+        </div>
+
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fab fa-github"></i></div>
+          <div class="ci-content">
+            <h3>GitHub</h3>
+            <a href="https://github.com/mohamedahmed2005" target="_blank" rel="noopener">
+              view my github profile
+            </a>
+          </div>
+        </div>
+
+        <div class="ci-card">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="ci-content">
+            <h3>Location</h3>
+            <span>Cairo, Egypt</span>
+          </div>
+        </div>
+
+        <div class="ci-available">
+          <span class="avail-dot"></span>
+          <span>Open to backend internships &amp; junior roles</span>
+        </div>
+
+      </div>
+
+      <!-- Quick Message Form -->
+      <div class="contact-form-card">
+        <h2>Send a Quick Message</h2>
+        <p>Fill out the form below or reach out directly via email or LinkedIn.</p>
+
+        @if (successMessage()) {
+          <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i>
+            <span>{{ successMessage() }}</span>
+          </div>
+        }
+
+        @if (errorMessage()) {
+          <div class="alert alert-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>{{ errorMessage() }}</span>
+          </div>
+        }
+
+        <form class="contact-form" (ngSubmit)="onSubmit()">
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name">Your Name *</label>
+              <input id="cf-name" name="name" type="text" [(ngModel)]="formData.name" placeholder="Ahmed Mohamed" required autocomplete="name">
+            </div>
+            <div class="cf-field">
+              <label for="cf-email">Email Address *</label>
+              <input id="cf-email" name="email" type="email" [(ngModel)]="formData.email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="cf-field">
+            <label for="cf-subject">Subject</label>
+            <input id="cf-subject" name="subject" type="text" [(ngModel)]="formData.subject" placeholder="Internship Opportunity / Collaboration">
+          </div>
+          <div class="cf-field">
+            <label for="cf-message">Message *</label>
+            <textarea id="cf-message" name="message" rows="5" [(ngModel)]="formData.message" placeholder="Hi Mohamed, I'd like to discuss..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-page btn-page-primary btn-full" [disabled]="isSubmitting()">
+            @if (isSubmitting()) {
+              <i class="fas fa-spinner fa-spin"></i> Sending Message...
+            } @else {
+              <i class="fas fa-paper-plane"></i> Send Message
+            }
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

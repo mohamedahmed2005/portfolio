@@ -1,0 +1,213 @@
+/* ================================================================
+   SHARED NAVBAR — uses CSS theme variables
+   ================================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--bg-nav);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.navbar.scrolled {
+  background: var(--bg-nav-sc);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  border-bottom-color: var(--border-hov);
+}
+
+/* Container */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ── Logo ─────────────────────────────────────────────────── */
+.nav-logo { text-decoration: none; flex-shrink: 0; }
+.logo-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  color: var(--t-accent);
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo-text:hover {
+  transform: rotate(-6deg) scale(1.12);
+  box-shadow: 0 8px 22px rgba(99,102,241,0.65);
+}
+
+/* ── Nav Links ────────────────────────────────────────────── */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex: 1;
+  justify-content: center;
+}
+.nav-link {
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  color: var(--t-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease;
+  position: relative;
+  white-space: nowrap;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 50%;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  border-radius: 1px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--t-head);
+  background: rgba(99,102,241,0.08);
+}
+.nav-link.active {
+  color: var(--t-accent);
+  background: rgba(99,102,241,0.1);
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 55%; }
+
+/* ── Controls ─────────────────────────────────────────────── */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* CV Button */
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--t-accent);
+  border: 1.5px solid var(--border-hov);
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.cv-btn:hover {
+  background: rgba(99,102,241,0.1);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.cv-btn i { font-size: 0.8rem; }
+
+/* ── Theme Toggle Button ──────────────────────────────────── */
+.theme-toggle {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--t-body);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  background: rgba(99,102,241,0.1);
+  border-color: var(--border-hov);
+  color: var(--t-accent);
+  transform: rotate(20deg) scale(1.08);
+}
+/* sun/moon icons inside toggle */
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  font-size: 0.95rem;
+}
+.theme-toggle .icon-sun  { opacity: 0; transform: scale(0.6) rotate(-90deg); }
+.theme-toggle .icon-moon { opacity: 1; transform: scale(1)   rotate(0deg);   }
+
+/* In light mode: show sun, hide moon */
+[data-theme="light"] .theme-toggle .icon-sun  { opacity: 1; transform: scale(1)   rotate(0deg);    }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 0; transform: scale(0.6) rotate(90deg);   }
+
+/* ── Hamburger ────────────────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.hamburger:hover { background: rgba(99,102,241,0.1); }
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--t-body);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg);  background: var(--t-accent); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--t-accent); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) { .cv-btn span { display: none; } }
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: var(--bg-mob-menu);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem 2rem 1.5rem;
+    gap: 0.3rem;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), opacity 0.35s ease, background 0.4s;
+  }
+  .nav-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+  .nav-link { width: 100%; padding: 0.6rem 1rem; font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .nav-container { padding: 0 1.25rem; }
+  .cv-btn { display: none; }
+}

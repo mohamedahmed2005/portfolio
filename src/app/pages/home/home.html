@@ -1,0 +1,391 @@
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  PARTICLE CANVAS                                               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<canvas id="particle-canvas" class="particle-bg"></canvas>
+
+<main>
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  HERO SECTION                                               -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="home" class="hero-section">
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- TEXT SIDE -->
+        <div class="hero-text slide-in-left">
+          <div class="greeting-badge">
+            <i class="fas fa-wave-square"></i>
+            <span>Welcome to my portfolio</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hi-text">Hello, I'm</span>
+            <span class="name-text">Mohamed Ahmed</span>
+          </h1>
+
+          <div class="typing-wrapper">
+            <span class="typing-label">I'm a&nbsp;</span>
+            <span class="typed-text">{{ typedText() }}</span>
+            <span class="cursor">|</span>
+          </div>
+
+          <p class="hero-desc">
+            Backend Intern&nbsp;@&nbsp;<strong class="highlight">Innovera</strong>
+            &bull; Clean Architecture Advocate
+            &bull; Junior IS&nbsp;@&nbsp;<strong class="highlight">FCAI‑CU</strong>
+          </p>
+
+          <div class="hero-buttons">
+            <a routerLink="/projects" class="btn btn-primary">
+              <i class="fas fa-code"></i> View My Work
+            </a>
+            <a routerLink="/contact" class="btn btn-secondary">
+              <i class="fas fa-paper-plane"></i> Get In Touch
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1Ib2q4ZGviIAUmMkozBEQGSlZfT46RSrK/view?usp=sharing"
+              target="_blank" rel="noopener"
+              class="btn btn-ghost"
+            >
+              <i class="fas fa-file-download"></i> View CV
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://github.com/mohamedahmed2005" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:ahmd.mohamed200515@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROFILE CARD SIDE -->
+        <div class="hero-card-wrap slide-in-right">
+          <div class="profile-card">
+            <div class="card-glow"></div>
+
+            <div class="avatar-wrap">
+              <div class="avatar-ring"></div>
+              <img src="my_image.jpg" alt="Mohamed Ahmed" class="avatar-img"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div class="avatar-fallback" style="display:none">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+
+            <h3 class="card-name">Mohamed Ahmed</h3>
+            <p class="card-role">Backend Developer</p>
+
+            <div class="card-pills">
+              <div class="card-pill">
+                <i class="fas fa-university"></i>
+                <span>Junior IS @ FCAI‑CU</span>
+              </div>
+              <div class="card-pill">
+                <i class="fas fa-server"></i>
+                <span>Backend Intern @ Innovera</span>
+              </div>
+              <div class="card-pill card-pill--available">
+                <span class="status-dot"></span>
+                <span>Open to opportunities</span>
+              </div>
+            </div>
+
+            <div class="card-stack">
+              <span class="stack-badge">Spring Boot</span>
+              <span class="stack-badge">ASP.NET Core</span>
+              <span class="stack-badge">SQL Server</span>
+              <span class="stack-badge">Java</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  ABOUT SECTION                                              -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="about" class="section about-section">
+    <div class="container">
+
+      <div class="section-header animate-on-scroll fade-up">
+        <span class="section-tag">Who I Am</span>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-sub">Passionate backend developer with a strong foundation in CS &amp; SE</p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text animate-on-scroll fade-left">
+          <p>
+            I am a Junior Information Systems student at the
+            <strong>Faculty of Computers and Artificial Intelligence, Cairo University (FCAI‑CU)</strong>.
+            I specialize in backend software development with a passion for designing scalable APIs and
+            robust database systems.
+          </p>
+
+          <ul class="about-highlights">
+            <li>
+              <span class="highlight-icon"><i class="fas fa-briefcase"></i></span>
+              <span>Currently working as a <strong>Backend Developer Intern&nbsp;@&nbsp;Innovera</strong>,
+                building production APIs with <strong>Spring Boot&nbsp;&amp;&nbsp;Java</strong>.</span>
+            </li>
+            <li>
+              <span class="highlight-icon"><i class="fas fa-certificate"></i></span>
+              <span>State Certified in <strong>Full Stack Web Development</strong> by the Ministry of
+                Communications &amp; IT (DEPI Initiative).</span>
+            </li>
+            <li>
+              <span class="highlight-icon"><i class="fas fa-layer-group"></i></span>
+              <span>Deeply focused on <strong>Clean Architecture</strong>, SOLID principles, and database
+                performance optimization.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="about-stats animate-on-scroll fade-right">
+          <div class="stat-card">
+            <div class="stat-num">{{ projectsCount() }}<span class="stat-suffix">+</span></div>
+            <div class="stat-label">Projects Completed</div>
+            <div class="stat-bar"><div class="stat-fill"></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">{{ certsCount() }}<span class="stat-suffix">+</span></div>
+            <div class="stat-label">Certifications</div>
+            <div class="stat-bar"><div class="stat-fill"></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">{{ expCount() }}<span class="stat-suffix">+</span></div>
+            <div class="stat-label">Years Coding</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:20%"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  FEATURED PROJECTS                                          -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="projects" class="section projects-section alt-bg">
+    <div class="container">
+
+      <div class="section-header animate-on-scroll fade-up">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-sub">A glimpse of my software engineering &amp; backend applications</p>
+      </div>
+
+      <div class="cards-grid">
+        @for (project of featuredProjects(); track project.id) {
+          <div class="project-card animate-on-scroll fade-up">
+            <div class="pc-header">
+              <div class="pc-icon"><i [class]="project.icon"></i></div>
+              <div class="pc-badge"><i class="fas fa-globe"></i><span>{{ project.categoryLabel }}</span></div>
+            </div>
+            <div class="pc-body">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+            </div>
+            <div class="pc-footer">
+              @if (project.githubUrl) {
+                <a [href]="project.githubUrl" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              }
+            </div>
+            <div class="pc-glow"></div>
+          </div>
+        }
+      </div>
+
+      <div class="section-cta animate-on-scroll fade-up">
+        <a routerLink="/projects" class="btn btn-primary btn-lg">
+          <i class="fas fa-th-large"></i> Explore All Projects (5+)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  TECHNICAL STACK                                            -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+
+      <div class="section-header animate-on-scroll fade-up">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">Technical Stack</h2>
+        <p class="section-sub">Technologies and frameworks I use to build robust software</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="skill-card animate-on-scroll fade-up" style="--delay:0s">
+          <div class="sk-icon java"><i class="fab fa-java"></i></div>
+          <h3>Spring Boot &amp; Java</h3>
+          <p>Building production RESTful microservices, JPA persistence layers, and security integrations.</p>
+          <div class="sk-badge">Innovera Stack</div>
+        </div>
+        <div class="skill-card animate-on-scroll fade-up" style="--delay:0.1s">
+          <div class="sk-icon dotnet"><i class="fab fa-microsoft"></i></div>
+          <h3>.NET &amp; ASP.NET Core</h3>
+          <p>Enterprise Web APIs, Clean Architecture design patterns, C# LINQ, and SQL integration.</p>
+          <div class="sk-badge">Framework</div>
+        </div>
+        <div class="skill-card animate-on-scroll fade-up" style="--delay:0.2s">
+          <div class="sk-icon sql"><i class="fas fa-database"></i></div>
+          <h3>MS SQL Server &amp; MySQL</h3>
+          <p>Relational database design, T-SQL query optimization, stored procedures, and SSIS ETL pipelines.</p>
+          <div class="sk-badge">Databases</div>
+        </div>
+        <div class="skill-card animate-on-scroll fade-up" style="--delay:0.3s">
+          <div class="sk-icon cpp"><i class="fas fa-code"></i></div>
+          <h3>C++ &amp; Problem Solving</h3>
+          <p>Data structures, memory management, STL algorithms, and competitive programming logic.</p>
+          <div class="sk-badge">Language</div>
+        </div>
+      </div>
+
+      <div class="section-cta animate-on-scroll fade-up">
+        <a routerLink="/skills" class="btn btn-primary btn-lg">
+          <i class="fas fa-laptop-code"></i> View Full Skill Matrix
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  CERTIFICATIONS                                             -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="certificates" class="section certs-section alt-bg">
+    <div class="container">
+
+      <div class="section-header animate-on-scroll fade-up">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-sub">Verified state and industry credentials</p>
+      </div>
+
+      <div class="cert-showcase animate-on-scroll fade-up">
+        <div class="cert-card depi-card">
+          <div class="depi-ribbon"><span>DEPI</span></div>
+          <div class="cert-icon"><i class="fas fa-layer-group"></i></div>
+          <div class="cert-body">
+            <div class="cert-badge state-badge"><i class="fas fa-medal"></i> State Certified</div>
+            <h3>Full Stack Web Development</h3>
+            <p class="cert-provider">Digital Egypt Pioneers Initiative (DEPI)<br>Ministry of Communications &amp; IT</p>
+            <p>Intensive state-sponsored training in full stack engineering with ASP.NET Core &amp; React.</p>
+          </div>
+          <div class="cert-shine"></div>
+        </div>
+      </div>
+
+      <div class="section-cta animate-on-scroll fade-up">
+        <a routerLink="/certificates" class="btn btn-primary btn-lg">
+          <i class="fas fa-certificate"></i> View All Certifications (5)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  EXPERIENCE                                                 -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+
+      <div class="section-header animate-on-scroll fade-up">
+        <span class="section-tag">Journey</span>
+        <h2 class="section-title">Experience &amp; Career</h2>
+        <p class="section-sub">Active corporate internship and key milestones</p>
+      </div>
+
+      <div class="timeline animate-on-scroll fade-up">
+        <div class="timeline-line"></div>
+        <div class="timeline-item">
+          <div class="tl-dot current-dot"><i class="fas fa-building"></i></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-title-block">
+                <h3>Backend Developer Intern</h3>
+                <p class="tl-company">Innovera</p>
+              </div>
+              <div class="tl-meta">
+                <span class="tl-current"><span class="pulse-dot"></span> Currently Working</span>
+                <span class="tl-date"><i class="fas fa-calendar-alt"></i> July 2026 – Present</span>
+              </div>
+            </div>
+            <p class="tl-desc">
+              Building production REST APIs with Spring Boot and Java. Collaborating on enterprise applications
+              and contributing to scalable microservice architecture.
+            </p>
+            <div class="tl-tags">
+              <span>Spring Boot</span><span>Java</span><span>REST API</span><span>JPA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-cta animate-on-scroll fade-up">
+        <a routerLink="/experience" class="btn btn-primary btn-lg">
+          <i class="fas fa-stream"></i> View Full Timeline
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!--  CONTACT CTA BANNER                                         -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <section id="contact" class="cta-banner animate-on-scroll fade-up">
+    <div class="cta-blobs">
+      <div class="cta-blob cb1"></div>
+      <div class="cta-blob cb2"></div>
+    </div>
+    <div class="container cta-inner">
+      <div class="cta-icon"><i class="fas fa-rocket"></i></div>
+      <h2>Let's Build Something Together!</h2>
+      <p>
+        Looking for a dedicated Backend Developer Intern or Junior Software Engineer?
+        Feel free to reach out anytime!
+      </p>
+      <div class="cta-buttons">
+        <a routerLink="/contact" class="btn btn-white btn-lg">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank" rel="noopener" class="btn btn-glass btn-lg">
+          <i class="fab fa-linkedin"></i> Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

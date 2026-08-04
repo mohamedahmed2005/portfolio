@@ -1,0 +1,92 @@
+<section class="page-hero">
+  <div class="page-container">
+    <div class="page-header">
+      <span class="page-tag">Experience &amp; Timeline</span>
+      <h1>Professional Experience &amp; My Journey</h1>
+      <p>Real-world backend engineering and career milestones from first line of code</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="page-container">
+
+    <!-- Professional Experience Card -->
+    <div class="section-title-wrap" style="text-align: center; margin-bottom: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--t-head); margin-bottom: 0.4rem;">Professional Experience</h2>
+      <p style="color: var(--t-muted); font-size: 0.92rem;">Active corporate internship &amp; team collaboration</p>
+    </div>
+
+    <div class="exp-timeline" style="margin-bottom: 4rem;">
+      <div class="exp-tl-item" style="padding-left: 0;">
+        <div class="exp-tl-dot current">
+          <i [class]="experienceItem().icon"></i>
+        </div>
+        <div class="exp-tl-card">
+          <div class="exp-tl-header">
+            <div>
+              <h3>{{ experienceItem().title }}</h3>
+              <p class="exp-company"><i class="fas fa-building"></i> {{ experienceItem().company }}</p>
+            </div>
+            <div class="exp-tl-right">
+              @if (experienceItem().isCurrent) {
+                <span class="exp-tl-status current-badge">
+                  <span class="pulse"></span> Currently Working
+                </span>
+              }
+              <span class="exp-tl-date"><i class="fas fa-calendar-alt"></i> {{ experienceItem().period }}</span>
+            </div>
+          </div>
+          <p>{{ experienceItem().description }}</p>
+          <div class="exp-tl-tags">
+            @for (tag of experienceItem().tags; track tag) {
+              <span>{{ tag }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Vertical Timeline Section: My Journey -->
+    <div class="section-title-wrap" style="text-align: center; margin-bottom: 3rem;">
+      <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--t-head); margin-bottom: 0.4rem;">My Journey</h2>
+      <p style="color: var(--t-muted); font-size: 0.95rem;">From first line of code to first day of work</p>
+    </div>
+
+    <div class="vtl-wrapper">
+      <div class="vtl-line"></div>
+
+      @for (item of journey(); track item.id) {
+        <div class="vtl-item" [class.vtl-left]="item.align === 'left'" [class.vtl-right]="item.align === 'right'" [class.vtl-current]="item.isCurrent" [class.vtl-future]="item.isFuture">
+          <div class="vtl-connector"></div>
+          <div class="vtl-dot"></div>
+          <div class="vtl-card">
+            <div class="vtl-card-top">
+              <span class="vtl-date">{{ item.date }}</span>
+              @if (item.badge) {
+                <span class="vtl-now-badge"><i class="fas fa-circle"></i> {{ item.badge }}</span>
+              }
+            </div>
+            <div class="vtl-icon"><i [class]="item.icon"></i></div>
+            <h3 class="vtl-title">{{ item.title }}</h3>
+            @if (item.companyOrOrg) {
+              <p class="vtl-org">{{ item.companyOrOrg }}</p>
+            }
+            <p class="vtl-desc">{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="page-cta">
+      <a routerLink="/" class="btn-page btn-page-outline">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+      <a routerLink="/contact" class="btn-page btn-page-primary">
+        <i class="fas fa-paper-plane"></i> Let's Talk
+      </a>
+    </div>
+
+  </div>
+</section>

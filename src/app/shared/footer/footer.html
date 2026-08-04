@@ -1,0 +1,69 @@
+<footer class="footer">
+  <div class="footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo">MA</div>
+      <p class="footer-tagline">
+        Backend Developer specializing in<br>
+        Spring Boot &amp; ASP.NET Core.<br>
+        Currently interning at Innovera.
+      </p>
+      <div class="footer-socials">
+        <a href="https://github.com/mohamedahmed2005" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-ahmed-ba0815307/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:ahmd.mohamed200515@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        @for (link of quickLinks; track link.path) {
+          <li>
+            <a [routerLink]="link.path">
+              <i class="fas fa-chevron-right"></i>
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <ul class="contact-list">
+        <li>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:ahmd.mohamed200515@gmail.com">ahmd.mohamed200515&#64;gmail.com</a>
+        </li>
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Cairo, Egypt</span>
+        </li>
+        <li>
+          <i class="fas fa-university"></i>
+          <span>FCAI — Cairo University</span>
+        </li>
+        <li>
+          <i class="fas fa-building"></i>
+          <span>Innovera (Intern)</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Mohamed Ahmed.</p>
+  </div>
+</footer>
