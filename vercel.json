@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "buildCommand": "npm run build",
   "outputDirectory": "dist/my-portfolio/browser",
   "rewrites": [
@@ -9,6 +10,18 @@
     },
     {
       "source": "/((?!api/).*)",
+=======
+  "outputDirectory": "dist/my-portfolio/browser",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/contact",
+      "destination": "/api/contact.js"
+    },
+    {
+      "source": "/(.*)",
+>>>>>>> e9bc40b3e55e9164698b47cfcdb3ea2c6b511e06
       "destination": "/index.html"
     }
   ]

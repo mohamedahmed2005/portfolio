@@ -42,5 +42,8 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
 portfolio/
 
+=======
+>>>>>>> e9bc40b3e55e9164698b47cfcdb3ea2c6b511e06
