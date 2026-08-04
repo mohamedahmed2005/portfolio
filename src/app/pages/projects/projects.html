@@ -1,0 +1,91 @@
+<section class="page-hero">
+  <div class="page-container">
+    <div class="page-header">
+      <span class="page-tag">Portfolio</span>
+      <h1>My Projects</h1>
+      <p>A showcase of backend systems, full-stack applications, and desktop software</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="page-container">
+
+    <!-- Category Filters -->
+    <div class="filter-bar">
+      @for (cat of categories; track cat.key) {
+        <button
+          class="filter-btn"
+          [class.active]="selectedCategory() === cat.key"
+          (click)="setFilter(cat.key)"
+        >
+          {{ cat.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-full-grid">
+      @for (project of filteredProjects(); track project.id) {
+        <div class="proj-card">
+          <div class="proj-top">
+            <div class="proj-icon"><i [class]="project.icon"></i></div>
+            <div class="proj-badge" [class]="project.badgeClass">
+              <i class="fas fa-globe"></i> {{ project.categoryLabel }}
+            </div>
+          </div>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+
+          @if (project.features && project.features.length > 0) {
+            <ul class="proj-features">
+              @for (feat of project.features; track feat) {
+                <li><i class="fas fa-check"></i><span>{{ feat }}</span></li>
+              }
+            </ul>
+          }
+
+          <div class="proj-tags">
+            @for (tag of project.tags; track tag) {
+              <span>{{ tag }}</span>
+            }
+          </div>
+
+          <div class="proj-links">
+            @if (project.githubUrl) {
+              <a [href]="project.githubUrl"
+                 target="_blank" rel="noopener"
+                 class="btn-page btn-page-outline btn-sm">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            }
+            @if (project.demoUrl) {
+              <a [href]="project.demoUrl"
+                 target="_blank" rel="noopener"
+                 class="btn-page btn-page-primary btn-sm">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            }
+          </div>
+          <div class="proj-glow"></div>
+        </div>
+      } @empty {
+        <div class="no-projects">
+          <i class="fas fa-folder-open"></i>
+          <p>No projects found in this category.</p>
+        </div>
+      }
+    </div>
+
+    <div class="page-cta">
+      <a routerLink="/" class="btn-page btn-page-outline">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+      <a href="https://github.com/mohamedahmed2005" target="_blank" rel="noopener"
+         class="btn-page btn-page-primary">
+        <i class="fab fa-github"></i> View GitHub Profile
+      </a>
+    </div>
+
+  </div>
+</section>

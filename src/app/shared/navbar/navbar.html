@@ -1,0 +1,61 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a routerLink="/" class="nav-logo">
+      <span class="logo-text">MA</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="nav-menu" [class.open]="menuOpen">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="nav-link"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </div>
+
+    <!-- Controls -->
+    <div class="nav-controls">
+      <!-- Theme Toggle Button -->
+      <button
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="'Switch to ' + (currentTheme === 'dark' ? 'light' : 'dark') + ' mode'"
+        [title]="'Switch to ' + (currentTheme === 'dark' ? 'light' : 'dark') + ' mode'"
+      >
+        <i class="fas fa-sun icon-sun"></i>
+        <i class="fas fa-moon icon-moon"></i>
+      </button>
+
+      <a
+        href="https://drive.google.com/file/d/1Ib2q4ZGviIAUmMkozBEQGSlZfT46RSrK/view?usp=sharing"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-outline btn-sm cv-btn"
+      >
+        <i class="fas fa-file-download"></i>
+        <span>Download CV</span>
+      </a>
+
+      <!-- Hamburger -->
+      <button
+        class="hamburger"
+        [class.open]="menuOpen"
+        (click)="toggleMenu()"
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>

@@ -1,209 +1,59 @@
-# 🚀 Mohamed Ahmed - Backend Developer Portfolio
+# MyPortfolio
 
-<div align="center">
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.2.
 
-![Portfolio Status](https://img.shields.io/badge/Portfolio-v3.0.0--Refactored-brightgreen?style=for-the-badge&logo=github)
-![Vercel](https://img.shields.io/badge/Vercel-Serverless%20Functions-black?style=for-the-badge&logo=vercel)
-![Spring Boot](https://img.shields.io/badge/Spring--Boot-Intern-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![ASP.NET Core](https://img.shields.io/badge/.NET-Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+## Development server
 
-**A multi-page, responsive portfolio featuring Vercel Serverless Email API, vertical career timeline, dynamic counters, and modern UI design.**
+To start a local development server, run:
 
-[📧 Contact](mailto:ahmd.mohamed200515@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/mohamed-ahmed-ba0815307/) • [🐙 GitHub](https://github.com/mohamedahmed2005)
-
-</div>
-
----
-
-## 📋 Table of Contents
-
-- [🌟 Overview](#-overview)
-- [✨ Key Features & Architecture](#-key-features--architecture)
-- [🆕 Recent Major Updates](#-recent-major-updates)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [📁 Project Structure](#-project-structure)
-- [⚡ Vercel & Resend API Setup](#-vercel--resend-api-setup)
-- [🚀 Quick Start](#-quick-start)
-- [📞 Contact](#-contact)
-- [📄 License](#-license)
-
----
-
-## 🌟 Overview
-
-Welcome to my personal developer portfolio! I am **Mohamed Ahmed**, a **Backend Developer Intern @ Enovira** building production-grade REST APIs using **Java & Spring Boot**, and a Junior Computer Science student at **Faculty of Computers and Artificial Intelligence, Cairo University (FCAI-CU)**.
-
-This portfolio showcases my software engineering projects, core technical stack (.NET Core, Spring Boot, MS SQL Server, C++), state-certified qualifications (DEPI Full-Stack Web Development), and interactive career milestones.
-
----
-
-## ✨ Key Features & Architecture
-
-### 🌐 **Multi-Page Architecture (6 Dedicated Pages)**
-- **Landing Page (`index.html`)**: Executive summary featuring hero, bio overview, stats, featured projects preview, skills matrix highlight, state certificates preview, and active internship callout.
-- **Projects Page (`pages/projects.html`)**: Comprehensive showcase of 5+ backend, desktop, and full-stack software applications with GitHub links.
-- **Skills Matrix (`pages/skills.html`)**: Interactive tech grid showcasing Spring Boot, .NET Core, C#, MS SQL Server, MySQL, C++, Python, and Git.
-- **Certificates Showcase (`pages/certificates.html`)**: Highlighted DEPI Gold State Certification alongside HackerRank and GDG credentials.
-- **Career Timeline (`pages/experience.html`)**: Interactive vertical scroll timeline tracking milestones from FCAI-CU entry to active internship at Enovira.
-- **Contact Channel (`pages/contact.html`)**: Real-time message form, QR codes, and direct social links.
-
-### ⚡ **Serverless Contact API (Vercel Functions + Resend API)**
-- **Zero-Dependency Serverless Backend**: Powered by Vercel Function (`/api/contact.js`).
-- **Resend API Integration**: Direct email delivery to inbox with HTML email formatting and user auto-reply confirmation.
-- **Real-Time Toast Feedback**: Interactive loading, success, and error notifications with mailto fallback.
-
-### ⏳ **Animated Vertical Career Timeline**
-- Alternating left/right timeline cards on desktop, left-aligned on mobile devices.
-- Smooth scroll reveals using `IntersectionObserver`.
-- Special glowing **"NOW"** badge highlighting current active internship at Enovira.
-
-### 🎨 **Minimalist & Calm Design System**
-- **Dual Theme Engine**: Seamless Light and Dark mode switching with persistent `localStorage` theme state across pages.
-- **Calm Animations**: Subtle 14px scroll fade-ups, gentle `-4px` hover card lifts, and custom brand-specific footer icon hovers (GitHub, LinkedIn, Email).
-- **Light Mode High Contrast**: High contrast colors and clean gradient icon containers.
-
----
-
-## 🆕 Recent Major Updates
-
-### **v3.0.0 — Multi-Page & Vercel Functions Refactor**
-- ✅ **Multi-Page Split**: Reorganized single-page portfolio into 6 dedicated HTML pages inside `/pages`.
-- ✅ **Vercel Serverless Function**: Built `/api/contact.js` using Resend API for reliable email delivery.
-- ✅ **Vertical Timeline**: Replaced circular timeline with a responsive animated vertical timeline.
-- ✅ **Clean Animations Overhaul**: Removed bouncy springs and 3D tilts for a sleek, calm UX.
-- ✅ **Theme State Persistence**: Retained dark/light theme choice across all pages using `localStorage`.
-
----
-
-## 🛠️ Tech Stack
-
-### **Frontend & Layout**
-- **HTML5 & CSS3**: Semantic HTML5, CSS Grid, Flexbox, Custom Properties (CSS Variables).
-- **JavaScript (ES6+)**: DOM Manipulation, `IntersectionObserver`, Fetch API, Async/Await.
-- **Icons & Fonts**: FontAwesome 6, Google Fonts (Poppins, Inter).
-
-### **Backend & APIs**
-- **Vercel Serverless Functions**: Node.js runtime API handling.
-- **Resend API**: Email delivery service.
-- **EmailJS**: Secondary fallback integration.
-
----
-
-## 📁 Project Structure
-
-```text
-portfolio/
-├── 📄 index.html                    # Root Executive Showcase Page
-├── 📄 vercel.json                   # Vercel Deployment & Route Rewrites Configuration
-├── 📄 .env.example                  # Environment Variables Template (RESEND_API_KEY)
-├── 📄 README.md                    # Project Documentation
-├── 📄 LICENSE                      # MIT License
-├── 📁 api/
-│   └── ⚡ contact.js                # Vercel Serverless Function (/api/contact)
-├── 📁 pages/                        # Multi-Page Architecture
-│   ├── 📁 projects.html             # Full Projects Matrix Page
-│   ├── 📁 skills.html               # Technical Skills & Stack Page
-│   ├── 📁 certificates.html         # Verified Certificates & DEPI Showcase
-│   ├── 📁 experience.html           # Work Experience & Vertical Timeline Page
-│   └── 📁 contact.html              # Contact Form & QR Channels Page
-├── 📁 assets/                       # Images, Certificates PDFs, QR codes & Icons
-│   ├── 🖼️ my-image.jpg              # Profile Image
-│   ├── 🖼️ my-icon.png               # Favicon & Logo Icon
-│   ├── 🖼️ Gmail.png                 # Gmail QR Code
-│   ├── 🖼️ linkedin.png              # LinkedIn QR Code
-│   ├── 🖼️ github.png                # GitHub QR Code
-│   ├── 📄 Mohamed Ahmed Mohamed.pdf # DEPI State Certificate PDF
-│   └── 📄 my_certificate.pdf        # GDG Certificate PDF
-├── 📁 scripts/                      # JavaScript Modules
-│   ├── 🟨 main.js                   # Navigation, Active Highlighting & Smooth Scroll
-│   ├── 📧 email.js                  # Contact Form Submission Handler
-│   ├── 🎨 themes.js                 # Theme Engine (Light / Dark Mode Manager)
-│   ├── ✨ animations.js              # IntersectionObserver Scroll Reveal
-│   ├── 🔢 counters.js                # Dynamic Counter Engine
-│   └── ⏰ timeline.js                # Vertical Timeline Scroll Observer
-└── 📁 styles/                       # CSS Architecture
-    ├── 🎨 main.css                  # Global Stylesheet & Imports
-    ├── 📱 responsive.css            # Responsive Breakpoints & Drawers
-    ├── 📁 sections/                 # Section-Specific Component CSS
-    │   ├── 📁 About/                # Hero & Profile Card Styles
-    │   ├── 📁 Certificates/         # Certificate Grid & DEPI Ribbon Styles
-    │   ├── 📁 Contact/              # Contact Form, QR & Social Hover Styles
-    │   ├── 📁 Main_Form/            # Cards, Keyframes, Transitions & Utilities
-    │   ├── 📁 Navigation/           # Navbar & Logo Styles
-    │   ├── 📁 Projects/             # Project Cards Styles
-    │   ├── 📁 Skills/               # Skill Cards Styles
-    │   └── 📁 Timeline/             # Vertical Timeline Styles
-    └── 📁 themes/                   # Theme Variations
-        ├── ☀️ light.css             # Light Theme Contrast Rules
-        └── 🌙 dark.css              # Dark Theme Style Overrides
+```bash
+ng serve
 ```
 
----
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## ⚡ Vercel & Resend API Setup
+## Code scaffolding
 
-To run the contact form with your own Resend API key when deploying to Vercel:
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-1. **Get Resend API Key**:
-   - Sign up at [Resend.com](https://resend.com) (Free Tier).
-   - Create an API key under **API Keys** (`re_123456...`).
+```bash
+ng generate component component-name
+```
 
-2. **Add Environment Variables on Vercel**:
-   - Open your project on [Vercel Dashboard](https://vercel.com).
-   - Go to **Settings** ➔ **Environment Variables**.
-   - Add:
-     - `RESEND_API_KEY` = `your_resend_api_key`
-     - `TO_EMAIL` = `ahmd.mohamed200515@gmail.com`
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-3. **Deploy**:
-   - Vercel automatically deploys `/api/contact.js` as a Serverless Function!
+```bash
+ng generate --help
+```
 
----
+## Building
 
-## 🚀 Quick Start
+To build the project run:
 
-1. **Clone Repository**
-   ```bash
-   git clone https://github.com/mohamedahmed2005/portfolio.git
-   cd portfolio
-   ```
+```bash
+ng build
+```
 
-2. **Run Locally**
-   Open `index.html` in any web browser, or use a local HTTP server:
-   ```bash
-   npx serve .
-   ```
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
----
+## Running unit tests
 
-## 📞 Contact
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
-<div align="center">
+```bash
+ng test
+```
 
-**Mohamed Ahmed**  
-*Backend Developer Intern @ Enovira | Computer Science Student @ FCAI-CU*
+## Running end-to-end tests
 
-[![Email](https://img.shields.io/badge/Email-ahmd.mohamed200515%40gmail.com-blue?style=for-the-badge&logo=gmail)](mailto:ahmd.mohamed200515@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohamed%20Ahmed-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mohamed-ahmed-ba0815307/)
-[![GitHub](https://img.shields.io/badge/GitHub-mohamedahmed2005-black?style=for-the-badge&logo=github)](https://github.com/mohamedahmed2005)
+For end-to-end (e2e) testing, run:
 
-**📍 Location**: Cairo / Giza, Egypt  
-**🎓 Education**: FCAI-CU (B.Sc. Computer Science)  
-**💼 Current Role**: Backend Developer Intern at Enovira (Java & Spring Boot)
+```bash
+ng e2e
+```
 
-</div>
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
----
+## Additional Resources
 
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-
-**© 2026 Mohamed Ahmed. Built with clean code & modern design.**
-
-</div>
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

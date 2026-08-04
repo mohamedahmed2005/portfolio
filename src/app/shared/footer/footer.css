@@ -1,0 +1,109 @@
+/* ================================================================
+   SHARED FOOTER — uses CSS theme variables
+   ================================================================ */
+
+.footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 3rem;
+}
+
+/* ── Brand ─────────────────────────────────────────────────── */
+.footer-logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 50px; height: 50px; border-radius: 12px;
+  color: var(--t-accent); font-weight: 800; font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  color: var(--t-muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  transition: color 0.4s;
+}
+
+.footer-socials { display: flex; gap: 0.65rem; }
+.footer-socials a {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--t-muted); font-size: 0.95rem; text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-socials a:hover {
+  background: rgba(99,102,241,0.12);
+  border-color: rgba(99,102,241,0.35);
+  color: var(--t-accent);
+  transform: translateY(-3px) rotate(-5deg);
+}
+
+/* ── Columns ───────────────────────────────────────────────── */
+.footer-col h4 {
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--t-head);
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+  transition: color 0.4s;
+}
+.footer-col ul {
+  display: flex; flex-direction: column; gap: 0.55rem;
+  list-style: none; padding: 0; margin: 0;
+}
+.footer-col li a {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: var(--t-muted); font-size: 0.88rem; text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.footer-col li a i { font-size: 0.6rem; color: var(--t-muted); transition: color 0.2s, transform 0.2s; }
+.footer-col li a:hover { color: var(--t-accent); padding-left: 4px; }
+.footer-col li a:hover i { color: var(--accent); transform: translateX(2px); }
+
+/* Contact list */
+.contact-list li {
+  display: flex; align-items: flex-start; gap: 0.65rem;
+  color: var(--t-muted); font-size: 0.87rem; line-height: 1.5; transition: color 0.4s;
+}
+.contact-list li i { color: var(--accent); font-size: 0.85rem; margin-top: 2px; flex-shrink: 0; }
+.contact-list li a { color: var(--t-muted); text-decoration: none; transition: color 0.2s; }
+.contact-list li a:hover { color: var(--t-accent); }
+
+/* ── Bottom bar ────────────────────────────────────────────── */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  transition: border-color 0.4s;
+}
+.footer-bottom p { color: var(--t-muted); font-size: 0.8rem; transition: color 0.4s; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; padding: 2.5rem 1.5rem 1.5rem; }
+  .footer-bottom { flex-direction: column; text-align: center; padding: 1rem 1.5rem; }
+  .footer-tech { justify-content: center; }
+}

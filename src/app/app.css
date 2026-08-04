@@ -1,0 +1,9 @@
+/* App shell */
+:host {
+  display: block;
+}
+
+.page-wrapper {
+  min-height: calc(100vh - 70px);
+  padding-top: 70px; /* height of fixed navbar */
+}

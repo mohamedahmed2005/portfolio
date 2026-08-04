@@ -59,7 +59,7 @@ export default async function handler(req, res) {
                 subject: `Portfolio Contact: ${subject || 'New Message from ' + name}`,
                 html: `
                     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-                        <div style="background: #2563eb; color: #ffffff; padding: 20px; text-align: center;">
+                        <div style="background: #6366f1; color: #ffffff; padding: 20px; text-align: center;">
                             <h2 style="margin: 0;">New Portfolio Message</h2>
                         </div>
                         <div style="padding: 24px; color: #1e293b;">
@@ -76,7 +76,7 @@ export default async function handler(req, res) {
                                 </tr>
                             </table>
                             
-                            <div style="background: #f8fafc; border-left: 4px solid #2563eb; padding: 16px; margin: 16px 0; border-radius: 4px;">
+                            <div style="background: #f8fafc; border-left: 4px solid #6366f1; padding: 16px; margin: 16px 0; border-radius: 4px;">
                                 <h4 style="margin: 0 0 8px 0; color: #475569;">Message Content:</h4>
                                 <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
                             </div>
