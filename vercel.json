@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "outputDirectory": "dist/my-portfolio/browser",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
