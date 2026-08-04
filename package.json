@@ -8,6 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "engines": {
+    "node": "22.22.3"
+  },
   "private": true,
   "packageManager": "npm@11.17.0",
   "dependencies": {
